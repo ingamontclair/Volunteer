@@ -7,11 +7,21 @@ import { HttpModule } from '@angular/http';
 import { DataService } from './data.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { ContainerComponent } from './container/container.component';
+import { WeatherStationsComponent } from './weather-stations/weather-stations.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    FooterComponent,
+    HeaderComponent,
+    ContainerComponent,
+    WeatherStationsComponent
   ],
   imports: [
     BrowserModule,
