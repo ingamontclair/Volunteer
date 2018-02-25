@@ -9,11 +9,11 @@
       <li class="nav-item dropdown" ngbDropdown>
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="weatherstations" ngbDropdownToggle> Weather Stations </a>
           <div class="dropdown-menu" aria-labelledby="weatherstations" ngbDropdownMenu>
-            <a class="dropdown-item" href="#">Atlanta</a>
+            <a class="dropdown-item" href="#">Atlanta, GA</a>
             <a class="dropdown-item" href="#">Boston, MA</a>
-            <a class="dropdown-item" href="#">Chicago</a>
-            <a class="dropdown-item" href="#">Cincinnati</a>
-            <a class="dropdown-item" href="#">Dallas</a>
+            <a class="dropdown-item" href="#">Chicago, IL</a>
+            <a class="dropdown-item" href="#">Cincinnati, OH</a>
+            <a class="dropdown-item" href="#">Dallas, TX</a>
             <a class="dropdown-item" href="#">Des Moines, IA</a>
             <a class="dropdown-item" href="#">Houston, TX</a>
             <a class="dropdown-item" href="#">Kansas City, MO</a>
@@ -24,18 +24,30 @@
             <a class="dropdown-item" href="#">Portland, OR</a>
             <a class="dropdown-item" href="#">Sacramento, CA</a>
             <a class="dropdown-item" href="#">Tuscon, AZ</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
           </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"> Weather </a>
+      <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="weather" ngbDropdownToggle> Weather </a>
+          <div class="dropdown-menu" aria-labelledby="weather" ngbDropdownMenu>
+            <a class="dropdown-item" href="#">Forecast</a>
+            <a class="dropdown-item" href="#">Current Conditions</a>
+          </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"> Climate </a>
+      <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="climate" ngbDropdownToggle> Climate </a>
+          <div class="dropdown-menu" aria-labelledby="climate" ngbDropdownMenu>
+            <a class="dropdown-item" href="#">Climate Map</a>
+            <a class="dropdown-item" href="#">Station Climate</a>
+            <a class="dropdown-item" href="#">Weather Records</a>
+          </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"> Tools </a>
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="tools" ngbDropdownToggle> Tools </a>
+        <div class="dropdown-menu" aria-labelledby="climate" ngbDropdownMenu>
+          <a class="dropdown-item" href="#">Unit Conversion</a>
+          <a class="dropdown-item" href="#">Dew Point</a>
+          <a class="dropdown-item" href="#">Wind Power</a>
+        </div>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
