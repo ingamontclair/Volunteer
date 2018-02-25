@@ -1,35 +1,46 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
-  <ngb-tabset>
-    <ngb-tab title="Simple">
-      <ng-template ngbTabContent>
-        <p>This is the content of the first tab!</p>
-        <ngb-alert [dismissible]="false">
-          <strong>Warning!</strong> This is an alert!
-        </ngb-alert>
-      </ng-template>
-    </ngb-tab>
-    <ngb-tab>
-      <ng-template ngbTabTitle><b>Fancy</b> title</ng-template>
-      <ng-template ngbTabContent>
-        <p>This is the content of the second tab!</p>
-        <p><ngb-progressbar type="success" [value]="25"></ngb-progressbar></p>
-        <p><ngb-progressbar type="info" [value]="50"></ngb-progressbar></p>
-        <p><ngb-progressbar type="warning" [value]="75"></ngb-progressbar></p>
-        <p><ngb-progressbar type="danger" [value]="100"></ngb-progressbar></p>
-      </ng-template>
-    </ngb-tab>
-    <ngb-tab title="Disabled" [disabled]="true">
-      <ng-template ngbTabContent>
-        <p>This tab is disabled</p>
-      </ng-template>
-    </ngb-tab>
-  </ngb-tabset>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand nav-link active" href="#">Volunteer <span class="sr-only">(current)</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<h1>Our MongoDB is Working!</h1>
-
-<ul>
-  <li *ngFor="let user of users">{{ user.type }} {{ user.price}} {{ user.description }}</li>
-</ul>
-
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="weatherstations" ngbDropdownToggle> Weather Stations </a>
+          <div class="dropdown-menu" aria-labelledby="weatherstations" ngbDropdownMenu>
+            <a class="dropdown-item" href="#">Atlanta</a>
+            <a class="dropdown-item" href="#">Boston, MA</a>
+            <a class="dropdown-item" href="#">Chicago</a>
+            <a class="dropdown-item" href="#">Cincinnati</a>
+            <a class="dropdown-item" href="#">Dallas</a>
+            <a class="dropdown-item" href="#">Des Moines, IA</a>
+            <a class="dropdown-item" href="#">Houston, TX</a>
+            <a class="dropdown-item" href="#">Kansas City, MO</a>
+            <a class="dropdown-item" href="#">Las Vegas, NV</a>
+            <a class="dropdown-item" href="#">Mimmeapolis, MN</a>
+            <a class="dropdown-item" href="#">NewYork, NY</a>
+            <a class="dropdown-item" href="#">Philadelphia, PA</a>
+            <a class="dropdown-item" href="#">Portland, OR</a>
+            <a class="dropdown-item" href="#">Sacramento, CA</a>
+            <a class="dropdown-item" href="#">Tuscon, AZ</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> Weather </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> Climate </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> Tools </a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>

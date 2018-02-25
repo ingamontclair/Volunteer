@@ -18,7 +18,7 @@ export class AppComponent {
   constructor(private _dataService: DataService) {
 
     // Access the Data Service's getUsers() method we defined
-    this._dataService.getUsers()
-        .subscribe(res => this.users = res);
+    // this._dataService.getUsers()
+    //     .subscribe(res => this.users = res);
   }
 }
