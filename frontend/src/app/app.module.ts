@@ -14,6 +14,7 @@ import { ContainerComponent } from './container/container.component';
 import { WeatherStationsComponent } from './weather-stations/weather-stations.component';
 import { WeatherComponent } from './weather/weather.component';
 import { ClimateComponent } from './climate/climate.component';
+import { ToolsComponent } from './tools/tools.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ClimateComponent } from './climate/climate.component';
     ContainerComponent,
     WeatherStationsComponent,
     WeatherComponent,
-    ClimateComponent
+    ClimateComponent,
+    ToolsComponent
   ],
   imports: [
     BrowserModule,

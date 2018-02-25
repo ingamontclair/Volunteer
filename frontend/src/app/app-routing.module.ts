@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component'; //Added
 import { WeatherStationsComponent } from './weather-stations/weather-stations.component'; //Added
 import { WeatherComponent } from './weather/weather.component'; //Added
 import { ClimateComponent } from './climate/climate.component'; //Added
+import { ToolsComponent } from './tools/tools.component'; //Added
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'climate',
     component: ClimateComponent
+  },
+  {
+    path: 'tools',
+    component: ToolsComponent
   }
 ];
 
