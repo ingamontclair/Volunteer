@@ -13,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
 import { WeatherStationsComponent } from './weather-stations/weather-stations.component';
 import { WeatherComponent } from './weather/weather.component';
+import { ClimateComponent } from './climate/climate.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { WeatherComponent } from './weather/weather.component';
     HeaderComponent,
     ContainerComponent,
     WeatherStationsComponent,
-    WeatherComponent
+    WeatherComponent,
+    ClimateComponent
   ],
   imports: [
     BrowserModule,
