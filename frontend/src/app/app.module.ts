@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
 import { DataService } from './data.service';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
