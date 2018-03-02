@@ -2,3 +2,6 @@
   weather-stations works!
   <a href="" (click)="sendMeHome()"><strong>Take me back</strong></a>
 </p>
+<div *ngIf="chart">
+  <canvas id="canvas">{{ chart }}</canvas>
+</div>

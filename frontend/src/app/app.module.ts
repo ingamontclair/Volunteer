@@ -15,6 +15,7 @@ import { WeatherStationsComponent } from './weather-stations/weather-stations.co
 import { WeatherComponent } from './weather/weather.component';
 import { ClimateComponent } from './climate/climate.component';
 import { ToolsComponent } from './tools/tools.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ToolsComponent } from './tools/tools.component';
     BrowserModule,
     NgbModule.forRoot(),
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
