@@ -1,1 +1,13 @@
+<h1>Our MongoDB is Working!</h1>
+
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr *ngFor="let user of users; let i = index">
+                        <td>{{i + 1}}</td>
+                        <td>{{user.name}}</td>
+                    </tr>
+                </table>`
 <router-outlet></router-outlet>

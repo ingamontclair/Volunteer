@@ -29,7 +29,7 @@ let response = {
 // Get users
 router.get('/users', (req, res) => {
     connection((db) => {
-        db.collection('prices')
+        db.collection('users')
             .find()
             .toArray()
             .then((users) => {
