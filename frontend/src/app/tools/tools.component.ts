@@ -10,7 +10,13 @@ import { DataService } from '../data.service';
 })
 export class ToolsComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private _data: DataService) { }
+  // Define a users property to hold our user data
+  users: Array<any>;
+
+  // Create an instance of the DataService through dependency injection
+  constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService) {
+      this._dataService.getUsers().subscribe(res => this.users = res);
+  }
 
   ngOnInit() {
   }

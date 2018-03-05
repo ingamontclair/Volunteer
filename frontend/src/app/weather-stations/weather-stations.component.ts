@@ -13,10 +13,10 @@ export class WeatherStationsComponent implements OnInit {
 
   chart = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private _data: DataService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService) { }
 
   ngOnInit() {
-    this._data.dailyForecast()
+    this._dataService.dailyForecast()
       .subscribe(res => {
         let temp_max = res['list'].map(res => res.main.temp_max);
         let temp_min = res['list'].map(res => res.main.temp_min);

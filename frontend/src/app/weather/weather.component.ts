@@ -10,7 +10,7 @@ import { DataService } from '../data.service';
 })
 export class WeatherComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private _data: DataService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService) { }
 
   ngOnInit() {
   }

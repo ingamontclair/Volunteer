@@ -104,7 +104,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Our MongoDB is Working!</h1>\n\n                <table class=\"table\">\n                    <tr>\n                        <th>#</th>\n                        <th>Name</th>\n                    </tr>\n                    <tr *ngFor=\"let user of users; let i = index\">\n                        <td>{{i + 1}}</td>\n                        <td>{{user.name}}</td>\n                    </tr>\n                </table>`\n<router-outlet></router-outlet>\n"
+module.exports = "<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -115,7 +115,6 @@ module.exports = "<h1>Our MongoDB is Working!</h1>\n\n                <table cla
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -128,35 +127,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 // Import the DataService
 
-
 var AppComponent = /** @class */ (function () {
     // Create an instance of the DataService through dependency injection
-    function AppComponent(http, _dataService) {
-        this.http = http;
-        this._dataService = _dataService;
-        this.title = 'app';
-        // Define a users property to hold our user data
-        this.users = [];
-    }
-    AppComponent.prototype.ngOnInit = function () {
-        this.getUsers();
-    };
-    AppComponent.prototype.getUsers = function () {
+    function AppComponent(_dataService) {
         var _this = this;
-        // Access the Data Service's getUsers() method we defined
-        // this._dataService.getUsers()
-        //     .subscribe(res => this.users = res as any);
-        this._dataService.getUsers().subscribe(function (res) {
-            _this.users = res;
-        });
-    };
+        this._dataService = _dataService;
+        this._dataService.getUsers().subscribe(function (res) { return _this.users = res; });
+    }
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__("../../../../../src/app/app.component.html"),
             styles: [__webpack_require__("../../../../../src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -228,9 +212,9 @@ var AppModule = /** @class */ (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_6__app_routing_module__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_15__angular_common_http__["b" /* HttpClientModule */]
+                __WEBPACK_IMPORTED_MODULE_15__angular_common_http__["a" /* HttpClientModule */]
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_4__data_service__["a" /* DataService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
@@ -382,7 +366,7 @@ var ContainerComponent = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -405,16 +389,14 @@ var DataService = /** @class */ (function () {
             .map(function (result) { return result; });
     };
     DataService.prototype.getUsers = function () {
-        var uri = 'http://localhost:3000/api/users';
-        return this._http
-            .get(uri)
-            .map(function (result) {
-            return result || [];
-        });
+        var _this = this;
+        var uri = "/api/users";
+        return this._http.get(uri)
+            .map(function (result) { return _this.result = result.json().data; });
     };
     DataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], DataService);
     return DataService;
 }());
@@ -627,7 +609,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tools/tools.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  tools works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n"
+module.exports = "<p>\n  tools works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n<h1>Angular 5 HttpClient Demo App</h1>\n  <ul>\n    <li *ngFor=\"let user of users\">{{ user.name }}</li>\n  </ul>\n"
 
 /***/ }),
 
@@ -653,10 +635,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ToolsComponent = /** @class */ (function () {
-    function ToolsComponent(route, router, _data) {
+    // Create an instance of the DataService through dependency injection
+    function ToolsComponent(route, router, _dataService) {
+        var _this = this;
         this.route = route;
         this.router = router;
-        this._data = _data;
+        this._dataService = _dataService;
+        this._dataService.getUsers().subscribe(function (res) { return _this.users = res; });
     }
     ToolsComponent.prototype.ngOnInit = function () {
     };
