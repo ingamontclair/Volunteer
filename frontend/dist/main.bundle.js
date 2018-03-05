@@ -130,9 +130,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var AppComponent = /** @class */ (function () {
     // Create an instance of the DataService through dependency injection
     function AppComponent(_dataService) {
-        var _this = this;
         this._dataService = _dataService;
-        this._dataService.getUsers().subscribe(function (res) { return _this.users = res; });
     }
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -214,7 +212,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_6__app_routing_module__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_15__angular_common_http__["a" /* HttpClientModule */]
+                __WEBPACK_IMPORTED_MODULE_15__angular_common_http__["b" /* HttpClientModule */]
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_4__data_service__["a" /* DataService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
@@ -367,7 +365,8 @@ var ContainerComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -380,23 +379,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var DataService = /** @class */ (function () {
-    function DataService(_http) {
+    function DataService(_http, _httpClient) {
         this._http = _http;
+        this._httpClient = _httpClient;
     }
     DataService.prototype.dailyForecast = function () {
-        return this._http.get("http://samples.openweathermap.org/data/2.5/history/city?q=Warren,OH&appid=b6907d289e10d714a6e88b30761fae22")
+        return this._http.get("http://samples.openweathermap.org/data/2.5/history/city?q=Warren,OH&appid=b6907d289e10d714a6e88b30761fae22").map(function (result) { return result; });
+    };
+    DataService.prototype.historicalWeather = function () {
+        var uri = "/api/cityHistoricalData_Atlanta";
+        return this._httpClient.get(uri)
             .map(function (result) { return result; });
     };
     DataService.prototype.getUsers = function () {
         var _this = this;
-        var uri = "/api/users";
+        var uri = "/api/cityHistoricalData_Atlanta";
         return this._http.get(uri)
             .map(function (result) { return _this.result = result.json().data; });
     };
     DataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
     ], DataService);
     return DataService;
 }());
@@ -596,7 +601,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "h2 {\n    text-align: center;\n}", ""]);
 
 // exports
 
@@ -609,7 +614,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tools/tools.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  tools works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n<h1>Angular 5 HttpClient Demo App</h1>\n  <ul>\n    <li *ngFor=\"let user of users\">{{ user.name }}</li>\n  </ul>\n"
+module.exports = "<!-- <p>\n  tools works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n<h1>MongoDB Works</h1>\n  <ul>\n    <li *ngFor=\"let user of cityHistoricalData_Atlanta\">\n      {{ user.date }}\n      {{ user.city_code }}\n      {{ user.temp_mean }}\n      {{ user.temp_min }}\n      {{ user.temp_max }}\n    </li>\n  </ul> -->\n<div *ngIf=\"chart\">\n    <canvas id=\"canvas\">{{ chart }}</canvas>\n</div>\n"
 
 /***/ }),
 
@@ -621,6 +626,8 @@ module.exports = "<p>\n  tools works!\n  <a href=\"\" (click)=\"sendMeHome()\"><
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__("../../../../chart.js/src/chart.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -634,6 +641,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ToolsComponent = /** @class */ (function () {
     // Create an instance of the DataService through dependency injection
     function ToolsComponent(route, router, _dataService) {
@@ -641,9 +649,74 @@ var ToolsComponent = /** @class */ (function () {
         this.route = route;
         this.router = router;
         this._dataService = _dataService;
-        this._dataService.getUsers().subscribe(function (res) { return _this.users = res; });
+        this.chart = [];
+        this._dataService.getUsers().subscribe(function (res) { return _this.cityHistoricalData_Atlanta = res; });
     }
     ToolsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._dataService.historicalWeather()
+            .subscribe(function (res) {
+            var temp_max = res['data'].map(function (res) { return res.temp_max; });
+            var temp_min = res['data'].map(function (res) { return res.temp_min; });
+            var temp_mean = res['data'].map(function (res) { return res.temp_mean; });
+            var alldates = res['data'].map(function (res) { return res.date; });
+            console.log(temp_max);
+            console.log(temp_min);
+            console.log(temp_mean);
+            console.log(alldates);
+            _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
+                type: 'line',
+                data: {
+                    // labels: ["","","",""],
+                    labels: alldates,
+                    datasets: [
+                        {
+                            data: temp_max,
+                            borderColor: '#3cba9f',
+                            fill: false
+                        },
+                        {
+                            data: temp_min,
+                            borderColor: '#ffcc00',
+                            fill: false
+                        },
+                        {
+                            data: temp_mean,
+                            borderColor: '#ff0059',
+                            fill: false
+                        },
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Custom Chart Title'
+                    },
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        xAxes: [{
+                                display: true,
+                                scaleLable: {
+                                    display: true
+                                }
+                            }],
+                        yAxes: [{
+                                ticks: {
+                                    reverse: false,
+                                    max: 100
+                                },
+                                display: true,
+                                scaleLable: {
+                                    display: true
+                                }
+                            }]
+                    }
+                }
+            });
+        });
     };
     ToolsComponent.prototype.sendMeHome = function () {
         this.router.navigate(['']);
@@ -713,15 +786,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var WeatherStationsComponent = /** @class */ (function () {
-    function WeatherStationsComponent(route, router, _data) {
+    function WeatherStationsComponent(route, router, _dataService) {
         this.route = route;
         this.router = router;
-        this._data = _data;
+        this._dataService = _dataService;
         this.chart = [];
     }
     WeatherStationsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._data.dailyForecast()
+        this._dataService.dailyForecast()
             .subscribe(function (res) {
             var temp_max = res['list'].map(function (res) { return res.main.temp_max; });
             var temp_min = res['list'].map(function (res) { return res.main.temp_min; });
@@ -829,10 +902,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var WeatherComponent = /** @class */ (function () {
-    function WeatherComponent(route, router, _data) {
+    function WeatherComponent(route, router, _dataService) {
         this.route = route;
         this.router = router;
-        this._data = _data;
+        this._dataService = _dataService;
     }
     WeatherComponent.prototype.ngOnInit = function () {
     };
@@ -918,6 +991,8 @@ var map = {
 	"./be.js": "../../../../moment/locale/be.js",
 	"./bg": "../../../../moment/locale/bg.js",
 	"./bg.js": "../../../../moment/locale/bg.js",
+	"./bm": "../../../../moment/locale/bm.js",
+	"./bm.js": "../../../../moment/locale/bm.js",
 	"./bn": "../../../../moment/locale/bn.js",
 	"./bn.js": "../../../../moment/locale/bn.js",
 	"./bo": "../../../../moment/locale/bo.js",
@@ -954,6 +1029,8 @@ var map = {
 	"./en-gb.js": "../../../../moment/locale/en-gb.js",
 	"./en-ie": "../../../../moment/locale/en-ie.js",
 	"./en-ie.js": "../../../../moment/locale/en-ie.js",
+	"./en-il": "../../../../moment/locale/en-il.js",
+	"./en-il.js": "../../../../moment/locale/en-il.js",
 	"./en-nz": "../../../../moment/locale/en-nz.js",
 	"./en-nz.js": "../../../../moment/locale/en-nz.js",
 	"./eo": "../../../../moment/locale/eo.js",
@@ -961,6 +1038,8 @@ var map = {
 	"./es": "../../../../moment/locale/es.js",
 	"./es-do": "../../../../moment/locale/es-do.js",
 	"./es-do.js": "../../../../moment/locale/es-do.js",
+	"./es-us": "../../../../moment/locale/es-us.js",
+	"./es-us.js": "../../../../moment/locale/es-us.js",
 	"./es.js": "../../../../moment/locale/es.js",
 	"./et": "../../../../moment/locale/et.js",
 	"./et.js": "../../../../moment/locale/et.js",
@@ -986,6 +1065,8 @@ var map = {
 	"./gl.js": "../../../../moment/locale/gl.js",
 	"./gom-latn": "../../../../moment/locale/gom-latn.js",
 	"./gom-latn.js": "../../../../moment/locale/gom-latn.js",
+	"./gu": "../../../../moment/locale/gu.js",
+	"./gu.js": "../../../../moment/locale/gu.js",
 	"./he": "../../../../moment/locale/he.js",
 	"./he.js": "../../../../moment/locale/he.js",
 	"./hi": "../../../../moment/locale/hi.js",
@@ -1040,6 +1121,8 @@ var map = {
 	"./ms-my": "../../../../moment/locale/ms-my.js",
 	"./ms-my.js": "../../../../moment/locale/ms-my.js",
 	"./ms.js": "../../../../moment/locale/ms.js",
+	"./mt": "../../../../moment/locale/mt.js",
+	"./mt.js": "../../../../moment/locale/mt.js",
 	"./my": "../../../../moment/locale/my.js",
 	"./my.js": "../../../../moment/locale/my.js",
 	"./nb": "../../../../moment/locale/nb.js",
@@ -1092,6 +1175,8 @@ var map = {
 	"./te.js": "../../../../moment/locale/te.js",
 	"./tet": "../../../../moment/locale/tet.js",
 	"./tet.js": "../../../../moment/locale/tet.js",
+	"./tg": "../../../../moment/locale/tg.js",
+	"./tg.js": "../../../../moment/locale/tg.js",
 	"./th": "../../../../moment/locale/th.js",
 	"./th.js": "../../../../moment/locale/th.js",
 	"./tl-ph": "../../../../moment/locale/tl-ph.js",
@@ -1106,6 +1191,8 @@ var map = {
 	"./tzm-latn": "../../../../moment/locale/tzm-latn.js",
 	"./tzm-latn.js": "../../../../moment/locale/tzm-latn.js",
 	"./tzm.js": "../../../../moment/locale/tzm.js",
+	"./ug-cn": "../../../../moment/locale/ug-cn.js",
+	"./ug-cn.js": "../../../../moment/locale/ug-cn.js",
 	"./uk": "../../../../moment/locale/uk.js",
 	"./uk.js": "../../../../moment/locale/uk.js",
 	"./ur": "../../../../moment/locale/ur.js",
