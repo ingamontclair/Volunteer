@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 // Import the Http Module and our Data Service
 import { HttpModule } from '@angular/http';
@@ -35,6 +36,7 @@ import { AtlantaComponent } from './atlanta/atlanta.component';
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     HttpModule,
     AppRoutingModule,
     HttpClientModule

@@ -161,26 +161,28 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__container_container_component__ = __webpack_require__("../../../../../src/app/container/container.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__weather_stations_weather_stations_component__ = __webpack_require__("../../../../../src/app/weather-stations/weather-stations.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__weather_weather_component__ = __webpack_require__("../../../../../src/app/weather/weather.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__climate_climate_component__ = __webpack_require__("../../../../../src/app/climate/climate.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__tools_tools_component__ = __webpack_require__("../../../../../src/app/tools/tools.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__atlanta_atlanta_component__ = __webpack_require__("../../../../../src/app/atlanta/atlanta.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_datepicker__ = __webpack_require__("../../../../ngx-bootstrap/datepicker/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__container_container_component__ = __webpack_require__("../../../../../src/app/container/container.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__weather_stations_weather_stations_component__ = __webpack_require__("../../../../../src/app/weather-stations/weather-stations.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__weather_weather_component__ = __webpack_require__("../../../../../src/app/weather/weather.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__climate_climate_component__ = __webpack_require__("../../../../../src/app/climate/climate.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__tools_tools_component__ = __webpack_require__("../../../../../src/app/tools/tools.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__atlanta_atlanta_component__ = __webpack_require__("../../../../../src/app/atlanta/atlanta.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -205,26 +207,27 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["J" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__home_home_component__["a" /* HomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__header_header_component__["a" /* HeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__container_container_component__["a" /* ContainerComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__weather_stations_weather_stations_component__["a" /* WeatherStationsComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__weather_weather_component__["a" /* WeatherComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__climate_climate_component__["a" /* ClimateComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__tools_tools_component__["a" /* ToolsComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__atlanta_atlanta_component__["a" /* AtlantaComponent */]
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__footer_footer_component__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__header_header_component__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__container_container_component__["a" /* ContainerComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__weather_stations_weather_stations_component__["a" /* WeatherStationsComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__weather_weather_component__["a" /* WeatherComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__climate_climate_component__["a" /* ClimateComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__tools_tools_component__["a" /* ToolsComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__atlanta_atlanta_component__["a" /* AtlantaComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_6__app_routing_module__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_15__angular_common_http__["b" /* HttpClientModule */]
+                __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_datepicker__["a" /* BsDatepickerModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_7__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_16__angular_common_http__["b" /* HttpClientModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_4__data_service__["a" /* DataService */]],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_5__data_service__["a" /* DataService */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -242,7 +245,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "h3 {\n    text-align: center;\n}\n.center {\n    margin: auto;\n    width: 90%;\n    border: 3px solid #73AD21;\n    padding: 10px;\n}", ""]);
+exports.push([module.i, "h3 {\n    text-align: center;\n}\n#form {\n    text-align: center;\n}\n.graph-center {\n    margin: auto;\n    width: 70%;\n    height: 70%;\n    border: 3px solid #73AD21;\n    padding: 10px;\n}", ""]);
 
 // exports
 
@@ -255,7 +258,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/atlanta/atlanta.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Atlanta,GA Historical Weather Data - 2017 </h3>\n<div *ngIf=\"chart\" class=\"center\">\n  <canvas id=\"canvas\">{{ chart }}</canvas>\n</div>"
+module.exports = "<h3>Atlanta,GA Historical Weather Data - 2017 </h3>\n<div id=\"form\">\n    <form class=\"form-inline justify-content-center\">\n            <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Select Date Range : </label>\n            <div class=\"col-xs-12 col-12 col-sm-6 col-md-4 form-group\">\n                <input class=\"form-control\" placeholder=\"Daterangepicker\" bsDaterangepicker #dpr=\"bsDaterangepicker\">\n            </div>\n            <input type=\"submit\" value=\"Submit\" name=\"submit_dates\" class=\"btn btn-primary\">\n    </form>\n</div>\n<br>\n<div class=\"row\">\n  <div *ngIf=\"chart\" class=\"graph-center\">\n      <canvas id=\"canvas\">{{ chart }}</canvas>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -986,6 +989,10 @@ var WeatherComponent = /** @class */ (function () {
         this.route = route;
         this.router = router;
         this._dataService = _dataService;
+        this.minDate = new Date(1976, 12, 31);
+        this.maxDate = new Date(2017, 11, 31);
+        this.bsValue = new Date();
+        this.bsRangeValue = [new Date(2017, 7, 4), new Date(2017, 7, 20)];
     }
     WeatherComponent.prototype.ngOnInit = function () {
     };
@@ -1037,7 +1044,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_15" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });
