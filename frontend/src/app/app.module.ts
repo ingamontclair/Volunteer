@@ -16,6 +16,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { ClimateComponent } from './climate/climate.component';
 import { ToolsComponent } from './tools/tools.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AtlantaComponent } from './atlanta/atlanta.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     WeatherStationsComponent,
     WeatherComponent,
     ClimateComponent,
-    ToolsComponent
+    ToolsComponent,
+    AtlantaComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import { WeatherStationsComponent } from './weather-stations/weather-stations.co
 import { WeatherComponent } from './weather/weather.component'; //Added
 import { ClimateComponent } from './climate/climate.component'; //Added
 import { ToolsComponent } from './tools/tools.component'; //Added
-import { AppComponent } from './app.component'; //Added
+import { AtlantaComponent } from './atlanta/atlanta.component';
 
 const routes: Routes = [
   {
@@ -28,6 +28,10 @@ const routes: Routes = [
   {
     path: 'tools',
     component: ToolsComponent
+  },
+  {
+    path: 'weather-stations/atlanta',
+    component : AtlantaComponent
   }
 ];
 

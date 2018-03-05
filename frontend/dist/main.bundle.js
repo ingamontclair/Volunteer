@@ -30,6 +30,7 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__weather_weather_component__ = __webpack_require__("../../../../../src/app/weather/weather.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__climate_climate_component__ = __webpack_require__("../../../../../src/app/climate/climate.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__tools_tools_component__ = __webpack_require__("../../../../../src/app/tools/tools.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__atlanta_atlanta_component__ = __webpack_require__("../../../../../src/app/atlanta/atlanta.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,6 +45,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
  //Added
  //Added
  //Added
+
 var routes = [
     {
         path: '',
@@ -64,6 +66,10 @@ var routes = [
     {
         path: 'tools',
         component: __WEBPACK_IMPORTED_MODULE_7__tools_tools_component__["a" /* ToolsComponent */]
+    },
+    {
+        path: 'weather-stations/atlanta',
+        component: __WEBPACK_IMPORTED_MODULE_8__atlanta_atlanta_component__["a" /* AtlantaComponent */]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -168,6 +174,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__climate_climate_component__ = __webpack_require__("../../../../../src/app/climate/climate.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__tools_tools_component__ = __webpack_require__("../../../../../src/app/tools/tools.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__atlanta_atlanta_component__ = __webpack_require__("../../../../../src/app/atlanta/atlanta.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -178,6 +185,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // Import the Http Module and our Data Service
+
 
 
 
@@ -205,7 +213,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_11__weather_stations_weather_stations_component__["a" /* WeatherStationsComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__weather_weather_component__["a" /* WeatherComponent */],
                 __WEBPACK_IMPORTED_MODULE_13__climate_climate_component__["a" /* ClimateComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__tools_tools_component__["a" /* ToolsComponent */]
+                __WEBPACK_IMPORTED_MODULE_14__tools_tools_component__["a" /* ToolsComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__atlanta_atlanta_component__["a" /* AtlantaComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -219,6 +228,148 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/atlanta/atlanta.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "h3 {\n    text-align: center;\n}\n.center {\n    margin: auto;\n    width: 90%;\n    border: 3px solid #73AD21;\n    padding: 10px;\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/atlanta/atlanta.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h3>Atlanta,GA Historical Weather Data - 2017 </h3>\n<div *ngIf=\"chart\" class=\"center\">\n  <canvas id=\"canvas\">{{ chart }}</canvas>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/atlanta/atlanta.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AtlantaComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__("../../../../chart.js/src/chart.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AtlantaComponent = /** @class */ (function () {
+    // Create an instance of the DataService through dependency injection
+    function AtlantaComponent(route, router, _dataService) {
+        var _this = this;
+        this.route = route;
+        this.router = router;
+        this._dataService = _dataService;
+        this.chart = [];
+        this._dataService.getUsers().subscribe(function (res) { return _this.cityHistoricalData_Atlanta = res; });
+    }
+    AtlantaComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._dataService.historicalWeather()
+            .subscribe(function (res) {
+            var temp_max = res['data'].map(function (res) { return res.temp_max; });
+            var temp_min = res['data'].map(function (res) { return res.temp_min; });
+            var temp_mean = res['data'].map(function (res) { return res.temp_mean; });
+            var alldates = res['data'].map(function (res) { return res.date; });
+            console.log(temp_max);
+            console.log(temp_min);
+            console.log(temp_mean);
+            console.log(alldates);
+            _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
+                type: 'line',
+                data: {
+                    labels: alldates,
+                    datasets: [
+                        {
+                            data: temp_max,
+                            borderColor: '#3cba9f',
+                            fill: false
+                        },
+                        {
+                            data: temp_min,
+                            borderColor: '#ffcc00',
+                            fill: false
+                        },
+                        {
+                            data: temp_mean,
+                            borderColor: '#ff0059',
+                            fill: false
+                        },
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    // title: {
+                    //     display: true,
+                    //     text: 'Custom Chart Title'
+                    // },
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        xAxes: [{
+                                display: true,
+                                scaleLable: {
+                                    display: true
+                                }
+                            }],
+                        yAxes: [{
+                                ticks: {
+                                    reverse: false,
+                                    max: 100
+                                },
+                                display: true,
+                                scaleLable: {
+                                    display: true
+                                }
+                            }]
+                    }
+                }
+            });
+        });
+    };
+    AtlantaComponent.prototype.sendMeHome = function () {
+        this.router.navigate(['']);
+    };
+    AtlantaComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-atlanta',
+            template: __webpack_require__("../../../../../src/app/atlanta/atlanta.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/atlanta/atlanta.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
+    ], AtlantaComponent);
+    return AtlantaComponent;
 }());
 
 
@@ -492,7 +643,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n  <a class=\"navbar-brand nav-link active\" href=\"#\" routerLink=\"\">Volunteer <span class=\"sr-only\">(current)</span></a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarColor02\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item dropdown\" ngbDropdown>\n          <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"weather-stations\" ngbDropdownToggle> Weather Stations </a>\n          <div class=\"dropdown-menu\" aria-labelledby=\"weatherstations\" ngbDropdownMenu>\n            <a class=\"dropdown-item\" href=\"#\" routerLink=\"weather-stations\">Atlanta, GA</a>\n            <a class=\"dropdown-item\" href=\"#\">Boston, MA</a>\n            <a class=\"dropdown-item\" href=\"#\">Chicago, IL</a>\n            <a class=\"dropdown-item\" href=\"#\">Cincinnati, OH</a>\n            <a class=\"dropdown-item\" href=\"#\">Dallas, TX</a>\n            <a class=\"dropdown-item\" href=\"#\">Des Moines, IA</a>\n            <a class=\"dropdown-item\" href=\"#\">Houston, TX</a>\n            <a class=\"dropdown-item\" href=\"#\">Kansas City, MO</a>\n            <a class=\"dropdown-item\" href=\"#\">Las Vegas, NV</a>\n            <a class=\"dropdown-item\" href=\"#\">Mimmeapolis, MN</a>\n            <a class=\"dropdown-item\" href=\"#\">NewYork, NY</a>\n            <a class=\"dropdown-item\" href=\"#\">Philadelphia, PA</a>\n            <a class=\"dropdown-item\" href=\"#\">Portland, OR</a>\n            <a class=\"dropdown-item\" href=\"#\">Sacramento, CA</a>\n            <a class=\"dropdown-item\" href=\"#\">Tuscon, AZ</a>\n          </div>\n      </li>\n      <li class=\"nav-item dropdown\" ngbDropdown>\n          <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weather\" routerLink=\"weather\" ngbDropdownToggle> Weather </a>\n          <div class=\"dropdown-menu\" aria-labelledby=\"weather\" ngbDropdownMenu>\n            <a class=\"dropdown-item\" href=\"#\">Forecast</a>\n            <a class=\"dropdown-item\" href=\"#\">Current Conditions</a>\n          </div>\n      </li>\n      <li class=\"nav-item dropdown\" ngbDropdown>\n          <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"climate\" routerLink=\"climate\" ngbDropdownToggle> Climate </a>\n          <div class=\"dropdown-menu\" aria-labelledby=\"climate\" ngbDropdownMenu>\n            <a class=\"dropdown-item\" href=\"#\">Climate Map</a>\n            <a class=\"dropdown-item\" href=\"#\">Station Climate</a>\n            <a class=\"dropdown-item\" href=\"#\">Weather Records</a>\n          </div>\n      </li>\n      <li class=\"nav-item dropdown\" ngbDropdown>\n        <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"tools\" routerLink=\"tools\" ngbDropdownToggle> Tools </a>\n        <div class=\"dropdown-menu\" aria-labelledby=\"climate\" ngbDropdownMenu>\n          <a class=\"dropdown-item\" href=\"#\">Unit Conversion</a>\n          <a class=\"dropdown-item\" href=\"#\">Dew Point</a>\n          <a class=\"dropdown-item\" href=\"#\">Wind Power</a>\n        </div>\n      </li>\n    </ul>\n    <form class=\"form-inline my-2 my-lg-0\">\n      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">\n      <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>\n    </form>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n  <a class=\"navbar-brand nav-link active\" href=\"#\" routerLink=\"\">Volunteer <span class=\"sr-only\">(current)</span></a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarColor02\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item dropdown\" ngbDropdown>\n          <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"weather-stations\" ngbDropdownToggle> Weather Stations </a>\n          <div class=\"dropdown-menu\" aria-labelledby=\"weatherstations\" ngbDropdownMenu>\n            <a class=\"dropdown-item\" href=\"#\" routerLink=\"weather-stations/atlanta\">Atlanta, GA</a>\n            <a class=\"dropdown-item\" href=\"#\">Boston, MA</a>\n            <a class=\"dropdown-item\" href=\"#\">Chicago, IL</a>\n            <a class=\"dropdown-item\" href=\"#\">Cincinnati, OH</a>\n            <a class=\"dropdown-item\" href=\"#\">Dallas, TX</a>\n            <a class=\"dropdown-item\" href=\"#\">Des Moines, IA</a>\n            <a class=\"dropdown-item\" href=\"#\">Houston, TX</a>\n            <a class=\"dropdown-item\" href=\"#\">Kansas City, MO</a>\n            <a class=\"dropdown-item\" href=\"#\">Las Vegas, NV</a>\n            <a class=\"dropdown-item\" href=\"#\">Mimmeapolis, MN</a>\n            <a class=\"dropdown-item\" href=\"#\">NewYork, NY</a>\n            <a class=\"dropdown-item\" href=\"#\">Philadelphia, PA</a>\n            <a class=\"dropdown-item\" href=\"#\">Portland, OR</a>\n            <a class=\"dropdown-item\" href=\"#\">Sacramento, CA</a>\n            <a class=\"dropdown-item\" href=\"#\">Tuscon, AZ</a>\n          </div>\n      </li>\n      <li class=\"nav-item dropdown\" ngbDropdown>\n          <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weather\" routerLink=\"weather\" ngbDropdownToggle> Weather </a>\n          <div class=\"dropdown-menu\" aria-labelledby=\"weather\" ngbDropdownMenu>\n            <a class=\"dropdown-item\" href=\"#\">Forecast</a>\n            <a class=\"dropdown-item\" href=\"#\">Current Conditions</a>\n          </div>\n      </li>\n      <li class=\"nav-item dropdown\" ngbDropdown>\n          <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"climate\" routerLink=\"climate\" ngbDropdownToggle> Climate </a>\n          <div class=\"dropdown-menu\" aria-labelledby=\"climate\" ngbDropdownMenu>\n            <a class=\"dropdown-item\" href=\"#\">Climate Map</a>\n            <a class=\"dropdown-item\" href=\"#\">Station Climate</a>\n            <a class=\"dropdown-item\" href=\"#\">Weather Records</a>\n          </div>\n      </li>\n      <li class=\"nav-item dropdown\" ngbDropdown>\n        <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"tools\" routerLink=\"tools\" ngbDropdownToggle> Tools </a>\n        <div class=\"dropdown-menu\" aria-labelledby=\"climate\" ngbDropdownMenu>\n          <a class=\"dropdown-item\" href=\"#\">Unit Conversion</a>\n          <a class=\"dropdown-item\" href=\"#\">Dew Point</a>\n          <a class=\"dropdown-item\" href=\"#\">Wind Power</a>\n        </div>\n      </li>\n    </ul>\n    <form class=\"form-inline my-2 my-lg-0\">\n      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">\n      <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>\n    </form>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -601,7 +752,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "h2 {\n    text-align: center;\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -614,7 +765,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tools/tools.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <p>\n  tools works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n<h1>MongoDB Works</h1>\n  <ul>\n    <li *ngFor=\"let user of cityHistoricalData_Atlanta\">\n      {{ user.date }}\n      {{ user.city_code }}\n      {{ user.temp_mean }}\n      {{ user.temp_min }}\n      {{ user.temp_max }}\n    </li>\n  </ul> -->\n<div *ngIf=\"chart\">\n    <canvas id=\"canvas\">{{ chart }}</canvas>\n</div>\n"
+module.exports = "<p>\n  tools works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>"
 
 /***/ }),
 
@@ -626,8 +777,6 @@ module.exports = "<!-- <p>\n  tools works!\n  <a href=\"\" (click)=\"sendMeHome(
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__("../../../../chart.js/src/chart.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -641,82 +790,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var ToolsComponent = /** @class */ (function () {
-    // Create an instance of the DataService through dependency injection
     function ToolsComponent(route, router, _dataService) {
-        var _this = this;
         this.route = route;
         this.router = router;
         this._dataService = _dataService;
-        this.chart = [];
-        this._dataService.getUsers().subscribe(function (res) { return _this.cityHistoricalData_Atlanta = res; });
     }
     ToolsComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._dataService.historicalWeather()
-            .subscribe(function (res) {
-            var temp_max = res['data'].map(function (res) { return res.temp_max; });
-            var temp_min = res['data'].map(function (res) { return res.temp_min; });
-            var temp_mean = res['data'].map(function (res) { return res.temp_mean; });
-            var alldates = res['data'].map(function (res) { return res.date; });
-            console.log(temp_max);
-            console.log(temp_min);
-            console.log(temp_mean);
-            console.log(alldates);
-            _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
-                type: 'line',
-                data: {
-                    // labels: ["","","",""],
-                    labels: alldates,
-                    datasets: [
-                        {
-                            data: temp_max,
-                            borderColor: '#3cba9f',
-                            fill: false
-                        },
-                        {
-                            data: temp_min,
-                            borderColor: '#ffcc00',
-                            fill: false
-                        },
-                        {
-                            data: temp_mean,
-                            borderColor: '#ff0059',
-                            fill: false
-                        },
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    title: {
-                        display: true,
-                        text: 'Custom Chart Title'
-                    },
-                    legend: {
-                        display: false
-                    },
-                    scales: {
-                        xAxes: [{
-                                display: true,
-                                scaleLable: {
-                                    display: true
-                                }
-                            }],
-                        yAxes: [{
-                                ticks: {
-                                    reverse: false,
-                                    max: 100
-                                },
-                                display: true,
-                                scaleLable: {
-                                    display: true
-                                }
-                            }]
-                    }
-                }
-            });
-        });
     };
     ToolsComponent.prototype.sendMeHome = function () {
         this.router.navigate(['']);
