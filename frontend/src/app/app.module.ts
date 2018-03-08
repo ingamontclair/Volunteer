@@ -18,6 +18,7 @@ import { ClimateComponent } from './climate/climate.component';
 import { ToolsComponent } from './tools/tools.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AtlantaComponent } from './atlanta/atlanta.component';
+import { WeathervsderivativesComponent } from './weathervsderivatives/weathervsderivatives.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AtlantaComponent } from './atlanta/atlanta.component';
     WeatherComponent,
     ClimateComponent,
     ToolsComponent,
-    AtlantaComponent
+    AtlantaComponent,
+    WeathervsderivativesComponent
   ],
   imports: [
     BrowserModule,

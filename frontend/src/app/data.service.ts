@@ -27,4 +27,14 @@ export class DataService {
       .map(result => this.result = result.json().data);
   }
 
+  historicalHDD_janz18(){
+    const uri = "/api/hdd_janz18";
+    return this._httpClient.get(uri)
+      .map(result => result);
+  }
+  getHDD_janz18() {
+    const uri = "/api/hdd_janz18";
+    return this._http.get(uri)
+      .map(result => this.result = result.json().data);
+  }
 }
