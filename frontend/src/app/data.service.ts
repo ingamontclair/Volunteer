@@ -37,4 +37,37 @@ export class DataService {
     return this._http.get(uri)
       .map(result => this.result = result.json().data);
   }
+
+  tempNYjan18(){
+    const uri = "/api/new_york_temp_0118";
+    return this._httpClient.get(uri)
+      .map(result => result);
+  }
+  gettempNYjan18() {
+    const uri = "/api/new_york_temp_0118";
+    return this._http.get(uri)
+      .map(result => this.result = result.json().data);
+  }
+
+  hddNY_avg(){
+    const uri = "/api/hdd_cdd_avg";
+    return this._httpClient.get(uri)
+      .map(result => result);
+  }
+  gethddNY_avg() {
+    const uri = "/api/hdd_cdd_avg";
+    return this._http.get(uri)
+      .map(result => this.result = result.json().data);
+  }
+
+  naive_est(){
+      const uri = "/api/naive_est_jan18";
+      return this._httpClient.get(uri)
+        .map(result => result);
+  }
+  get_naive_est() {
+      const uri = "/api/naive_est_jan18";
+      return this._http.get(uri)
+        .map(result => this.result = result.json().data);
+  }
 }
