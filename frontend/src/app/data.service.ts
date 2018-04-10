@@ -21,10 +21,16 @@ export class DataService {
       .map(result => result);
   }
 
-  getUsers() {
+  dateRangeFilter(startDate,endDate){
     const uri = "/api/cityHistoricalData_Atlanta";
-    return this._http.get(uri)
-      .map(result => this.result = result.json().data);
+    return this._httpClient.get(uri)
+      .map(result => result);
+  }
+
+  historicalWeather_Newyork(){
+    const uri = "/api/cityHistoricalData_NewYork";
+    return this._httpClient.get(uri)
+      .map(result => result);
   }
 
   historicalHDD_janz18(){

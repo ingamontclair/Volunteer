@@ -1,11 +1,17 @@
-<h3>Atlanta,GA Historical Weather Data - 2017 </h3>
-<div id="form">
+<div ng-app="myApp">
+<h3>Atlanta,GA Historical Weather Data</h3>
+<br><br>
+<div id="form" onload="onload();">
     <form class="form-inline justify-content-center">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Select Date Range : </label>
             <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
-                <input class="form-control" placeholder="Daterangepicker" bsDaterangepicker #dpr="bsDaterangepicker">
-            </div>
-            <input type="submit" value="Submit" name="submit_dates" class="btn btn-primary">
+                    <input #newDate
+                        (keyup.enter)="addDate(newDate.value)"
+                        (blur)="addDate(newDate.value); newDate.value='' "
+                        placeholder="mm/dd/yy - mm/dd/yy"
+                        name = "daterange">
+            </div> 
+            <button (click)="addDate(newDate.value)" class="btn btn-primary">Submit</button>
     </form>
 </div>
 <br>
@@ -13,4 +19,5 @@
   <div *ngIf="chart" class="graph-center">
       <canvas id="canvas">{{ chart }}</canvas>
   </div>
+</div>
 </div>

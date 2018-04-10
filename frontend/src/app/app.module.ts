@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { FormsModule }   from '@angular/forms';
 
 // Import the Http Module and our Data Service
 import { HttpModule } from '@angular/http';
@@ -18,6 +19,7 @@ import { ClimateComponent } from './climate/climate.component';
 import { ToolsComponent } from './tools/tools.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AtlantaComponent } from './atlanta/atlanta.component';
+// import { GraphComponent } from './atlanta/graph.component';
 import { WeathervsderivativesComponent } from './weathervsderivatives/weathervsderivatives.component';
 
 
@@ -34,6 +36,7 @@ import { WeathervsderivativesComponent } from './weathervsderivatives/weathervsd
     ToolsComponent,
     AtlantaComponent,
     WeathervsderivativesComponent
+    // GraphComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { WeathervsderivativesComponent } from './weathervsderivatives/weathervsd
     BsDatepickerModule.forRoot(),
     HttpModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
