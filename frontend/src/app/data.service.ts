@@ -21,7 +21,7 @@ export class DataService {
       .map(result => result);
   }
 
-  dateRangeFilter(startDate,endDate){
+  dateRangeFilter(startDate,endDate,cityCode){
     const uri = "/api/cityHistoricalData_Atlanta";
     return this._httpClient.get(uri)
       .map(result => result);

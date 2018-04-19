@@ -272,7 +272,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/atlanta/atlanta.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div ng-app=\"myApp\">\n<h3>Atlanta,GA Historical Weather Data</h3>\n<br><br>\n<div id=\"form\" onload=\"onload();\">\n    <form class=\"form-inline justify-content-center\">\n            <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Select Date Range : </label>\n            <div class=\"col-xs-12 col-12 col-sm-6 col-md-4 form-group\">\n                    <input #newDate\n                        (keyup.enter)=\"addDate(newDate.value)\"\n                        (blur)=\"addDate(newDate.value); newDate.value='' \"\n                        placeholder=\"mm/dd/yy - mm/dd/yy\"\n                        name = \"daterange\">\n            </div> \n            <button (click)=\"addDate(newDate.value)\" class=\"btn btn-primary\">Submit</button>\n    </form>\n</div>\n<br>\n<div class=\"row\">\n  <div *ngIf=\"chart\" class=\"graph-center\">\n      <canvas id=\"canvas\">{{ chart }}</canvas>\n  </div>\n</div>\n</div>"
+module.exports = "<div ng-app=\"myApp\">\n<h3>Atlanta,GA Historical Weather Data</h3>\n<br><br>\n<div id=\"form\" onload=\"onload();\">\n    <form class=\"form-inline justify-content-center\">\n            <div class=\"form-group mb-2\">\n                <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Select Date Range : </label>\n                <div class=\"col-xs-12 col-12 col-sm-6 col-md-4 form-group\">\n                    <input #newDate\n                        (keyup.enter)=\"addDate(newDate.value)\"\n                        (blur)=\"addDate(newDate.value); newDate.value='' \"\n                        class=\"form-control\" \n                        placeholder=\"Daterangepicker\" \n                        name = \"daterange\"\n                        bsDaterangepicker #dpr=\"bsDaterangepicker\">\n                </div>\n            </div>\n            <div class=\"form-group mx-sm-3 mb-2\">\n                <div class=\"dropdown\" ngbDropdown>\n                    <button class=\"btn btn-primary\" id=\"sortMenu\" ngbDropdownToggle>{{selectedCity}}</button>\n                    <div class=\"dropdown-menu\" aria-labelledby=\"sortMenu\" ngbDropdownMenu>\n                        <button class=\"dropdown-item\" *ngFor=\"let city of cities\" (click)=\"ChangeCity(city)\" >{{city}}</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group mb-2\">\n                <button (click)=\"addDate(newDate.value)\" class=\"btn btn-primary\">Submit</button>\n            </div>\n    </form>\n</div>\n<br>\n<div class=\"row\">\n  <div *ngIf=\"chart\" class=\"graph-center\">\n      <canvas id=\"canvas\">{{ chart }}</canvas>\n  </div>\n</div>\n</div>"
 
 /***/ }),
 
@@ -306,6 +306,10 @@ var AtlantaComponent = /** @class */ (function () {
         this.route = route;
         this.router = router;
         this._dataService = _dataService;
+        this.cityCodemap = new Map();
+        // this.cityCode = this.cityCodemap.get(this.selectedCity);
+        this.cities = ["Atlanta", "Boston", "Chicago", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
+        this.selectedCity = "Select City";
         this.atlantaResponse = [];
         this.chart = [];
         this.temp_max_ny = [];
@@ -313,7 +317,26 @@ var AtlantaComponent = /** @class */ (function () {
         this.value = '';
         var startDate;
         var endDate;
+        this.cityCodemap.set("Atlanta", "KFTY");
+        this.cityCodemap.set("Boston", "KBOS");
+        this.cityCodemap.set("Chicago", "KORD");
+        this.cityCodemap.set("Cincinnati", "KLUX");
+        this.cityCodemap.set("Dallas", "KDAL");
+        this.cityCodemap.set("Des Moines", "KDSM");
+        this.cityCodemap.set("Houston", "KHOU");
+        this.cityCodemap.set("Kansas City", "KMKC");
+        this.cityCodemap.set("Las Vegas", "KVGT");
+        this.cityCodemap.set("Minneapolis", "KMIC");
+        this.cityCodemap.set("NewYork", "KNYC");
+        this.cityCodemap.set("Philadelphia", "KPHL");
+        this.cityCodemap.set("Portland", "KPDX");
+        this.cityCodemap.set("Sacramento", "KSAC");
+        this.cityCodemap.set("Tuscon", "KDMA");
+        console.log(this.cityCodemap);
     }
+    AtlantaComponent.prototype.ChangeCity = function (newCity) {
+        this.selectedCity = newCity;
+    };
     AtlantaComponent.prototype.addDate = function (newDate) {
         var _this = this;
         if (newDate) {
@@ -322,8 +345,11 @@ var AtlantaComponent = /** @class */ (function () {
             this.startDate = new Date(this.value.split(" - ")[0]);
             //EndDate
             this.endDate = new Date(this.value.split(" - ")[1]);
+            // Selected Citycode
+            this.cityCode = this.cityCodemap.get(this.selectedCity);
+            console.log(this.cityCode);
             // Data Service which gets the data from database
-            this._dataService.dateRangeFilter(this.startDate, this.endDate)
+            this._dataService.dateRangeFilter(this.startDate, this.endDate, this.cityCode)
                 .subscribe(function (res) {
                 var atlantaResponse = res['data'].map(function (res) { return res; });
                 var alldates = [];
@@ -331,7 +357,7 @@ var AtlantaComponent = /** @class */ (function () {
                 var temp_min = [];
                 var temp_mean = [];
                 atlantaResponse.forEach(function (res) {
-                    if (new Date(res.date) >= new Date(_this.startDate) && new Date(res.date) <= new Date(_this.endDate)) {
+                    if (res.city_code == _this.cityCode && new Date(res.date) >= new Date(_this.startDate) && new Date(res.date) <= new Date(_this.endDate)) {
                         alldates.push(res.date);
                         temp_max.push(res.temp_max);
                         temp_min.push(res.temp_min);
@@ -361,20 +387,14 @@ var AtlantaComponent = /** @class */ (function () {
                                 lable: "Temp_mean",
                                 borderColor: '#ff0059',
                                 fill: false
-                            },
-                            {
-                                data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
-                                label: "Africa",
-                                borderColor: "#3e95cd",
-                                fill: false
-                            },
+                            }
                         ]
                     },
                     options: {
                         responsive: true,
                         title: {
                             display: true,
-                            text: 'Atlanta,GA Historical Weather Data'
+                            text: _this.selectedCity + ' , Historical Weather Data'
                         },
                         legend: {
                             display: false
@@ -403,78 +423,6 @@ var AtlantaComponent = /** @class */ (function () {
         }
     };
     AtlantaComponent.prototype.ngOnInit = function () {
-        // this._dataService.historicalWeather()
-        //     .subscribe(res => {
-        //         let myData = res['data'].map(res => res);
-        //         let temp_max = myData.map(res => res.temp_max);
-        //         let temp_min = myData.map(res => res.temp_min);
-        //         let temp_mean = myData.map(res => res.temp_mean);
-        //         let alldates = myData.map(res => res.date);
-        //         let weatherDates = [];
-        //         alldates.forEach((res) => {
-        //             if(new Date(res) >= new Date('11/1/17') && new Date(res)<= new Date('11/30/17')){
-        //               weatherDates.push(res);
-        //             }
-        //         })
-        //         console.log(weatherDates);
-        //         // Draw chart using the retrived data
-        //         this.chart = new Chart('canvas',{
-        //           type: 'line',
-        //           data: {
-        //             labels: alldates,
-        //             datasets:[
-        //               {
-        //                 data: temp_max,
-        //                 borderColor: '#3cba9f',
-        //                 fill: false
-        //               },
-        //               {
-        //                 data: temp_min,
-        //                 borderColor: '#ffcc00',
-        //                 fill: false
-        //               },
-        //               {
-        //                 data: temp_mean,
-        //                 borderColor: '#ff0059',
-        //                 fill: false
-        //               },
-        //               {
-        //                 data: this.temp_max_ny,
-        //                 borderColor: '#00ffe9',
-        //                 fill: false
-        //               },
-        //             ]
-        //           },
-        //           options: {
-        //             responsive: true,
-        //             // title: {
-        //             //     display: true,
-        //             //     text: 'Custom Chart Title'
-        //             // },
-        //             legend: {
-        //               display: false
-        //             },
-        //             scales: {
-        //               xAxes: [{
-        //                 display: true,
-        //                 scaleLable: {
-        //                   display: true
-        //                 }
-        //               }],
-        //               yAxes: [{
-        //                 ticks: {
-        //                   reverse: false,
-        //                   max: 100
-        //                 },
-        //                 display: true,
-        //                 scaleLable: {
-        //                   display: true
-        //                 }
-        //               }]
-        //             }
-        //           }
-        //         })  
-        //     })
     };
     AtlantaComponent.prototype.sendMeHome = function () {
         this.router.navigate(['']);
@@ -662,7 +610,7 @@ var DataService = /** @class */ (function () {
         return this._httpClient.get(uri)
             .map(function (result) { return result; });
     };
-    DataService.prototype.dateRangeFilter = function (startDate, endDate) {
+    DataService.prototype.dateRangeFilter = function (startDate, endDate, cityCode) {
         var uri = "/api/cityHistoricalData_Atlanta";
         return this._httpClient.get(uri)
             .map(function (result) { return result; });
