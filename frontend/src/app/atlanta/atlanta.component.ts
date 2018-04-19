@@ -100,21 +100,24 @@ export class AtlantaComponent implements OnInit {
               datasets:[
                 {
                   data: temp_max,
-                  lable: "Temp_max",
-                  borderColor: '#3cba9f',
-                  fill: false
+                  label: "Temp_max",
+                  backgroundColor: "#3cba9f",
+                  borderColor: "#3cba9f",
+                  fill: false,
                 },
                 {
                   data: temp_min,
-                  lable: "Temp_min",
-                  borderColor: '#ffcc00',
-                  fill: false
+                  label: "Temp_min",
+                  backgroundColor: "#ffcc00",
+                  borderColor: "#ffcc00",
+                  fill: false,
                 },
                 {
                   data: temp_mean,
-                  lable: "Temp_mean",
-                  borderColor: '#ff0059',
-                  fill: false
+                  label: "Temp_mean",
+                  backgroundColor: "#ff0059",
+                  borderColor: "#ff0059",
+                  fill: false,
                 }
               ]
             },
@@ -124,24 +127,25 @@ export class AtlantaComponent implements OnInit {
                   display: true,
                   text:  this.selectedCity + ' , Historical Weather Data'
               },
-              legend: {
-                display: false
-              },
               scales: {
                 xAxes: [{
+                  ticks: {
+                    autoSkip: false
+                  },
                   display: true,
                   scaleLable: {
-                    display: true
+                    display: true,
+                    labelString: 'Date Range'
                   }
                 }],
                 yAxes: [{
                   ticks: {
-                    reverse: false,
-                    max: 100
+                    beginAtZero: true,
                   },
                   display: true,
                   scaleLable: {
-                    display: true
+                    display: true,
+                    labelString: 'Temperature Range'
                   }
                 }]
               }

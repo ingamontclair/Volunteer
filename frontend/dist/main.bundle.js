@@ -348,7 +348,7 @@ var AtlantaComponent = /** @class */ (function () {
             // Selected Citycode
             this.cityCode = this.cityCodemap.get(this.selectedCity);
             console.log(this.cityCode);
-            // Data Service which gets the data from database
+            // Data Service which gets the data from database with startdate, enddate and city filter
             this._dataService.dateRangeFilter(this.startDate, this.endDate, this.cityCode)
                 .subscribe(function (res) {
                 var atlantaResponse = res['data'].map(function (res) { return res; });
@@ -372,21 +372,24 @@ var AtlantaComponent = /** @class */ (function () {
                         datasets: [
                             {
                                 data: temp_max,
-                                lable: "Temp_max",
-                                borderColor: '#3cba9f',
-                                fill: false
+                                label: "Temp_max",
+                                backgroundColor: "#3cba9f",
+                                borderColor: "#3cba9f",
+                                fill: false,
                             },
                             {
                                 data: temp_min,
-                                lable: "Temp_min",
-                                borderColor: '#ffcc00',
-                                fill: false
+                                label: "Temp_min",
+                                backgroundColor: "#ffcc00",
+                                borderColor: "#ffcc00",
+                                fill: false,
                             },
                             {
                                 data: temp_mean,
-                                lable: "Temp_mean",
-                                borderColor: '#ff0059',
-                                fill: false
+                                label: "Temp_mean",
+                                backgroundColor: "#ff0059",
+                                borderColor: "#ff0059",
+                                fill: false,
                             }
                         ]
                     },
@@ -396,24 +399,25 @@ var AtlantaComponent = /** @class */ (function () {
                             display: true,
                             text: _this.selectedCity + ' , Historical Weather Data'
                         },
-                        legend: {
-                            display: false
-                        },
                         scales: {
-                            xAxes: [{
-                                    display: true,
-                                    scaleLable: {
-                                        display: true
-                                    }
-                                }],
-                            yAxes: [{
+                            axisX: [{
                                     ticks: {
-                                        reverse: false,
-                                        max: 100
+                                        autoSkip: false
                                     },
                                     display: true,
                                     scaleLable: {
-                                        display: true
+                                        display: true,
+                                        labelString: 'Date Range'
+                                    }
+                                }],
+                            axisY: [{
+                                    ticks: {
+                                        beginAtZero: true,
+                                    },
+                                    display: true,
+                                    scaleLable: {
+                                        display: true,
+                                        labelString: 'Temperature Range'
                                     }
                                 }]
                         }
