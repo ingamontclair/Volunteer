@@ -400,22 +400,22 @@ var AtlantaComponent = /** @class */ (function () {
                             text: _this.selectedCity + ' , Historical Weather Data'
                         },
                         scales: {
-                            axisX: [{
+                            xAxes: [{
                                     ticks: {
                                         autoSkip: false
                                     },
                                     display: true,
-                                    scaleLable: {
+                                    scaleLabel: {
                                         display: true,
                                         labelString: 'Date Range'
                                     }
                                 }],
-                            axisY: [{
+                            yAxes: [{
                                     ticks: {
                                         beginAtZero: true,
                                     },
                                     display: true,
-                                    scaleLable: {
+                                    scaleLabel: {
                                         display: true,
                                         labelString: 'Temperature Range'
                                     }

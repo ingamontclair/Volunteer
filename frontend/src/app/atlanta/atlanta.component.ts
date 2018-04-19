@@ -133,7 +133,7 @@ export class AtlantaComponent implements OnInit {
                     autoSkip: false
                   },
                   display: true,
-                  scaleLable: {
+                  scaleLabel: {
                     display: true,
                     labelString: 'Date Range'
                   }
@@ -143,7 +143,7 @@ export class AtlantaComponent implements OnInit {
                     beginAtZero: true,
                   },
                   display: true,
-                  scaleLable: {
+                  scaleLabel: {
                     display: true,
                     labelString: 'Temperature Range'
                   }
