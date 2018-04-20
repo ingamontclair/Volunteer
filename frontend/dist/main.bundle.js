@@ -702,7 +702,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#footer {\n    position: fixed;\n    bottom:0;\n    width:100%;\n    height:60px;   /* Height of the footer */\n    background: #00C38B;\n    text-align: center;\n    color: white;\n}\n\np {\n    -ms-flex-line-pack: center;\n        align-content: center;\n}", ""]);
+exports.push([module.i, "#footer {\n    position: fixed;\n    bottom:0;\n    width:100%;\n    height:60px;   /* Height of the footer */\n    background: #00C38B;\n    text-align: center;\n    color: white;\n}", ""]);
 
 // exports
 
@@ -776,7 +776,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"header\">\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n    <a class=\"navbar-brand nav-link active\" href=\"#\" routerLink=\"\">Volunteer <span class=\"sr-only\">(current)</span></a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarColor02\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item dropdown\" ngbDropdown>\n            <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"weather-stations\" ngbDropdownToggle> Weather Stations </a>\n            <div class=\"dropdown-menu\" aria-labelledby=\"weatherstations\" ngbDropdownMenu>\n              <a class=\"dropdown-item\" href=\"#\" routerLink=\"weather-stations/atlanta\">Atlanta, GA</a>\n              <a class=\"dropdown-item\" href=\"#\">Boston, MA</a>\n              <a class=\"dropdown-item\" href=\"#\">Chicago, IL</a>\n              <a class=\"dropdown-item\" href=\"#\">Cincinnati, OH</a>\n              <a class=\"dropdown-item\" href=\"#\">Dallas, TX</a>\n              <a class=\"dropdown-item\" href=\"#\">Des Moines, IA</a>\n              <a class=\"dropdown-item\" href=\"#\">Houston, TX</a>\n              <a class=\"dropdown-item\" href=\"#\">Kansas City, MO</a>\n              <a class=\"dropdown-item\" href=\"#\">Las Vegas, NV</a>\n              <a class=\"dropdown-item\" href=\"#\">Mimmeapolis, MN</a>\n              <a class=\"dropdown-item\" href=\"#\">NewYork, NY</a>\n              <a class=\"dropdown-item\" href=\"#\">Philadelphia, PA</a>\n              <a class=\"dropdown-item\" href=\"#\">Portland, OR</a>\n              <a class=\"dropdown-item\" href=\"#\">Sacramento, CA</a>\n              <a class=\"dropdown-item\" href=\"#\">Tuscon, AZ</a>\n            </div>\n        </li>\n        <li class=\"nav-item dropdown\" ngbDropdown>\n            <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weather\" routerLink=\"weather\" ngbDropdownToggle> Weather </a>\n            <div class=\"dropdown-menu\" aria-labelledby=\"weather\" ngbDropdownMenu>\n              <a class=\"dropdown-item\" href=\"#\">Forecast</a>\n              <a class=\"dropdown-item\" href=\"#\">Current Conditions</a>\n            </div>\n        </li>\n        <li class=\"nav-item dropdown\" ngbDropdown>\n            <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"climate\" routerLink=\"climate\" ngbDropdownToggle> Climate </a>\n            <div class=\"dropdown-menu\" aria-labelledby=\"climate\" ngbDropdownMenu>\n              <a class=\"dropdown-item\" href=\"#\">Climate Map</a>\n              <a class=\"dropdown-item\" href=\"#\">Station Climate</a>\n              <a class=\"dropdown-item\" href=\"#\">Weather Records</a>\n            </div>\n        </li>\n        <li class=\"nav-item dropdown\" ngbDropdown>\n          <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"tools\" routerLink=\"tools\" ngbDropdownToggle> Tools </a>\n          <div class=\"dropdown-menu\" aria-labelledby=\"climate\" ngbDropdownMenu>\n            <a class=\"dropdown-item\" href=\"#\" routerLink=\"tools/weathervsderivatives\">Weather vs. derivatives</a>\n            <a class=\"dropdown-item\" href=\"#\">Unit Conversion</a>\n            <a class=\"dropdown-item\" href=\"#\">Dew Point</a>\n            <a class=\"dropdown-item\" href=\"#\">Wind Power</a>\n          </div>\n        </li>\n      </ul>\n      <form class=\"form-inline my-2 my-lg-0\">\n        <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">\n        <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>\n      </form>\n    </div>\n  </nav>\n</div>\n"
+module.exports = "<div id=\"header\">\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n    <a class=\"navbar-brand nav-link active\" href=\"#\" routerLink=\"\">Volunteer <span class=\"sr-only\">(current)</span></a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarColor02\">\n      <ul class=\"navbar-nav mr-auto\">\n        <a class=\"nav-link\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"weather-stations\"> Historical Weather </a>\n        <a class=\"nav-link\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"weather-stations\"> HDD & CDD </a>\n        <a class=\"nav-link\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"weather-stations\"> Predictions </a>\n      </ul>\n      <form class=\"form-inline my-2 my-lg-0\">\n        <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">\n        <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>\n      </form>\n    </div>\n  </nav>\n</div>\n"
 
 /***/ }),
 
@@ -982,8 +982,6 @@ module.exports = "<p>\n  weather-stations works!\n  <a href=\"\" (click)=\"sendM
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__("../../../../chart.js/src/chart.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -997,7 +995,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var WeatherStationsComponent = /** @class */ (function () {
     function WeatherStationsComponent(route, router, _dataService) {
         this.route = route;
@@ -1006,49 +1003,6 @@ var WeatherStationsComponent = /** @class */ (function () {
         this.chart = [];
     }
     WeatherStationsComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._dataService.dailyForecast()
-            .subscribe(function (res) {
-            var temp_max = res['list'].map(function (res) { return res.main.temp_max; });
-            var temp_min = res['list'].map(function (res) { return res.main.temp_min; });
-            var alldates = res['list'].map(function (res) { return res.dt; });
-            var weatherDates = [];
-            alldates.forEach(function (res) {
-                var jsdate = new Date(res * 1000);
-                weatherDates.push(jsdate.toLocaleTimeString('en', { year: 'numeric', month: 'short', day: 'numeric' }));
-            });
-            _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
-                type: 'line',
-                data: {
-                    labels: weatherDates,
-                    datasets: [
-                        {
-                            data: temp_max,
-                            borderColor: "#3cba9f",
-                            fill: false
-                        },
-                        {
-                            data: temp_min,
-                            borderColor: "#ffcc00",
-                            fill: false
-                        },
-                    ]
-                },
-                options: {
-                    legend: {
-                        display: false
-                    },
-                    scales: {
-                        xAxes: [{
-                                display: true
-                            }],
-                        yAxes: [{
-                                display: true
-                            }],
-                    }
-                }
-            });
-        });
     };
     WeatherStationsComponent.prototype.sendMeHome = function () {
         this.router.navigate(['']);
