@@ -24,6 +24,7 @@ export class AtlantaComponent implements OnInit {
 
   cities: string[] = ["Atlanta", "Boston", "Chicago","Cincinnati","Dallas","Des Moines","Houston","Kansas City","Las Vegas","Mimmeapolis","NewYork","Philadelphia","Portland","Sacramento","Tuscon"];
   selectedCity: string = "Select City";
+  diffDays: number;
   
   ChangeCity(newCity: string) { 
     this.selectedCity = newCity;
@@ -58,8 +59,6 @@ export class AtlantaComponent implements OnInit {
       this.cityCodemap.set("Portland","KPDX");
       this.cityCodemap.set("Sacramento","KSAC");
       this.cityCodemap.set("Tuscon","KDMA");
-
-      console.log(this.cityCodemap);
   }
 
   // Getting Date range from ui to get filtered data from database
@@ -71,9 +70,13 @@ export class AtlantaComponent implements OnInit {
       this.startDate = new Date(this.value.split(" - ")[0]);
       //EndDate
       this.endDate = new Date(this.value.split(" - ")[1]);
+
+      //Calculate difference between two dates
+      var diff = Math.abs(this.startDate.getTime() - this.endDate.getTime());
+      this.diffDays = Math.ceil(diff / (1000 * 3600 * 24)); 
+
       // Selected Citycode
       this.cityCode = this.cityCodemap.get(this.selectedCity);
-      console.log(this.cityCode);
 
       // Data Service which gets the data from database with startdate, enddate and city filter
       this._dataService.dateRangeFilter(this.startDate,this.endDate,this.cityCode)
@@ -129,6 +132,20 @@ export class AtlantaComponent implements OnInit {
               },
               scales: {
                 xAxes: [{
+                  type: 'time',
+                  minUnit: 'day',
+                  time: {
+                    unit: 'day',
+                    displayFormats: {
+                      day: 'D-MMM',
+                      week: 'D-MMM',
+                      month: 'D-MMM',
+                      quarter: 'D-MMM',
+                      min: this.startDate,
+                      max: this.endDate
+                    },
+                    unitStepSize: 11,
+                  },
                   ticks: {
                     autoSkip: false
                   },

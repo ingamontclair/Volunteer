@@ -1,0 +1,12 @@
+#body {
+    text-align: center;
+    padding:10px;
+    padding-bottom:60px;   /* Height of the footer */
+}
+
+.img-gif {
+    position: relative;
+    padding-bottom: 15px;
+    width: 350px !important;
+    height: 250px !important;
+}

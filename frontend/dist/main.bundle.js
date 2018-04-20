@@ -103,7 +103,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "body {\n    margin:0;\n    padding:0;\n    height:100%;\n}", ""]);
 
 // exports
 
@@ -259,7 +259,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "h3 {\n    text-align: center;\n}\n#form {\n    text-align: center;\n}\n.graph-center {\n    margin: auto;\n    width: 70%;\n    height: 70%;\n    border: 3px solid #73AD21;\n    padding: 10px;\n}", ""]);
+exports.push([module.i, "h3 {\n    text-align: center;\n}\n#form {\n    text-align: center;\n}\n.graph-center {\n    margin: auto;\n    width: 80%;\n    height: 70%;\n    border: 3px solid #73AD21;\n    padding: 10px;\n}", ""]);
 
 // exports
 
@@ -332,7 +332,6 @@ var AtlantaComponent = /** @class */ (function () {
         this.cityCodemap.set("Portland", "KPDX");
         this.cityCodemap.set("Sacramento", "KSAC");
         this.cityCodemap.set("Tuscon", "KDMA");
-        console.log(this.cityCodemap);
     }
     AtlantaComponent.prototype.ChangeCity = function (newCity) {
         this.selectedCity = newCity;
@@ -345,9 +344,11 @@ var AtlantaComponent = /** @class */ (function () {
             this.startDate = new Date(this.value.split(" - ")[0]);
             //EndDate
             this.endDate = new Date(this.value.split(" - ")[1]);
+            //Calculate difference between two dates
+            var diff = Math.abs(this.startDate.getTime() - this.endDate.getTime());
+            this.diffDays = Math.ceil(diff / (1000 * 3600 * 24));
             // Selected Citycode
             this.cityCode = this.cityCodemap.get(this.selectedCity);
-            console.log(this.cityCode);
             // Data Service which gets the data from database with startdate, enddate and city filter
             this._dataService.dateRangeFilter(this.startDate, this.endDate, this.cityCode)
                 .subscribe(function (res) {
@@ -401,6 +402,20 @@ var AtlantaComponent = /** @class */ (function () {
                         },
                         scales: {
                             xAxes: [{
+                                    type: 'time',
+                                    minUnit: 'day',
+                                    time: {
+                                        unit: 'day',
+                                        displayFormats: {
+                                            day: 'D-MMM',
+                                            week: 'D-MMM',
+                                            month: 'D-MMM',
+                                            quarter: 'D-MMM',
+                                            min: _this.startDate,
+                                            max: _this.endDate
+                                        },
+                                        unitStepSize: 11,
+                                    },
                                     ticks: {
                                         autoSkip: false
                                     },
@@ -526,7 +541,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#body {\n    text-align: center;\n    padding:10px;\n    padding-bottom:60px;   /* Height of the footer */\n}\n\n.img-gif {\n    position: relative;\n    padding-bottom: 15px;\n    width: 350px !important;\n    height: 250px !important;\n}", ""]);
 
 // exports
 
@@ -539,7 +554,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/container/container.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron\">\n  <h1 class=\"display-3\">Hello, world!</h1>\n  <p class=\"lead\">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>\n  <hr class=\"my-4\">\n  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>\n  <p class=\"lead\">\n    <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Learn more</a>\n  </p>\n</div>\n"
+module.exports = "    <div id=\"body\">\n        <div>\n                <h1>Large Data Processing and Visualization</h1><br>\n                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, \n                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. \n                    It has survived not only five centuries, but also the leap into electronic typesetting, \n                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets \n                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker \n                    including versions of Lorem Ipsum.</h6>\n        </div>\n        <br>\n        <div class=\"row\">\n          <div class=\"col-sm\">\n              <a href=\"#\" routerLink=\"weather-stations/atlanta\">\n              <img class=\"img-gif\" title=\"Historical Weather\" src=\"https://cdn.dribbble.com/users/340460/screenshots/2046488/weather-icons.gif\" alt=\"Historical Weather\"/> \n              <h5>Historical Weather</h5>\n            </a>\n          </div>\n          <div class=\"col-sm\">\n              <a href=\"#\">\n              <img class=\"img-gif\" title=\"HDD and CDD\" src=\"https://mir-s3-cdn-cf.behance.net/project_modules/disp/c48be530971807.563b2b13efcae.gif\"/>\n              <h5>HDD and CDD</h5>\n            </a>\n          </div>\n          <div class=\"col-sm\">\n              <a href=\"#\">\n              <img class=\"img-gif\" title=\"Weather and Price Predictions\" src=\"https://i.pinimg.com/originals/5f/0c/8b/5f0c8bc65470f8b8b011802a14c2a099.gif\"/>\n              <h5>Weather and Price Predictions</h5>\n              </a>\n          </div>\n        </div>\n    </div>\n"
 
 /***/ }),
 
@@ -687,7 +702,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#footer {\n    position: fixed;\n    bottom:0;\n    width:100%;\n    height:60px;   /* Height of the footer */\n    background: #00C38B;\n    text-align: center;\n    color: white;\n}\n\np {\n    -ms-flex-line-pack: center;\n        align-content: center;\n}", ""]);
 
 // exports
 
@@ -700,7 +715,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<footer class=\"footer\" text-align=\"center\">\n     <div class=\"container\">\n       <p class=\"text-muted\">Copyright &copy; by Priyanka & Inga.\n       All Rights Reserved from 2018 - 2028</p>\n     </div>\n</footer>\n"
+module.exports = "<div id=\"footer\">\n  <p>Copyright &copy; by Priyanka & Inga.\n        All Rights Reserved from 2018 - 2028</p>\n</div>\n"
 
 /***/ }),
 
@@ -748,7 +763,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".dropdown:hover .dropdown-menu {\n  display: block;\n}\n", ""]);
+exports.push([module.i, ".dropdown:hover .dropdown-menu {\n  display: block;\n}\n\n#header {\n  padding:10px;\n}", ""]);
 
 // exports
 
@@ -761,7 +776,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n  <a class=\"navbar-brand nav-link active\" href=\"#\" routerLink=\"\">Volunteer <span class=\"sr-only\">(current)</span></a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarColor02\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item dropdown\" ngbDropdown>\n          <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"weather-stations\" ngbDropdownToggle> Weather Stations </a>\n          <div class=\"dropdown-menu\" aria-labelledby=\"weatherstations\" ngbDropdownMenu>\n            <a class=\"dropdown-item\" href=\"#\" routerLink=\"weather-stations/atlanta\">Atlanta, GA</a>\n            <a class=\"dropdown-item\" href=\"#\">Boston, MA</a>\n            <a class=\"dropdown-item\" href=\"#\">Chicago, IL</a>\n            <a class=\"dropdown-item\" href=\"#\">Cincinnati, OH</a>\n            <a class=\"dropdown-item\" href=\"#\">Dallas, TX</a>\n            <a class=\"dropdown-item\" href=\"#\">Des Moines, IA</a>\n            <a class=\"dropdown-item\" href=\"#\">Houston, TX</a>\n            <a class=\"dropdown-item\" href=\"#\">Kansas City, MO</a>\n            <a class=\"dropdown-item\" href=\"#\">Las Vegas, NV</a>\n            <a class=\"dropdown-item\" href=\"#\">Mimmeapolis, MN</a>\n            <a class=\"dropdown-item\" href=\"#\">NewYork, NY</a>\n            <a class=\"dropdown-item\" href=\"#\">Philadelphia, PA</a>\n            <a class=\"dropdown-item\" href=\"#\">Portland, OR</a>\n            <a class=\"dropdown-item\" href=\"#\">Sacramento, CA</a>\n            <a class=\"dropdown-item\" href=\"#\">Tuscon, AZ</a>\n          </div>\n      </li>\n      <li class=\"nav-item dropdown\" ngbDropdown>\n          <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weather\" routerLink=\"weather\" ngbDropdownToggle> Weather </a>\n          <div class=\"dropdown-menu\" aria-labelledby=\"weather\" ngbDropdownMenu>\n            <a class=\"dropdown-item\" href=\"#\">Forecast</a>\n            <a class=\"dropdown-item\" href=\"#\">Current Conditions</a>\n          </div>\n      </li>\n      <li class=\"nav-item dropdown\" ngbDropdown>\n          <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"climate\" routerLink=\"climate\" ngbDropdownToggle> Climate </a>\n          <div class=\"dropdown-menu\" aria-labelledby=\"climate\" ngbDropdownMenu>\n            <a class=\"dropdown-item\" href=\"#\">Climate Map</a>\n            <a class=\"dropdown-item\" href=\"#\">Station Climate</a>\n            <a class=\"dropdown-item\" href=\"#\">Weather Records</a>\n          </div>\n      </li>\n      <li class=\"nav-item dropdown\" ngbDropdown>\n        <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"tools\" routerLink=\"tools\" ngbDropdownToggle> Tools </a>\n        <div class=\"dropdown-menu\" aria-labelledby=\"climate\" ngbDropdownMenu>\n          <a class=\"dropdown-item\" href=\"#\" routerLink=\"tools/weathervsderivatives\">Weather vs. derivatives</a>\n          <a class=\"dropdown-item\" href=\"#\">Unit Conversion</a>\n          <a class=\"dropdown-item\" href=\"#\">Dew Point</a>\n          <a class=\"dropdown-item\" href=\"#\">Wind Power</a>\n        </div>\n      </li>\n    </ul>\n    <form class=\"form-inline my-2 my-lg-0\">\n      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">\n      <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>\n    </form>\n  </div>\n</nav>\n"
+module.exports = "<div id=\"header\">\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n    <a class=\"navbar-brand nav-link active\" href=\"#\" routerLink=\"\">Volunteer <span class=\"sr-only\">(current)</span></a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarColor02\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item dropdown\" ngbDropdown>\n            <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"weather-stations\" ngbDropdownToggle> Weather Stations </a>\n            <div class=\"dropdown-menu\" aria-labelledby=\"weatherstations\" ngbDropdownMenu>\n              <a class=\"dropdown-item\" href=\"#\" routerLink=\"weather-stations/atlanta\">Atlanta, GA</a>\n              <a class=\"dropdown-item\" href=\"#\">Boston, MA</a>\n              <a class=\"dropdown-item\" href=\"#\">Chicago, IL</a>\n              <a class=\"dropdown-item\" href=\"#\">Cincinnati, OH</a>\n              <a class=\"dropdown-item\" href=\"#\">Dallas, TX</a>\n              <a class=\"dropdown-item\" href=\"#\">Des Moines, IA</a>\n              <a class=\"dropdown-item\" href=\"#\">Houston, TX</a>\n              <a class=\"dropdown-item\" href=\"#\">Kansas City, MO</a>\n              <a class=\"dropdown-item\" href=\"#\">Las Vegas, NV</a>\n              <a class=\"dropdown-item\" href=\"#\">Mimmeapolis, MN</a>\n              <a class=\"dropdown-item\" href=\"#\">NewYork, NY</a>\n              <a class=\"dropdown-item\" href=\"#\">Philadelphia, PA</a>\n              <a class=\"dropdown-item\" href=\"#\">Portland, OR</a>\n              <a class=\"dropdown-item\" href=\"#\">Sacramento, CA</a>\n              <a class=\"dropdown-item\" href=\"#\">Tuscon, AZ</a>\n            </div>\n        </li>\n        <li class=\"nav-item dropdown\" ngbDropdown>\n            <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weather\" routerLink=\"weather\" ngbDropdownToggle> Weather </a>\n            <div class=\"dropdown-menu\" aria-labelledby=\"weather\" ngbDropdownMenu>\n              <a class=\"dropdown-item\" href=\"#\">Forecast</a>\n              <a class=\"dropdown-item\" href=\"#\">Current Conditions</a>\n            </div>\n        </li>\n        <li class=\"nav-item dropdown\" ngbDropdown>\n            <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"climate\" routerLink=\"climate\" ngbDropdownToggle> Climate </a>\n            <div class=\"dropdown-menu\" aria-labelledby=\"climate\" ngbDropdownMenu>\n              <a class=\"dropdown-item\" href=\"#\">Climate Map</a>\n              <a class=\"dropdown-item\" href=\"#\">Station Climate</a>\n              <a class=\"dropdown-item\" href=\"#\">Weather Records</a>\n            </div>\n        </li>\n        <li class=\"nav-item dropdown\" ngbDropdown>\n          <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"tools\" routerLink=\"tools\" ngbDropdownToggle> Tools </a>\n          <div class=\"dropdown-menu\" aria-labelledby=\"climate\" ngbDropdownMenu>\n            <a class=\"dropdown-item\" href=\"#\" routerLink=\"tools/weathervsderivatives\">Weather vs. derivatives</a>\n            <a class=\"dropdown-item\" href=\"#\">Unit Conversion</a>\n            <a class=\"dropdown-item\" href=\"#\">Dew Point</a>\n            <a class=\"dropdown-item\" href=\"#\">Wind Power</a>\n          </div>\n        </li>\n      </ul>\n      <form class=\"form-inline my-2 my-lg-0\">\n        <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">\n        <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>\n      </form>\n    </div>\n  </nav>\n</div>\n"
 
 /***/ }),
 
@@ -809,7 +824,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#container {\n    min-height:100%;\n    position:relative;\n}", ""]);
 
 // exports
 
@@ -822,7 +837,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<app-container></app-container>\n<app-footer></app-footer>\n"
+module.exports = "<div id=\"container\">\n    <app-header></app-header>\n    <app-container></app-container>\n    <app-footer></app-footer>\n</div>\n"
 
 /***/ }),
 
