@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
-  selector: 'app-tools',
-  templateUrl: './tools.component.html',
-  styleUrls: ['./tools.component.css']
+  selector: 'app-predictions',
+  templateUrl: './predictions.component.html',
+  styleUrls: ['./predictions.component.scss']
 })
-export class ToolsComponent implements OnInit {
+export class PredictionsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService) { }
 
@@ -18,5 +18,4 @@ export class ToolsComponent implements OnInit {
   sendMeHome(){
     this.router.navigate(['']);
   }
-
 }

@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component'; //Added
-import { WeatherStationsComponent } from './weather-stations/weather-stations.component'; //Added
-import { WeatherComponent } from './weather/weather.component'; //Added
-import { ClimateComponent } from './climate/climate.component'; //Added
-import { ToolsComponent } from './tools/tools.component'; //Added
 import { AtlantaComponent } from './atlanta/atlanta.component';
 import { WeathervsderivativesComponent } from './weathervsderivatives/weathervsderivatives.component';
+import { HistoricalWeatherComponent } from './historical-weather/historical-weather.component';
+import { HddCddComponent } from './hdd-cdd/hdd-cdd.component';
+import { PredictionsComponent } from './predictions/predictions.component';
 
 const routes: Routes = [
   {
@@ -15,20 +14,16 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'weather-stations',
-    component: WeatherStationsComponent
+    path: 'historical-weather',
+    component: HistoricalWeatherComponent
   },
   {
-    path: 'weather',
-    component: WeatherComponent
+    path: 'hdd-cdd',
+    component: HddCddComponent
   },
   {
-    path: 'climate',
-    component: ClimateComponent
-  },
-  {
-    path: 'tools',
-    component: ToolsComponent
+    path: 'predictions',
+    component: PredictionsComponent
   },
   {
     path: 'weather-stations/atlanta',

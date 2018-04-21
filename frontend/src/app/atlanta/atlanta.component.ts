@@ -17,11 +17,10 @@ export class AtlantaComponent implements OnInit {
   endDate : Date;
   newDate: string;
   cityCode: String;
+  atlantaResponse:any[]=[];
+  chart = [];
 
   cityCodemap = new Map();
-
-      // this.cityCode = this.cityCodemap.get(this.selectedCity);
-
   cities: string[] = ["Atlanta", "Boston", "Chicago","Cincinnati","Dallas","Des Moines","Houston","Kansas City","Las Vegas","Mimmeapolis","NewYork","Philadelphia","Portland","Sacramento","Tuscon"];
   selectedCity: string = "Select City";
   diffDays: number;
@@ -29,15 +28,6 @@ export class AtlantaComponent implements OnInit {
   ChangeCity(newCity: string) { 
     this.selectedCity = newCity;
   }
-
-  atlantaResponse:any[]=[];
-  
-  // Define a property to hold our city data
-  cityHistoricalData_Atlanta: Array<any>;
-
-  chart = [];
-  temp_max_ny: any[] = [];
-
 
   // Create an instance of the DataService through dependency injection
   constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService) { 

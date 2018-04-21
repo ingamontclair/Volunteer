@@ -13,14 +13,12 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
-import { WeatherStationsComponent } from './weather-stations/weather-stations.component';
-import { WeatherComponent } from './weather/weather.component';
-import { ClimateComponent } from './climate/climate.component';
-import { ToolsComponent } from './tools/tools.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AtlantaComponent } from './atlanta/atlanta.component';
-// import { GraphComponent } from './atlanta/graph.component';
 import { WeathervsderivativesComponent } from './weathervsderivatives/weathervsderivatives.component';
+import { HistoricalWeatherComponent } from './historical-weather/historical-weather.component';
+import { HddCddComponent } from './hdd-cdd/hdd-cdd.component';
+import { PredictionsComponent } from './predictions/predictions.component';
 
 
 @NgModule({
@@ -30,13 +28,11 @@ import { WeathervsderivativesComponent } from './weathervsderivatives/weathervsd
     FooterComponent,
     HeaderComponent,
     ContainerComponent,
-    WeatherStationsComponent,
-    WeatherComponent,
-    ClimateComponent,
-    ToolsComponent,
     AtlantaComponent,
-    WeathervsderivativesComponent
-    // GraphComponent
+    WeathervsderivativesComponent,
+    HistoricalWeatherComponent,
+    HddCddComponent,
+    PredictionsComponent
   ],
   imports: [
     BrowserModule,

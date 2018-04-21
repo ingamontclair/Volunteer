@@ -26,12 +26,11 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__weather_stations_weather_stations_component__ = __webpack_require__("../../../../../src/app/weather-stations/weather-stations.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__weather_weather_component__ = __webpack_require__("../../../../../src/app/weather/weather.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__climate_climate_component__ = __webpack_require__("../../../../../src/app/climate/climate.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__tools_tools_component__ = __webpack_require__("../../../../../src/app/tools/tools.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__atlanta_atlanta_component__ = __webpack_require__("../../../../../src/app/atlanta/atlanta.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__weathervsderivatives_weathervsderivatives_component__ = __webpack_require__("../../../../../src/app/weathervsderivatives/weathervsderivatives.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__atlanta_atlanta_component__ = __webpack_require__("../../../../../src/app/atlanta/atlanta.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__weathervsderivatives_weathervsderivatives_component__ = __webpack_require__("../../../../../src/app/weathervsderivatives/weathervsderivatives.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__historical_weather_historical_weather_component__ = __webpack_require__("../../../../../src/app/historical-weather/historical-weather.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__hdd_cdd_hdd_cdd_component__ = __webpack_require__("../../../../../src/app/hdd-cdd/hdd-cdd.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__predictions_predictions_component__ = __webpack_require__("../../../../../src/app/predictions/predictions.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -42,10 +41,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
  //Added
- //Added
- //Added
- //Added
- //Added
+
+
+
 
 
 var routes = [
@@ -54,28 +52,24 @@ var routes = [
         component: __WEBPACK_IMPORTED_MODULE_3__home_home_component__["a" /* HomeComponent */]
     },
     {
-        path: 'weather-stations',
-        component: __WEBPACK_IMPORTED_MODULE_4__weather_stations_weather_stations_component__["a" /* WeatherStationsComponent */]
+        path: 'historical-weather',
+        component: __WEBPACK_IMPORTED_MODULE_6__historical_weather_historical_weather_component__["a" /* HistoricalWeatherComponent */]
     },
     {
-        path: 'weather',
-        component: __WEBPACK_IMPORTED_MODULE_5__weather_weather_component__["a" /* WeatherComponent */]
+        path: 'hdd-cdd',
+        component: __WEBPACK_IMPORTED_MODULE_7__hdd_cdd_hdd_cdd_component__["a" /* HddCddComponent */]
     },
     {
-        path: 'climate',
-        component: __WEBPACK_IMPORTED_MODULE_6__climate_climate_component__["a" /* ClimateComponent */]
-    },
-    {
-        path: 'tools',
-        component: __WEBPACK_IMPORTED_MODULE_7__tools_tools_component__["a" /* ToolsComponent */]
+        path: 'predictions',
+        component: __WEBPACK_IMPORTED_MODULE_8__predictions_predictions_component__["a" /* PredictionsComponent */]
     },
     {
         path: 'weather-stations/atlanta',
-        component: __WEBPACK_IMPORTED_MODULE_8__atlanta_atlanta_component__["a" /* AtlantaComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_4__atlanta_atlanta_component__["a" /* AtlantaComponent */]
     },
     {
         path: 'tools/weathervsderivatives',
-        component: __WEBPACK_IMPORTED_MODULE_9__weathervsderivatives_weathervsderivatives_component__["a" /* WeathervsderivativesComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_5__weathervsderivatives_weathervsderivatives_component__["a" /* WeathervsderivativesComponent */]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -177,13 +171,12 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__container_container_component__ = __webpack_require__("../../../../../src/app/container/container.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__weather_stations_weather_stations_component__ = __webpack_require__("../../../../../src/app/weather-stations/weather-stations.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__weather_weather_component__ = __webpack_require__("../../../../../src/app/weather/weather.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__climate_climate_component__ = __webpack_require__("../../../../../src/app/climate/climate.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__tools_tools_component__ = __webpack_require__("../../../../../src/app/tools/tools.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__atlanta_atlanta_component__ = __webpack_require__("../../../../../src/app/atlanta/atlanta.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__weathervsderivatives_weathervsderivatives_component__ = __webpack_require__("../../../../../src/app/weathervsderivatives/weathervsderivatives.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__atlanta_atlanta_component__ = __webpack_require__("../../../../../src/app/atlanta/atlanta.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__weathervsderivatives_weathervsderivatives_component__ = __webpack_require__("../../../../../src/app/weathervsderivatives/weathervsderivatives.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__historical_weather_historical_weather_component__ = __webpack_require__("../../../../../src/app/historical-weather/historical-weather.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__hdd_cdd_hdd_cdd_component__ = __webpack_require__("../../../../../src/app/hdd-cdd/hdd-cdd.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__predictions_predictions_component__ = __webpack_require__("../../../../../src/app/predictions/predictions.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -210,8 +203,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-// import { GraphComponent } from './atlanta/graph.component';
-
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -223,13 +214,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10__footer_footer_component__["a" /* FooterComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__header_header_component__["a" /* HeaderComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__container_container_component__["a" /* ContainerComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__weather_stations_weather_stations_component__["a" /* WeatherStationsComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__weather_weather_component__["a" /* WeatherComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__climate_climate_component__["a" /* ClimateComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__tools_tools_component__["a" /* ToolsComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__atlanta_atlanta_component__["a" /* AtlantaComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__weathervsderivatives_weathervsderivatives_component__["a" /* WeathervsderivativesComponent */]
-                // GraphComponent
+                __WEBPACK_IMPORTED_MODULE_14__atlanta_atlanta_component__["a" /* AtlantaComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__weathervsderivatives_weathervsderivatives_component__["a" /* WeathervsderivativesComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__historical_weather_historical_weather_component__["a" /* HistoricalWeatherComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__hdd_cdd_hdd_cdd_component__["a" /* HddCddComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__predictions_predictions_component__["a" /* PredictionsComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -237,7 +226,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_datepicker__["a" /* BsDatepickerModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_8__app_routing_module__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_17__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_13__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */]
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_6__data_service__["a" /* DataService */]],
@@ -306,13 +295,11 @@ var AtlantaComponent = /** @class */ (function () {
         this.route = route;
         this.router = router;
         this._dataService = _dataService;
-        this.cityCodemap = new Map();
-        // this.cityCode = this.cityCodemap.get(this.selectedCity);
-        this.cities = ["Atlanta", "Boston", "Chicago", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
-        this.selectedCity = "Select City";
         this.atlantaResponse = [];
         this.chart = [];
-        this.temp_max_ny = [];
+        this.cityCodemap = new Map();
+        this.cities = ["Atlanta", "Boston", "Chicago", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
+        this.selectedCity = "Select City";
         // Getting Date range from ui to get filtered data from database
         this.value = '';
         var startDate;
@@ -461,78 +448,6 @@ var AtlantaComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/climate/climate.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/climate/climate.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  climate works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/climate/climate.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ClimateComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var ClimateComponent = /** @class */ (function () {
-    function ClimateComponent(route, router, _data) {
-        this.route = route;
-        this.router = router;
-        this._data = _data;
-    }
-    ClimateComponent.prototype.ngOnInit = function () {
-    };
-    ClimateComponent.prototype.sendMeHome = function () {
-        this.router.navigate(['']);
-    };
-    ClimateComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-climate',
-            template: __webpack_require__("../../../../../src/app/climate/climate.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/climate/climate.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
-    ], ClimateComponent);
-    return ClimateComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "../../../../../src/app/container/container.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -554,7 +469,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/container/container.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "    <div id=\"body\">\n        <div>\n                <h1>Large Data Processing and Visualization</h1><br>\n                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, \n                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. \n                    It has survived not only five centuries, but also the leap into electronic typesetting, \n                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets \n                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker \n                    including versions of Lorem Ipsum.</h6>\n        </div>\n        <br>\n        <div class=\"row\">\n          <div class=\"col-sm\">\n              <a href=\"#\" routerLink=\"weather-stations/atlanta\">\n              <img class=\"img-gif\" title=\"Historical Weather\" src=\"https://cdn.dribbble.com/users/340460/screenshots/2046488/weather-icons.gif\" alt=\"Historical Weather\"/> \n              <h5>Historical Weather</h5>\n            </a>\n          </div>\n          <div class=\"col-sm\">\n              <a href=\"#\">\n              <img class=\"img-gif\" title=\"HDD and CDD\" src=\"https://mir-s3-cdn-cf.behance.net/project_modules/disp/c48be530971807.563b2b13efcae.gif\"/>\n              <h5>HDD and CDD</h5>\n            </a>\n          </div>\n          <div class=\"col-sm\">\n              <a href=\"#\">\n              <img class=\"img-gif\" title=\"Weather and Price Predictions\" src=\"https://i.pinimg.com/originals/5f/0c/8b/5f0c8bc65470f8b8b011802a14c2a099.gif\"/>\n              <h5>Weather and Price Predictions</h5>\n              </a>\n          </div>\n        </div>\n    </div>\n"
+module.exports = "    <div id=\"body\">\n        <div>\n                <h1>Large Data Processing and Visualization</h1><br>\n                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, \n                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. \n                    It has survived not only five centuries, but also the leap into electronic typesetting, \n                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets \n                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker \n                    including versions of Lorem Ipsum.</h6>\n        </div>\n        <br>\n        <div class=\"row\">\n          <div class=\"col-sm\">\n              <a href=\"#\" routerLink=\"historical-weather\">\n              <img class=\"img-gif\" title=\"Historical Weather\" src=\"https://cdn.dribbble.com/users/340460/screenshots/2046488/weather-icons.gif\" alt=\"Historical Weather\"/> \n              <h5>Historical Weather</h5>\n            </a>\n          </div>\n          <div class=\"col-sm\">\n              <a href=\"#\" routerLink=\"hdd-cdd\">\n              <img class=\"img-gif\" title=\"HDD and CDD\" src=\"https://mir-s3-cdn-cf.behance.net/project_modules/disp/c48be530971807.563b2b13efcae.gif\"/>\n              <h5>HDD and CDD</h5>\n            </a>\n          </div>\n          <div class=\"col-sm\">\n              <a href=\"#\" routerLink=\"predictions\">\n              <img class=\"img-gif\" title=\"Weather and Price Predictions\" src=\"https://i.pinimg.com/originals/5f/0c/8b/5f0c8bc65470f8b8b011802a14c2a099.gif\"/>\n              <h5>Weather and Price Predictions</h5>\n              </a>\n          </div>\n        </div>\n    </div>\n"
 
 /***/ }),
 
@@ -755,6 +670,78 @@ var FooterComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/hdd-cdd/hdd-cdd.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  hdd-cdd works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/hdd-cdd/hdd-cdd.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/hdd-cdd/hdd-cdd.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HddCddComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var HddCddComponent = /** @class */ (function () {
+    function HddCddComponent(route, router, _dataService) {
+        this.route = route;
+        this.router = router;
+        this._dataService = _dataService;
+    }
+    HddCddComponent.prototype.ngOnInit = function () {
+    };
+    HddCddComponent.prototype.sendMeHome = function () {
+        this.router.navigate(['']);
+    };
+    HddCddComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-hdd-cdd',
+            template: __webpack_require__("../../../../../src/app/hdd-cdd/hdd-cdd.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/hdd-cdd/hdd-cdd.component.scss")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
+    ], HddCddComponent);
+    return HddCddComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/header/header.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -776,7 +763,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"header\">\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n    <a class=\"navbar-brand nav-link active\" href=\"#\" routerLink=\"\">Volunteer <span class=\"sr-only\">(current)</span></a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarColor02\">\n      <ul class=\"navbar-nav mr-auto\">\n        <a class=\"nav-link\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"weather-stations\"> Historical Weather </a>\n        <a class=\"nav-link\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"weather-stations\"> HDD & CDD </a>\n        <a class=\"nav-link\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"weather-stations\"> Predictions </a>\n      </ul>\n      <form class=\"form-inline my-2 my-lg-0\">\n        <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">\n        <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>\n      </form>\n    </div>\n  </nav>\n</div>\n"
+module.exports = "<div id=\"header\">\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n    <a class=\"navbar-brand nav-link active\" href=\"#\" routerLink=\"\">Volunteer <span class=\"sr-only\">(current)</span></a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarColor02\">\n      <ul class=\"navbar-nav mr-auto\">\n        <a class=\"nav-link\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"historical-weather\"> Historical Weather </a>\n        <a class=\"nav-link\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"hdd-cdd\"> HDD & CDD </a>\n        <a class=\"nav-link\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"weatherstations\" routerLink=\"predictions\"> Predictions </a>\n      </ul>\n      <form class=\"form-inline my-2 my-lg-0\">\n        <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">\n        <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>\n      </form>\n    </div>\n  </nav>\n</div>\n"
 
 /***/ }),
 
@@ -810,6 +797,482 @@ var HeaderComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], HeaderComponent);
     return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/historical-weather/historical-weather.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div ng-app=\"myApp\">\n    <h3>{{selectedCity}} , Historical Weather Data</h3>\n    <br><br>\n    <div id=\"form\" onload=\"onload();\">\n        <form class=\"form-inline justify-content-center\">\n                <div class=\"form-group mb-2\">\n                    <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Select Date Range : </label>\n                    <div class=\"col-xs-12 col-12 col-sm-6 col-md-4 form-group\">\n                        <input #newDate\n                            (keyup.enter)=\"addDate(newDate.value)\"\n                            (blur)=\"addDate(newDate.value); newDate.value='' \"\n                            class=\"form-control\" \n                            placeholder=\"Daterangepicker\" \n                            name = \"daterange\"\n                            bsDaterangepicker #dpr=\"bsDaterangepicker\">\n                    </div>\n                </div>\n                <div class=\"form-group mx-sm-3 mb-2\">\n                    <div class=\"dropdown\" ngbDropdown>\n                        <button class=\"btn btn-primary\" id=\"sortMenu\" ngbDropdownToggle>{{selectedCity}}</button>\n                        <div class=\"dropdown-menu\" aria-labelledby=\"sortMenu\" ngbDropdownMenu>\n                            <button class=\"dropdown-item\" *ngFor=\"let city of cities\" (click)=\"ChangeCity(city)\" >{{city}}</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"form-group mb-2\">\n                    <button (click)=\"addDate(newDate.value)\" class=\"btn btn-primary\">Submit</button>\n                </div>\n        </form>\n    </div>\n    <br>\n    <div class=\"row\">\n      <div *ngIf=\"chart\" class=\"graph-center\">\n          <canvas id=\"canvas\">{{ chart }}</canvas>\n      </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/historical-weather/historical-weather.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "h3 {\n  text-align: center; }\n\n#form {\n  text-align: center; }\n\n.graph-center {\n  margin: auto;\n  width: 80%;\n  height: 70%;\n  border: 3px solid #73AD21;\n  padding: 10px; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/historical-weather/historical-weather.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HistoricalWeatherComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__("../../../../chart.js/src/chart.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var HistoricalWeatherComponent = /** @class */ (function () {
+    // Create an instance of the DataService through dependency injection
+    function HistoricalWeatherComponent(route, router, _dataService) {
+        this.route = route;
+        this.router = router;
+        this._dataService = _dataService;
+        this.cityResponse = [];
+        this.chart = [];
+        this.cityCodemap = new Map();
+        this.cities = ["Atlanta", "Boston", "Chicago", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
+        this.selectedCity = "Select City";
+        // Getting Date range from ui to get filtered data from database
+        this.value = '';
+        var startDate;
+        var endDate;
+        this.cityCodemap.set("Atlanta", "KFTY");
+        this.cityCodemap.set("Boston", "KBOS");
+        this.cityCodemap.set("Chicago", "KORD");
+        this.cityCodemap.set("Cincinnati", "KLUX");
+        this.cityCodemap.set("Dallas", "KDAL");
+        this.cityCodemap.set("Des Moines", "KDSM");
+        this.cityCodemap.set("Houston", "KHOU");
+        this.cityCodemap.set("Kansas City", "KMKC");
+        this.cityCodemap.set("Las Vegas", "KVGT");
+        this.cityCodemap.set("Minneapolis", "KMIC");
+        this.cityCodemap.set("NewYork", "KNYC");
+        this.cityCodemap.set("Philadelphia", "KPHL");
+        this.cityCodemap.set("Portland", "KPDX");
+        this.cityCodemap.set("Sacramento", "KSAC");
+        this.cityCodemap.set("Tuscon", "KDMA");
+    }
+    HistoricalWeatherComponent.prototype.ChangeCity = function (newCity) {
+        this.selectedCity = newCity;
+    };
+    HistoricalWeatherComponent.prototype.addDate = function (newDate) {
+        var _this = this;
+        if (newDate) {
+            this.value = newDate;
+            //StartDate
+            this.startDate = new Date(this.value.split(" - ")[0]);
+            //EndDate
+            this.endDate = new Date(this.value.split(" - ")[1]);
+            //Calculate difference between two dates
+            var diff = Math.abs(this.startDate.getTime() - this.endDate.getTime());
+            this.diffDays = Math.ceil(diff / (1000 * 3600 * 24));
+            // Selected Citycode
+            this.cityCode = this.cityCodemap.get(this.selectedCity);
+            // Data Service which gets the data from database with startdate, enddate and city filter
+            this._dataService.dateRangeFilter(this.startDate, this.endDate, this.cityCode)
+                .subscribe(function (res) {
+                var cityResponse = res['data'].map(function (res) { return res; });
+                var alldates = [];
+                var temp_max = [];
+                var temp_min = [];
+                var temp_mean = [];
+                cityResponse.forEach(function (res) {
+                    if (res.city_code == _this.cityCode && new Date(res.date) >= new Date(_this.startDate) && new Date(res.date) <= new Date(_this.endDate)) {
+                        alldates.push(res.date);
+                        temp_max.push(res.temp_max);
+                        temp_min.push(res.temp_min);
+                        temp_mean.push(res.temp_mean);
+                    }
+                });
+                // Chart for data less than or equal to 30 days
+                if (_this.diffDays <= 30) {
+                    console.log("data less than or equal to 30 days");
+                    _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
+                        type: 'line',
+                        data: {
+                            labels: alldates,
+                            datasets: [
+                                {
+                                    data: temp_max,
+                                    label: "Temp_max",
+                                    backgroundColor: "#3cba9f",
+                                    borderColor: "#3cba9f",
+                                    fill: false,
+                                },
+                                {
+                                    data: temp_min,
+                                    label: "Temp_min",
+                                    backgroundColor: "#ffcc00",
+                                    borderColor: "#ffcc00",
+                                    fill: false,
+                                },
+                                {
+                                    data: temp_mean,
+                                    label: "Temp_mean",
+                                    backgroundColor: "#ff0059",
+                                    borderColor: "#ff0059",
+                                    fill: false,
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: _this.selectedCity + ' , Historical Weather Data'
+                            },
+                            scales: {
+                                xAxes: [{
+                                        type: 'time',
+                                        time: {
+                                            unit: 'day',
+                                            displayFormats: {
+                                                day: 'MMM D',
+                                            },
+                                        },
+                                        ticks: {
+                                            autoSkip: false
+                                        },
+                                        display: true,
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Date Range'
+                                        }
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                        },
+                                        display: true,
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Temperature Range'
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                }
+                else if (_this.diffDays > 30 && _this.diffDays <= 90) {
+                    console.log("data between 1-3 months displayed weekly");
+                    _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
+                        type: 'line',
+                        data: {
+                            labels: alldates,
+                            datasets: [
+                                {
+                                    data: temp_max,
+                                    label: "Temp_max",
+                                    backgroundColor: "#3cba9f",
+                                    borderColor: "#3cba9f",
+                                    fill: false,
+                                },
+                                {
+                                    data: temp_min,
+                                    label: "Temp_min",
+                                    backgroundColor: "#ffcc00",
+                                    borderColor: "#ffcc00",
+                                    fill: false,
+                                },
+                                {
+                                    data: temp_mean,
+                                    label: "Temp_mean",
+                                    backgroundColor: "#ff0059",
+                                    borderColor: "#ff0059",
+                                    fill: false,
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: _this.selectedCity + ' , Historical Weather Data'
+                            },
+                            scales: {
+                                xAxes: [{
+                                        type: 'time',
+                                        time: {
+                                            unit: 'week',
+                                            displayFormats: {
+                                                week: 'll',
+                                            },
+                                        },
+                                        ticks: {
+                                            autoSkip: false
+                                        },
+                                        display: true,
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Date Range'
+                                        }
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                        },
+                                        display: true,
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Temperature Range'
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                }
+                else if (_this.diffDays > 90 && _this.diffDays <= 180) {
+                    console.log("data between 3-6 months displayed monthly");
+                    _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
+                        type: 'line',
+                        data: {
+                            labels: alldates,
+                            datasets: [
+                                {
+                                    data: temp_max,
+                                    label: "Temp_max",
+                                    backgroundColor: "#3cba9f",
+                                    borderColor: "#3cba9f",
+                                    fill: false,
+                                },
+                                {
+                                    data: temp_min,
+                                    label: "Temp_min",
+                                    backgroundColor: "#ffcc00",
+                                    borderColor: "#ffcc00",
+                                    fill: false,
+                                },
+                                {
+                                    data: temp_mean,
+                                    label: "Temp_mean",
+                                    backgroundColor: "#ff0059",
+                                    borderColor: "#ff0059",
+                                    fill: false,
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: _this.selectedCity + ' , Historical Weather Data'
+                            },
+                            scales: {
+                                xAxes: [{
+                                        type: 'time',
+                                        time: {
+                                            unit: 'month',
+                                            displayFormats: {
+                                                month: 'MMM YYYY',
+                                            },
+                                        },
+                                        ticks: {
+                                            autoSkip: false
+                                        },
+                                        display: true,
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Date Range'
+                                        }
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                        },
+                                        display: true,
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Temperature Range'
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                }
+                else if (_this.diffDays > 180 && _this.diffDays <= 365) {
+                    console.log("data between 6-12 months displayed quaterly");
+                    _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
+                        type: 'line',
+                        data: {
+                            labels: alldates,
+                            datasets: [
+                                {
+                                    data: temp_max,
+                                    label: "Temp_max",
+                                    backgroundColor: "#3cba9f",
+                                    borderColor: "#3cba9f",
+                                    fill: false,
+                                },
+                                {
+                                    data: temp_min,
+                                    label: "Temp_min",
+                                    backgroundColor: "#ffcc00",
+                                    borderColor: "#ffcc00",
+                                    fill: false,
+                                },
+                                {
+                                    data: temp_mean,
+                                    label: "Temp_mean",
+                                    backgroundColor: "#ff0059",
+                                    borderColor: "#ff0059",
+                                    fill: false,
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: _this.selectedCity + ' , Historical Weather Data'
+                            },
+                            scales: {
+                                xAxes: [{
+                                        type: 'time',
+                                        time: {
+                                            unit: 'quarter',
+                                            displayFormats: {
+                                                quarter: '[Q]Q - YYYY',
+                                            },
+                                        },
+                                        ticks: {
+                                            autoSkip: false
+                                        },
+                                        display: true,
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Date Range'
+                                        }
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                        },
+                                        display: true,
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Temperature Range'
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                }
+                else if (_this.diffDays > 365) {
+                    console.log("data more than 12 months displayed yearly");
+                    _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
+                        type: 'line',
+                        data: {
+                            labels: alldates,
+                            datasets: [
+                                {
+                                    data: temp_max,
+                                    label: "Temp_max",
+                                    backgroundColor: "#3cba9f",
+                                    borderColor: "#3cba9f",
+                                    fill: false,
+                                },
+                                {
+                                    data: temp_min,
+                                    label: "Temp_min",
+                                    backgroundColor: "#ffcc00",
+                                    borderColor: "#ffcc00",
+                                    fill: false,
+                                },
+                                {
+                                    data: temp_mean,
+                                    label: "Temp_mean",
+                                    backgroundColor: "#ff0059",
+                                    borderColor: "#ff0059",
+                                    fill: false,
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: _this.selectedCity + ' , Historical Weather Data'
+                            },
+                            scales: {
+                                xAxes: [{
+                                        type: 'time',
+                                        time: {
+                                            unit: 'year',
+                                            displayFormats: {
+                                                year: 'YYYY',
+                                            },
+                                        },
+                                        ticks: {
+                                            autoSkip: false
+                                        },
+                                        display: true,
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Date Range'
+                                        }
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                        },
+                                        display: true,
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Temperature Range'
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    };
+    HistoricalWeatherComponent.prototype.ngOnInit = function () {
+    };
+    HistoricalWeatherComponent.prototype.sendMeHome = function () {
+        this.router.navigate(['']);
+    };
+    HistoricalWeatherComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-historical-weather',
+            template: __webpack_require__("../../../../../src/app/historical-weather/historical-weather.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/historical-weather/historical-weather.component.scss")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
+    ], HistoricalWeatherComponent);
+    return HistoricalWeatherComponent;
 }());
 
 
@@ -877,7 +1340,14 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/tools/tools.component.css":
+/***/ "../../../../../src/app/predictions/predictions.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  predictions works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/predictions/predictions.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -895,18 +1365,11 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/tools/tools.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  tools works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/tools/tools.component.ts":
+/***/ "../../../../../src/app/predictions/predictions.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ToolsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PredictionsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
@@ -923,175 +1386,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ToolsComponent = /** @class */ (function () {
-    function ToolsComponent(route, router, _dataService) {
+var PredictionsComponent = /** @class */ (function () {
+    function PredictionsComponent(route, router, _dataService) {
         this.route = route;
         this.router = router;
         this._dataService = _dataService;
     }
-    ToolsComponent.prototype.ngOnInit = function () {
+    PredictionsComponent.prototype.ngOnInit = function () {
     };
-    ToolsComponent.prototype.sendMeHome = function () {
+    PredictionsComponent.prototype.sendMeHome = function () {
         this.router.navigate(['']);
     };
-    ToolsComponent = __decorate([
+    PredictionsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-tools',
-            template: __webpack_require__("../../../../../src/app/tools/tools.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/tools/tools.component.css")]
+            selector: 'app-predictions',
+            template: __webpack_require__("../../../../../src/app/predictions/predictions.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/predictions/predictions.component.scss")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
-    ], ToolsComponent);
-    return ToolsComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/weather-stations/weather-stations.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/weather-stations/weather-stations.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  weather-stations works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n<div *ngIf=\"chart\">\n  <canvas id=\"canvas\">{{ chart }}</canvas>\n</div>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/weather-stations/weather-stations.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WeatherStationsComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var WeatherStationsComponent = /** @class */ (function () {
-    function WeatherStationsComponent(route, router, _dataService) {
-        this.route = route;
-        this.router = router;
-        this._dataService = _dataService;
-        this.chart = [];
-    }
-    WeatherStationsComponent.prototype.ngOnInit = function () {
-    };
-    WeatherStationsComponent.prototype.sendMeHome = function () {
-        this.router.navigate(['']);
-    };
-    WeatherStationsComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-weather-stations',
-            template: __webpack_require__("../../../../../src/app/weather-stations/weather-stations.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/weather-stations/weather-stations.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
-    ], WeatherStationsComponent);
-    return WeatherStationsComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/weather/weather.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/weather/weather.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  weather works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/weather/weather.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WeatherComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var WeatherComponent = /** @class */ (function () {
-    function WeatherComponent(route, router, _dataService) {
-        this.route = route;
-        this.router = router;
-        this._dataService = _dataService;
-        this.minDate = new Date(1976, 12, 31);
-        this.maxDate = new Date(2017, 11, 31);
-        this.bsValue = new Date();
-        this.bsRangeValue = [new Date(2017, 7, 4), new Date(2017, 7, 20)];
-    }
-    WeatherComponent.prototype.ngOnInit = function () {
-    };
-    WeatherComponent.prototype.sendMeHome = function () {
-        this.router.navigate(['']);
-    };
-    WeatherComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-weather',
-            template: __webpack_require__("../../../../../src/app/weather/weather.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/weather/weather.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
-    ], WeatherComponent);
-    return WeatherComponent;
+    ], PredictionsComponent);
+    return PredictionsComponent;
 }());
 
 
