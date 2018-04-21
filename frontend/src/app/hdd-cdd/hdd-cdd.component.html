@@ -2,3 +2,74 @@
   hdd-cdd works!
   <a href="" (click)="sendMeHome()"><strong>Take me back</strong></a>
 </p>
+
+<div id="form" onload="onload();">
+    <form class="form-inline justify-content-center">
+            <div class="form-group mb-2">
+                <label class="mr-sm-2" for="inlineFormCustomSelect">Select Date Range : </label>
+                <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+                    <input #newDate
+                        (keyup.enter)="addDate(newDate.value)"
+                        (blur)="addDate(newDate.value); newDate.value='' "
+                        class="form-control" 
+                        placeholder="Daterangepicker" 
+                        name = "daterange"
+                        bsDaterangepicker #dpr="bsDaterangepicker">
+                </div>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <div class="dropdown" ngbDropdown>
+                    <button class="btn btn-primary" id="sortFuture" ngbDropdownToggle>{{selectedFuture}}</button>
+                    <div class="dropdown-menu" aria-labelledby="sortFuture" ngbDropdownMenu>
+                        <button class="dropdown-item" *ngFor="let future of futures" (click)="ChangeFuture(future)" >{{future}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <div class="dropdown" ngbDropdown>
+                    <button class="btn btn-primary" id="sortMenu" ngbDropdownToggle>{{selectedCity}}</button>
+                    <div class="dropdown-menu" aria-labelledby="sortMenu" ngbDropdownMenu>
+                        <button class="dropdown-item" *ngFor="let city of cities" (click)="ChangeCity(city)" >{{city}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <button (click)="addDate(newDate.value)" class="btn btn-primary">Submit</button>
+            </div>
+    </form>
+</div>
+<br>
+
+<div class="container-fluid">
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Column 1</th>
+          <th scope="col">Column 2</th>
+          <th scope="col">Column 3</th>
+          <th scope="col">Column 4</th>
+          <th scope="col">Column 5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

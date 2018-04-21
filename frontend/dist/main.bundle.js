@@ -673,7 +673,7 @@ var FooterComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/hdd-cdd/hdd-cdd.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  hdd-cdd works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n"
+module.exports = "<p>\n  hdd-cdd works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n\n<div id=\"form\" onload=\"onload();\">\n    <form class=\"form-inline justify-content-center\">\n            <div class=\"form-group mb-2\">\n                <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Select Date Range : </label>\n                <div class=\"col-xs-12 col-12 col-sm-6 col-md-4 form-group\">\n                    <input #newDate\n                        (keyup.enter)=\"addDate(newDate.value)\"\n                        (blur)=\"addDate(newDate.value); newDate.value='' \"\n                        class=\"form-control\" \n                        placeholder=\"Daterangepicker\" \n                        name = \"daterange\"\n                        bsDaterangepicker #dpr=\"bsDaterangepicker\">\n                </div>\n            </div>\n            <div class=\"form-group mx-sm-3 mb-2\">\n                <div class=\"dropdown\" ngbDropdown>\n                    <button class=\"btn btn-primary\" id=\"sortFuture\" ngbDropdownToggle>{{selectedFuture}}</button>\n                    <div class=\"dropdown-menu\" aria-labelledby=\"sortFuture\" ngbDropdownMenu>\n                        <button class=\"dropdown-item\" *ngFor=\"let future of futures\" (click)=\"ChangeFuture(future)\" >{{future}}</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group mx-sm-3 mb-2\">\n                <div class=\"dropdown\" ngbDropdown>\n                    <button class=\"btn btn-primary\" id=\"sortMenu\" ngbDropdownToggle>{{selectedCity}}</button>\n                    <div class=\"dropdown-menu\" aria-labelledby=\"sortMenu\" ngbDropdownMenu>\n                        <button class=\"dropdown-item\" *ngFor=\"let city of cities\" (click)=\"ChangeCity(city)\" >{{city}}</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group mb-2\">\n                <button (click)=\"addDate(newDate.value)\" class=\"btn btn-primary\">Submit</button>\n            </div>\n    </form>\n</div>\n<br>\n\n<div class=\"container-fluid\">\n  <table class=\"table table-bordered\">\n      <thead>\n        <tr>\n          <th scope=\"col\">#</th>\n          <th scope=\"col\">Column 1</th>\n          <th scope=\"col\">Column 2</th>\n          <th scope=\"col\">Column 3</th>\n          <th scope=\"col\">Column 4</th>\n          <th scope=\"col\">Column 5</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <th scope=\"row\">1</th>\n          <td>Mark</td>\n          <td>Otto</td>\n          <td>@mdo</td>\n        </tr>\n        <tr>\n          <th scope=\"row\">2</th>\n          <td>Jacob</td>\n          <td>Thornton</td>\n          <td>@fat</td>\n        </tr>\n        <tr>\n          <th scope=\"row\">3</th>\n          <td colspan=\"2\">Larry the Bird</td>\n          <td>@twitter</td>\n        </tr>\n      </tbody>\n    </table>\n</div>\n"
 
 /***/ }),
 
@@ -685,7 +685,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".table th {\n  text-align: center; }\n\n.table {\n  border-radius: 5px;\n  width: 70%;\n  margin: 0px auto;\n  float: none; }\n", ""]);
 
 // exports
 
@@ -721,7 +721,17 @@ var HddCddComponent = /** @class */ (function () {
         this.route = route;
         this.router = router;
         this._dataService = _dataService;
+        this.futures = ["HDD", "CDD"];
+        this.selectedFuture = "Select";
+        this.cities = ["Atlanta", "Boston", "Chicago", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
+        this.selectedCity = "Select City";
     }
+    HddCddComponent.prototype.ChangeFuture = function (newFuture) {
+        this.selectedFuture = newFuture;
+    };
+    HddCddComponent.prototype.ChangeCity = function (newCity) {
+        this.selectedCity = newCity;
+    };
     HddCddComponent.prototype.ngOnInit = function () {
     };
     HddCddComponent.prototype.sendMeHome = function () {
