@@ -19,6 +19,7 @@ import { WeathervsderivativesComponent } from './weathervsderivatives/weathervsd
 import { HistoricalWeatherComponent } from './historical-weather/historical-weather.component';
 import { HddCddComponent } from './hdd-cdd/hdd-cdd.component';
 import { PredictionsComponent } from './predictions/predictions.component';
+import {DatePipe} from '@angular/common';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { PredictionsComponent } from './predictions/predictions.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [DataService],
+  providers: [DataService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

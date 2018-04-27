@@ -9,7 +9,12 @@ import pandas as pd
 #from pandas import DataFrame, read_csv
 #from pandas import read_csv
 import numpy
-data = pd.read_csv('WeatherData_Atlanta1.csv',header=0)
+import sys
+print('ok')
+print ('Number of arguments:', len(sys.argv), 'arguments.')
+print ('Argument List:', str(sys.argv))
+print('ok again')
+data = pd.read_csv('../backend/WeatherData_Atlanta.csv',header=0)
 print("initial dataset values")
 print(data.values)
 print("** replace 0s **")

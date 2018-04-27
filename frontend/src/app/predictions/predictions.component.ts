@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { Chart } from 'chart.js';
 import { NgForm } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-predictions',
@@ -23,13 +24,13 @@ export class PredictionsComponent implements OnInit {
   cities: string[] = ["Atlanta", "Boston", "Chicago","Cincinnati","Dallas","Des Moines","Houston","Kansas City","Las Vegas","Mimmeapolis","NewYork","Philadelphia","Portland","Sacramento","Tuscon"];
   selectedCity: string = "Select City";
   diffDays: number;
-  
-  ChangeCity(newCity: string) { 
+
+  ChangeCity(newCity: string) {
     this.selectedCity = newCity;
   }
 
   // Create an instance of the DataService through dependency injection
-  constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService) { 
+  constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService, private datePipe: DatePipe) {
     let startDate : Date;
     let endDate : Date;
 
@@ -62,13 +63,13 @@ export class PredictionsComponent implements OnInit {
 
       //Calculate difference between two dates
       var diff = Math.abs(this.startDate.getTime() - this.endDate.getTime());
-      this.diffDays = Math.ceil(diff / (1000 * 3600 * 24)); 
+      this.diffDays = Math.ceil(diff / (1000 * 3600 * 24));
 
       // Selected Citycode
       this.cityCode = this.cityCodemap.get(this.selectedCity);
 
       // Data Service which gets the data from database with startdate, enddate and city filter
-      this._dataService.dateRangeFilter(this.startDate,this.endDate,this.cityCode)
+      this._dataService.dateRangeForPrediction(this.startDate,this.endDate,this.cityCode)
       .subscribe(res => {
           let cityResponse = res['data'].map(res => res);
           let alldates = [];
@@ -83,7 +84,7 @@ export class PredictionsComponent implements OnInit {
               temp_mean.push(res.temp_mean);
             }
           });
-          
+
           // Chart for data less than or equal to 30 days
           if(this.diffDays <= 30){
             console.log("data less than or equal to 30 days");
@@ -428,7 +429,7 @@ export class PredictionsComponent implements OnInit {
                 }
               }
             })
-          } 
+          }
         });
     }
   }
