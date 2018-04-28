@@ -19,6 +19,8 @@ export class PredictionsComponent implements OnInit {
   cityCode: String;
   cityResponse:any[]=[];
   chart = [];
+  args = [];
+  hello = "hi";
 
   cityCodemap = new Map();
   cities: string[] = ["Atlanta", "Boston", "Chicago","Cincinnati","Dallas","Des Moines","Houston","Kansas City","Las Vegas","Mimmeapolis","NewYork","Philadelphia","Portland","Sacramento","Tuscon"];
@@ -71,6 +73,12 @@ export class PredictionsComponent implements OnInit {
       // Data Service which gets the data from database with startdate, enddate and city filter
       this._dataService.dateRangeForPrediction(this.startDate,this.endDate,this.cityCode)
       .subscribe(res => {
+
+                  this.args = res['data'];
+                  console.log("args begin");
+                  console.log(this.args);
+                  console.log("args end");
+
           let cityResponse = res['data'].map(res => res);
           let alldates = [];
           let temp_max = [];
@@ -83,6 +91,7 @@ export class PredictionsComponent implements OnInit {
               temp_min.push(res.temp_min);
               temp_mean.push(res.temp_mean);
             }
+
           });
 
           // Chart for data less than or equal to 30 days

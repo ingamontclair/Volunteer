@@ -42,7 +42,13 @@ export class DataService {
     + "/" + cityCode;
 
     return this._httpClient.get(uri)
-      .map(result => result);
+      .map((result: any) => {
+               this.result = result;
+               console.log("before result");
+               console.log(this.result);
+               console.log("end result");
+               return result;
+              });
   }
 
 

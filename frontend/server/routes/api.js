@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
+const debug = require('debug')('weather');
+const { execSync } = require('child_process');
 
 // Connect
 const connection = (closure) => {
@@ -28,8 +30,14 @@ let response = {
 
 // Get Atlanta historical weather
 router.get('/cityHistoricalData_Atlanta', (req, res) => {
+
+debug('cityHistoricalData_Atlanta');
+//let stdout = execSync('python ../backend/missing.py');
+//debug('XXXX %s',stdout);
+//debug(stdout);
+
     connection((db) => {
-        db.collection('cityHistoricalData_Atlanta')
+        db.collection('cityHistoricalData_NewYork')
             .find()
             .toArray()
             .then((cityHistoricalData_Atlanta) => {
@@ -40,6 +48,34 @@ router.get('/cityHistoricalData_Atlanta', (req, res) => {
                 sendError(err, res);
             });
     });
+});
+
+router.get('/weatherPrediction/:startDate/:endDate/:cityCode', (req, res) => {
+
+
+debug('hh');
+let stdout = execSync('python ../backend/prediction.py '+ req.params.startDate + ' ' + req.params.endDate + ' ' +req.params.cityCode);
+debug('XXXX %s',stdout);
+debug('XXXX %s',req.params.startDate);
+//debug(req);
+debug('send');
+/*    connection((db) => {
+        db.collection('cityHistoricalData_NewYork')
+            .find()
+            .toArray()
+            .then((ny) => {
+                response.data = ny;
+                res.json(response);
+            })
+            .catch((err) => {
+                sendError(err, res);
+            });
+    });*/
+
+    res.setHeader('Content-Type', 'application/json');
+    res.send(stdout);
+
+
 });
 
 // Get HDD Jan for DEC'18 prices historical weather
