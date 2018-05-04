@@ -70,7 +70,7 @@ export class PredictionsComponent implements OnInit {
       this.startDate = new Date(this.value.split(" - ")[0]);
       this.s = this.value.split(" - ")[0];
       this.startDateForPred = this.s.replace(/\//g, this.replace);
-      //this.startDateForPred = this.value.split(" - ")[0];
+      
       //EndDate
       this.endDate = new Date(this.value.split(" - ")[1]);
       this.e = this.value.split(" - ")[1];
@@ -87,18 +87,12 @@ export class PredictionsComponent implements OnInit {
       this._dataService.dateRangeForPrediction(this.startDateForPred,this.endDateForPred,this.cityCode)
       .subscribe(res => {
 
-                  this.args = res['data'];
-                  console.log("args begin");
-                  console.log(this.args);
-                  console.log("args end");
-
           let cityResponse = res['data'].map(res => res);
           let alldates = [];
           let temp_max = [];
           let temp_min = [];
           let temp_mean = [];
 
-          //console.log("start with /"+this.startDate);
           cityResponse.forEach((res) => {
             if( res.city_code == this.cityCode && new Date(res.date) >= new Date(this.startDate) && new Date(res.date)<= new Date(this.endDate)){
               alldates.push(res.date);

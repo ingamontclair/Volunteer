@@ -37,7 +37,7 @@ debug('cityHistoricalData_Atlanta');
 //debug(stdout);
 
     connection((db) => {
-        db.collection('cityHistoricalData_NewYork')
+        db.collection('cityHistoricalData_Atlanta')
             .find()
             .toArray()
             .then((cityHistoricalData_Atlanta) => {
@@ -48,6 +48,22 @@ debug('cityHistoricalData_Atlanta');
                 sendError(err, res);
             });
     });
+});
+
+// Get HDD CDD data
+router.get('/hdd_cdd', (req, res) => {
+        connection((db) => {
+            db.collection('HDD')
+                .find()
+                .toArray()
+                .then((hdd_cdd) => {
+                    response.data = hdd_cdd;
+                    res.json(response);
+                })
+                .catch((err) => {
+                    sendError(err, res);
+                });
+        });
 });
 
 router.get('/weatherPrediction/:startDate/:endDate/:cityCode', (req, res) => {

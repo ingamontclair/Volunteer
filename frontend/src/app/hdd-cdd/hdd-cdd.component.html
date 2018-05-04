@@ -9,8 +9,8 @@
                 <label class="mr-sm-2" for="inlineFormCustomSelect">Select Date Range : </label>
                 <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
                     <input #newDate
-                        (keyup.enter)="addDate(newDate.value)"
-                        (blur)="addDate(newDate.value); newDate.value='' "
+                        (keyup.enter)="hdd_cdd_filter(newDate.value)"
+                        (blur)="hdd_cdd_filter(newDate.value); newDate.value='' "
                         class="form-control" 
                         placeholder="Daterangepicker" 
                         name = "daterange"
@@ -26,15 +26,15 @@
                 </div>
             </div>
             <div class="form-group mx-sm-3 mb-2">
-                <div class="dropdown" ngbDropdown>
-                    <button class="btn btn-primary" id="sortMenu" ngbDropdownToggle>{{selectedCity}}</button>
-                    <div class="dropdown-menu" aria-labelledby="sortMenu" ngbDropdownMenu>
-                        <button class="dropdown-item" *ngFor="let city of cities" (click)="ChangeCity(city)" >{{city}}</button>
+                    <div class="dropdown" ngbDropdown>
+                        <button class="btn btn-primary" id="sortMenu" ngbDropdownToggle>{{selectedCity}}</button>
+                        <div class="dropdown-menu" aria-labelledby="sortMenu" ngbDropdownMenu>
+                            <button class="dropdown-item" *ngFor="let city of cities" (click)="ChangeCity(city)" >{{city}}</button>
+                        </div>
                     </div>
-                </div>
             </div>
             <div class="form-group mb-2">
-                <button (click)="addDate(newDate.value)" class="btn btn-primary">Submit</button>
+                <button (click)="hdd_cdd_filter(newDate.value)" class="btn btn-primary">Submit</button>
             </div>
     </form>
 </div>
@@ -45,30 +45,25 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Column 1</th>
-          <th scope="col">Column 2</th>
-          <th scope="col">Column 3</th>
-          <th scope="col">Column 4</th>
-          <th scope="col">Column 5</th>
+          <th scope="col">Business Date</th>
+          <th scope="col">Rank</th>
+          <th scope="col">Price</th>
+          <th scope="col">Currency</th>
+          <th scope="col">Security Description</th>
+          <th scope="col">City Code</th>
+          <th scope="col">Index Code</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
+        <tr *ngFor="let res of filteredResponse ; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{res.BusinessDate}}</td>
+            <td>{{res.Rank}}</td>
+            <td>{{res.Price}}</td>
+            <td>{{res.Currency}}</td>
+            <td>{{res.SecurityDescription}}</td>
+            <td>{{res.city_code}}</td>
+            <td>{{res.index_code}}</td>
         </tr>
       </tbody>
     </table>

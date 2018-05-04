@@ -177,6 +177,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__historical_weather_historical_weather_component__ = __webpack_require__("../../../../../src/app/historical-weather/historical-weather.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__hdd_cdd_hdd_cdd_component__ = __webpack_require__("../../../../../src/app/hdd-cdd/hdd-cdd.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__predictions_predictions_component__ = __webpack_require__("../../../../../src/app/predictions/predictions.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -189,6 +190,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // Import the Http Module and our Data Service
+
 
 
 
@@ -229,7 +231,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_13__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_6__data_service__["a" /* DataService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_6__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_19__angular_common__["d" /* DatePipe */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -518,6 +520,7 @@ var ContainerComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -531,10 +534,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var DataService = /** @class */ (function () {
-    function DataService(_http, _httpClient) {
+    function DataService(_http, _httpClient, datePipe) {
         this._http = _http;
         this._httpClient = _httpClient;
+        this.datePipe = datePipe;
     }
     DataService.prototype.dailyForecast = function () {
         return this._http.get("http://samples.openweathermap.org/data/2.5/history/city?q=Warren,OH&appid=b6907d289e10d714a6e88b30761fae22").map(function (result) { return result; });
@@ -544,10 +549,33 @@ var DataService = /** @class */ (function () {
         return this._httpClient.get(uri)
             .map(function (result) { return result; });
     };
+    DataService.prototype.hdd_cdd_DataFilter = function (startDate, endDate, cityCode, future) {
+        var uri = "/api/hdd_cdd";
+        return this._httpClient.get(uri)
+            .map(function (result) { return result; });
+    };
     DataService.prototype.dateRangeFilter = function (startDate, endDate, cityCode) {
         var uri = "/api/cityHistoricalData_Atlanta";
         return this._httpClient.get(uri)
             .map(function (result) { return result; });
+    };
+    DataService.prototype.dateRangeForPrediction = function (startDate, endDate, cityCode) {
+        var _this = this;
+        console.log("begin 22");
+        console.log(this.datePipe.transform(startDate, "yyyy-MM-dd"));
+        console.log(endDate);
+        console.log(cityCode);
+        var uri = "/api/weatherPrediction/" + this.datePipe.transform(startDate, "yyyy-MM-dd")
+            + "/" + this.datePipe.transform(endDate, "yyyy-MM-dd")
+            + "/" + cityCode;
+        return this._httpClient.get(uri)
+            .map(function (result) {
+            _this.result = result;
+            console.log("before result");
+            console.log(_this.result);
+            console.log("end result");
+            return result;
+        });
     };
     DataService.prototype.historicalWeather_Newyork = function () {
         var uri = "/api/cityHistoricalData_NewYork";
@@ -600,7 +628,7 @@ var DataService = /** @class */ (function () {
     };
     DataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_4__angular_common__["d" /* DatePipe */]])
     ], DataService);
     return DataService;
 }());
@@ -673,7 +701,7 @@ var FooterComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/hdd-cdd/hdd-cdd.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  hdd-cdd works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n\n<div id=\"form\" onload=\"onload();\">\n    <form class=\"form-inline justify-content-center\">\n            <div class=\"form-group mb-2\">\n                <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Select Date Range : </label>\n                <div class=\"col-xs-12 col-12 col-sm-6 col-md-4 form-group\">\n                    <input #newDate\n                        (keyup.enter)=\"addDate(newDate.value)\"\n                        (blur)=\"addDate(newDate.value); newDate.value='' \"\n                        class=\"form-control\" \n                        placeholder=\"Daterangepicker\" \n                        name = \"daterange\"\n                        bsDaterangepicker #dpr=\"bsDaterangepicker\">\n                </div>\n            </div>\n            <div class=\"form-group mx-sm-3 mb-2\">\n                <div class=\"dropdown\" ngbDropdown>\n                    <button class=\"btn btn-primary\" id=\"sortFuture\" ngbDropdownToggle>{{selectedFuture}}</button>\n                    <div class=\"dropdown-menu\" aria-labelledby=\"sortFuture\" ngbDropdownMenu>\n                        <button class=\"dropdown-item\" *ngFor=\"let future of futures\" (click)=\"ChangeFuture(future)\" >{{future}}</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group mx-sm-3 mb-2\">\n                <div class=\"dropdown\" ngbDropdown>\n                    <button class=\"btn btn-primary\" id=\"sortMenu\" ngbDropdownToggle>{{selectedCity}}</button>\n                    <div class=\"dropdown-menu\" aria-labelledby=\"sortMenu\" ngbDropdownMenu>\n                        <button class=\"dropdown-item\" *ngFor=\"let city of cities\" (click)=\"ChangeCity(city)\" >{{city}}</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group mb-2\">\n                <button (click)=\"addDate(newDate.value)\" class=\"btn btn-primary\">Submit</button>\n            </div>\n    </form>\n</div>\n<br>\n\n<div class=\"container-fluid\">\n  <table class=\"table table-bordered\">\n      <thead>\n        <tr>\n          <th scope=\"col\">#</th>\n          <th scope=\"col\">Column 1</th>\n          <th scope=\"col\">Column 2</th>\n          <th scope=\"col\">Column 3</th>\n          <th scope=\"col\">Column 4</th>\n          <th scope=\"col\">Column 5</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <th scope=\"row\">1</th>\n          <td>Mark</td>\n          <td>Otto</td>\n          <td>@mdo</td>\n        </tr>\n        <tr>\n          <th scope=\"row\">2</th>\n          <td>Jacob</td>\n          <td>Thornton</td>\n          <td>@fat</td>\n        </tr>\n        <tr>\n          <th scope=\"row\">3</th>\n          <td colspan=\"2\">Larry the Bird</td>\n          <td>@twitter</td>\n        </tr>\n      </tbody>\n    </table>\n</div>\n"
+module.exports = "<p>\n  hdd-cdd works!\n  <a href=\"\" (click)=\"sendMeHome()\"><strong>Take me back</strong></a>\n</p>\n\n<div id=\"form\" onload=\"onload();\">\n    <form class=\"form-inline justify-content-center\">\n            <div class=\"form-group mb-2\">\n                <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Select Date Range : </label>\n                <div class=\"col-xs-12 col-12 col-sm-6 col-md-4 form-group\">\n                    <input #newDate\n                        (keyup.enter)=\"hdd_cdd_filter(newDate.value)\"\n                        (blur)=\"hdd_cdd_filter(newDate.value); newDate.value='' \"\n                        class=\"form-control\" \n                        placeholder=\"Daterangepicker\" \n                        name = \"daterange\"\n                        bsDaterangepicker #dpr=\"bsDaterangepicker\">\n                </div>\n            </div>\n            <div class=\"form-group mx-sm-3 mb-2\">\n                <div class=\"dropdown\" ngbDropdown>\n                    <button class=\"btn btn-primary\" id=\"sortFuture\" ngbDropdownToggle>{{selectedFuture}}</button>\n                    <div class=\"dropdown-menu\" aria-labelledby=\"sortFuture\" ngbDropdownMenu>\n                        <button class=\"dropdown-item\" *ngFor=\"let future of futures\" (click)=\"ChangeFuture(future)\" >{{future}}</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group mx-sm-3 mb-2\">\n                    <div class=\"dropdown\" ngbDropdown>\n                        <button class=\"btn btn-primary\" id=\"sortMenu\" ngbDropdownToggle>{{selectedCity}}</button>\n                        <div class=\"dropdown-menu\" aria-labelledby=\"sortMenu\" ngbDropdownMenu>\n                            <button class=\"dropdown-item\" *ngFor=\"let city of cities\" (click)=\"ChangeCity(city)\" >{{city}}</button>\n                        </div>\n                    </div>\n            </div>\n            <div class=\"form-group mb-2\">\n                <button (click)=\"hdd_cdd_filter(newDate.value)\" class=\"btn btn-primary\">Submit</button>\n            </div>\n    </form>\n</div>\n<br>\n\n<div class=\"container-fluid\">\n  <table class=\"table table-bordered\">\n      <thead>\n        <tr>\n          <th scope=\"col\">#</th>\n          <th scope=\"col\">BusinessDate</th>\n          <th scope=\"col\">Rank</th>\n          <th scope=\"col\">Price</th>\n          <th scope=\"col\">Currency</th>\n          <th scope=\"col\">SecurityDescription</th>\n          <th scope=\"col\">City Code</th>\n          <th scope=\"col\">Index Code</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let res of filteredResponse ; let i = index\">\n            <td>{{ i + 1 }}</td>\n            <td>{{res.BusinessDate}}</td>\n            <td>{{res.Rank}}</td>\n            <td>{{res.Price}}</td>\n            <td>{{res.Currency}}</td>\n            <td>{{res.SecurityDescription}}</td>\n            <td>{{res.city_code}}</td>\n            <td>{{res.index_code}}</td>\n        </tr>\n      </tbody>\n    </table>\n</div>\n"
 
 /***/ }),
 
@@ -723,14 +751,74 @@ var HddCddComponent = /** @class */ (function () {
         this._dataService = _dataService;
         this.futures = ["HDD", "CDD"];
         this.selectedFuture = "Select";
+        this.hdd_cdd_Response = [];
+        this.filteredResponse = [];
+        this.cityCodemap = new Map();
         this.cities = ["Atlanta", "Boston", "Chicago", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
         this.selectedCity = "Select City";
+        // Getting Date range from ui to get filtered data from database
+        this.value = '';
+        this.cityCodemap.set("Atlanta", "KFTY");
+        this.cityCodemap.set("Boston", "KBOS");
+        this.cityCodemap.set("Chicago", "KORD");
+        this.cityCodemap.set("Cincinnati", "KLUX");
+        this.cityCodemap.set("Dallas", "KDAL");
+        this.cityCodemap.set("Des Moines", "KDSM");
+        this.cityCodemap.set("Houston", "KHOU");
+        this.cityCodemap.set("Kansas City", "KMKC");
+        this.cityCodemap.set("Las Vegas", "KVGT");
+        this.cityCodemap.set("Minneapolis", "KMIC");
+        this.cityCodemap.set("NewYork", "KNYC");
+        this.cityCodemap.set("Philadelphia", "KPHL");
+        this.cityCodemap.set("Portland", "KPDX");
+        this.cityCodemap.set("Sacramento", "KSAC");
+        this.cityCodemap.set("Tuscon", "KDMA");
     }
     HddCddComponent.prototype.ChangeFuture = function (newFuture) {
         this.selectedFuture = newFuture;
     };
     HddCddComponent.prototype.ChangeCity = function (newCity) {
         this.selectedCity = newCity;
+    };
+    HddCddComponent.prototype.hdd_cdd_filter = function (newDate) {
+        var _this = this;
+        if (newDate) {
+            this.value = newDate;
+            //StartDate
+            this.startDate = new Date(this.value.split(" - ")[0]);
+            //EndDate
+            this.endDate = new Date(this.value.split(" - ")[1]);
+            // Selected Citycode
+            this.cityCode = this.cityCodemap.get(this.selectedCity);
+            // Data Service which gets the data from database with startdate, enddate and city filter
+            this._dataService.hdd_cdd_DataFilter(this.startDate, this.endDate, this.cityCode, this.selectedFuture)
+                .subscribe(function (res) {
+                var hdd_cdd_Response = res['data'].map(function (res) { return res; });
+                // let businessDate = [];
+                // let rank = [];
+                // let price = [];
+                // let currency = [];
+                // let securityDescription = [];
+                // let city_code = [];
+                // let index_code = [];
+                var filteredResponse = [];
+                hdd_cdd_Response.forEach(function (res) {
+                    //TODO : add : res.city_code == this.cityCode in if condition
+                    if (new Date(res.BusinessDate) >= new Date(_this.startDate) && new Date(res.BusinessDate) <= new Date(_this.endDate)) {
+                        // businessDate.push(res.BusinessDate);
+                        // rank.push(res.Rank);
+                        // price.push(res.Price);
+                        // currency.push(res.Currency);
+                        // securityDescription.push(res.SecurityDescription);
+                        // city_code.push(res.city_code);
+                        // index_code.push(res.index_code);
+                        filteredResponse.push(res);
+                    }
+                });
+                console.log(filteredResponse);
+                _this.filteredResponse = filteredResponse;
+            });
+        }
     };
     HddCddComponent.prototype.ngOnInit = function () {
     };
@@ -1385,6 +1473,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__("../../../../chart.js/src/chart.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1399,14 +1488,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PredictionsComponent = /** @class */ (function () {
     // Create an instance of the DataService through dependency injection
-    function PredictionsComponent(route, router, _dataService) {
+    function PredictionsComponent(route, router, _dataService, datePipe) {
         this.route = route;
         this.router = router;
         this._dataService = _dataService;
+        this.datePipe = datePipe;
+        this.replace = "-";
+        this.reg = "/\//g";
         this.cityResponse = [];
         this.chart = [];
+        this.args = [];
+        this.hello = "hi";
         this.cityCodemap = new Map();
         this.cities = ["Atlanta", "Boston", "Chicago", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
         this.selectedCity = "Select City";
@@ -1439,15 +1534,19 @@ var PredictionsComponent = /** @class */ (function () {
             this.value = newDate;
             //StartDate
             this.startDate = new Date(this.value.split(" - ")[0]);
+            this.s = this.value.split(" - ")[0];
+            this.startDateForPred = this.s.replace(/\//g, this.replace);
             //EndDate
             this.endDate = new Date(this.value.split(" - ")[1]);
+            this.e = this.value.split(" - ")[1];
+            this.endDateForPred = this.e.replace(/\//g, this.replace);
             //Calculate difference between two dates
             var diff = Math.abs(this.startDate.getTime() - this.endDate.getTime());
             this.diffDays = Math.ceil(diff / (1000 * 3600 * 24));
             // Selected Citycode
             this.cityCode = this.cityCodemap.get(this.selectedCity);
             // Data Service which gets the data from database with startdate, enddate and city filter
-            this._dataService.dateRangeFilter(this.startDate, this.endDate, this.cityCode)
+            this._dataService.dateRangeForPrediction(this.startDateForPred, this.endDateForPred, this.cityCode)
                 .subscribe(function (res) {
                 var cityResponse = res['data'].map(function (res) { return res; });
                 var alldates = [];
@@ -1817,7 +1916,7 @@ var PredictionsComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/predictions/predictions.component.html"),
             styles: [__webpack_require__("../../../../../src/app/predictions/predictions.component.scss")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_4__angular_common__["d" /* DatePipe */]])
     ], PredictionsComponent);
     return PredictionsComponent;
 }());

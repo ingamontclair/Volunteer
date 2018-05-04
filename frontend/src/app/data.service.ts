@@ -23,10 +23,14 @@ export class DataService {
       .map(result => result);
   }
 
+  hdd_cdd_DataFilter(startDate,endDate,cityCode,future){
+    const uri = "/api/hdd_cdd";
+    return this._httpClient.get(uri)
+      .map(result => result);
+  }
+
   dateRangeFilter(startDate,endDate,cityCode){
-
     const uri = "/api/cityHistoricalData_Atlanta";
-
     return this._httpClient.get(uri)
       .map(result => result);
   }
