@@ -17,6 +17,12 @@ export class PredictionsComponent implements OnInit {
   endDate : Date;
   newDate: string;
   cityCode: String;
+  s:string;
+  e:string;
+  startDateForPred: string;
+  endDateForPred : string;
+  replace: string = "-";
+  reg: string = "/\//g";
   cityResponse:any[]=[];
   chart = [];
   args = [];
@@ -35,6 +41,7 @@ export class PredictionsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService, private datePipe: DatePipe) {
     let startDate : Date;
     let endDate : Date;
+
 
     this.cityCodemap.set("Atlanta","KFTY");
     this.cityCodemap.set("Boston", "KBOS");
@@ -55,13 +62,19 @@ export class PredictionsComponent implements OnInit {
 
   // Getting Date range from ui to get filtered data from database
   value = '';
+
   addDate(newDate) {
     if (newDate) {
       this.value= newDate;
       //StartDate
       this.startDate = new Date(this.value.split(" - ")[0]);
+      this.s = this.value.split(" - ")[0];
+      this.startDateForPred = this.s.replace(/\//g, this.replace);
+      //this.startDateForPred = this.value.split(" - ")[0];
       //EndDate
       this.endDate = new Date(this.value.split(" - ")[1]);
+      this.e = this.value.split(" - ")[1];
+      this.endDateForPred = this.e.replace(/\//g, this.replace);
 
       //Calculate difference between two dates
       var diff = Math.abs(this.startDate.getTime() - this.endDate.getTime());
@@ -71,7 +84,7 @@ export class PredictionsComponent implements OnInit {
       this.cityCode = this.cityCodemap.get(this.selectedCity);
 
       // Data Service which gets the data from database with startdate, enddate and city filter
-      this._dataService.dateRangeForPrediction(this.startDate,this.endDate,this.cityCode)
+      this._dataService.dateRangeForPrediction(this.startDateForPred,this.endDateForPred,this.cityCode)
       .subscribe(res => {
 
                   this.args = res['data'];
@@ -84,6 +97,8 @@ export class PredictionsComponent implements OnInit {
           let temp_max = [];
           let temp_min = [];
           let temp_mean = [];
+
+          //console.log("start with /"+this.startDate);
           cityResponse.forEach((res) => {
             if( res.city_code == this.cityCode && new Date(res.date) >= new Date(this.startDate) && new Date(res.date)<= new Date(this.endDate)){
               alldates.push(res.date);
