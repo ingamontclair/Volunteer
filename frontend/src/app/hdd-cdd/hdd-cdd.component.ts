@@ -66,28 +66,12 @@ export class HddCddComponent implements OnInit {
       this._dataService.hdd_cdd_DataFilter(this.startDate,this.endDate,this.cityCode,this.selectedFuture)
       .subscribe(res => {
         let hdd_cdd_Response = res['data'].map(res => res);
-        // let businessDate = [];
-        // let rank = [];
-        // let price = [];
-        // let currency = [];
-        // let securityDescription = [];
-        // let city_code = [];
-        // let index_code = [];
         let filteredResponse = [];
         hdd_cdd_Response.forEach((res) => {
-          //TODO : add : res.city_code == this.cityCode in if condition
-          if(new Date(res.BusinessDate) >= new Date(this.startDate) && new Date(res.BusinessDate)<= new Date(this.endDate)){
-            // businessDate.push(res.BusinessDate);
-            // rank.push(res.Rank);
-            // price.push(res.Price);
-            // currency.push(res.Currency);
-            // securityDescription.push(res.SecurityDescription);
-            // city_code.push(res.city_code);
-            // index_code.push(res.index_code);
+          if(res.city_code == this.cityCode && new Date(res.BusinessDate) >= new Date(this.startDate) && new Date(res.BusinessDate)<= new Date(this.endDate)){
             filteredResponse.push(res);
           }
         });
-        console.log(filteredResponse);
         this.filteredResponse = filteredResponse;
       });
     }

@@ -70,7 +70,8 @@ router.get('/weatherPrediction/:startDate/:endDate/:cityCode', (req, res) => {
 
 
 debug('hh');
-let stdout = execSync('python ../backend/prediction.py '+ req.params.startDate + ' ' + req.params.endDate + ' ' +req.params.cityCode);
+let stdout = execSync('python ../backend/prediction.py '+ req.params.startDate + ' ' + req.params.endDate + ' ' +req.params.cityCode).toString();
+stdout = stdout.substring(stdout.indexOf("jsonresult:") + "jsonresult:".length);
 debug('XXXX %s',stdout);
 debug('XXXX %s',req.params.startDate);
 //debug(req);

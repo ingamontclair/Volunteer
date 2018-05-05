@@ -46,7 +46,6 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Business Date</th>
-          <th scope="col">Rank</th>
           <th scope="col">Price</th>
           <th scope="col">Currency</th>
           <th scope="col">Security Description</th>
@@ -58,7 +57,6 @@
         <tr *ngFor="let res of filteredResponse ; let i = index">
             <td>{{ i + 1 }}</td>
             <td>{{res.BusinessDate}}</td>
-            <td>{{res.Rank}}</td>
             <td>{{res.Price}}</td>
             <td>{{res.Currency}}</td>
             <td>{{res.SecurityDescription}}</td>
