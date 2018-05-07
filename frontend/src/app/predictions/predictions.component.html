@@ -1,5 +1,5 @@
-<div ng-app="myApp">
-  <h3>{{selectedCity}} , Historical Weather Data</h3>
+<div id="body">
+  <h3>{{selectedCity}} , Predicted Weather and Price Data</h3>
   <br><br>
   <div id="form" onload="onload();">
       <form class="form-inline justify-content-center">
@@ -29,12 +29,6 @@
       </form>
   </div>
   <br>
-  <div class="row">
-    <div *ngIf="chart" class="graph-center">
-        <canvas id="canvas">{{ chart }}</canvas>
-    </div>
-  </div>
-  <br><br><br>
   <div class="row">
     <div *ngIf="chart" class="graph-center">
         <canvas id="canvas">{{ chart }}</canvas>

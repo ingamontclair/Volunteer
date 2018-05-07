@@ -1,6 +1,6 @@
-<div ng-app="myApp">
+<div id="body">
     <h3>{{selectedCity}} , Historical Weather Data</h3>
-    <br><br>
+    <br>
     <div id="form" onload="onload();">
         <form class="form-inline justify-content-center">
                 <div class="form-group mb-2">
@@ -12,7 +12,8 @@
                             class="form-control" 
                             placeholder="Daterangepicker" 
                             name = "daterange"
-                            bsDaterangepicker #dpr="bsDaterangepicker">
+                            bsDaterangepicker #dpr="bsDaterangepicker"
+                            required>
                     </div>
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
@@ -34,4 +35,11 @@
           <canvas id="canvas">{{ chart }}</canvas>
       </div>
     </div>
+    <br>
+    <h6>
+        The above graph displays the historical weather (min,max and mean temperatures) of 8 different cities. 
+        User is flexible to select the date range from 01/01/1977-05/05/2018 only. The graph has
+        responsive interface according to number of days selected like, days, weeks, months, years.
+        User can add and remove dataset by clicking on the graph labels for comparison.
+    </h6>
 </div>
