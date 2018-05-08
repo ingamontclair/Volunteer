@@ -20,23 +20,23 @@ export class HistoricalWeatherComponent implements OnInit {
   chart = [];
 
   cityCodemap = new Map();
-  cities: string[] = ["Atlanta", "Boston", "Chicago","Cincinnati","Dallas","Des Moines","Houston","Kansas City","Las Vegas","Mimmeapolis","NewYork","Philadelphia","Portland","Sacramento","Tuscon"];
+  cities: string[] = ["Atlanta", "Cincinnati","Dallas", "Las Vegas","Minneapolis","NewYork","Sacramento"];
   selectedCity: string = "Select City";
   diffDays: number;
-  
-  ChangeCity(newCity: string) { 
+
+  ChangeCity(newCity: string) {
     this.selectedCity = newCity;
   }
 
   // Create an instance of the DataService through dependency injection
-  constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService) { 
+  constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService) {
     let startDate : Date;
     let endDate : Date;
 
     this.cityCodemap.set("Atlanta","KFTY");
     this.cityCodemap.set("Boston", "KBOS");
     this.cityCodemap.set("Chicago", "KORD");
-    this.cityCodemap.set("Cincinnati","KLUX");
+    this.cityCodemap.set("Cincinnati","KLUK");
     this.cityCodemap.set("Dallas","KDAL");
     this.cityCodemap.set("Des Moines","KDSM");
     this.cityCodemap.set("Houston", "KHOU");
@@ -62,7 +62,7 @@ export class HistoricalWeatherComponent implements OnInit {
 
       //Calculate difference between two dates
       var diff = Math.abs(this.startDate.getTime() - this.endDate.getTime());
-      this.diffDays = Math.ceil(diff / (1000 * 3600 * 24)); 
+      this.diffDays = Math.ceil(diff / (1000 * 3600 * 24));
 
       // Selected Citycode
       this.cityCode = this.cityCodemap.get(this.selectedCity);
@@ -83,7 +83,7 @@ export class HistoricalWeatherComponent implements OnInit {
               temp_mean.push(res.temp_mean);
             }
           });
-          
+
           // Chart for data less than or equal to 30 days
           if(this.diffDays <= 30){
             console.log("data less than or equal to 30 days");
@@ -428,7 +428,7 @@ export class HistoricalWeatherComponent implements OnInit {
                 }
               }
             })
-          } 
+          }
         });
     }
   }

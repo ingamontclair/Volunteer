@@ -29,7 +29,7 @@ export class PredictionsComponent implements OnInit {
   hello = "hi";
 
   cityCodemap = new Map();
-  cities: string[] = ["Atlanta", "Boston", "Chicago","Cincinnati","Dallas","Des Moines","Houston","Kansas City","Las Vegas","Mimmeapolis","NewYork","Philadelphia","Portland","Sacramento","Tuscon"];
+  cities: string[] = ["Atlanta", "Cincinnati","Dallas","Las Vegas","Minneapolis","NewYork","Sacramento"];
   selectedCity: string = "Select City";
   diffDays: number;
 
@@ -46,7 +46,7 @@ export class PredictionsComponent implements OnInit {
     this.cityCodemap.set("Atlanta","KFTY");
     this.cityCodemap.set("Boston", "KBOS");
     this.cityCodemap.set("Chicago", "KORD");
-    this.cityCodemap.set("Cincinnati","KLUX");
+    this.cityCodemap.set("Cincinnati","KLUK");
     this.cityCodemap.set("Dallas","KDAL");
     this.cityCodemap.set("Des Moines","KDSM");
     this.cityCodemap.set("Houston", "KHOU");
@@ -70,7 +70,7 @@ export class PredictionsComponent implements OnInit {
       this.startDate = new Date(this.value.split(" - ")[0]);
       this.s = this.value.split(" - ")[0];
       this.startDateForPred = this.s.replace(/\//g, this.replace);
-      
+
       //EndDate
       this.endDate = new Date(this.value.split(" - ")[1]);
       this.e = this.value.split(" - ")[1];

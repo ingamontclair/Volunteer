@@ -31,13 +31,13 @@ let response = {
 // Get Atlanta historical weather
 router.get('/cityHistoricalData_Atlanta', (req, res) => {
 
-debug('cityHistoricalData_Atlanta');
+//debug('cityHistoricalData_Atlanta');
 //let stdout = execSync('python ../backend/missing.py');
 //debug('XXXX %s',stdout);
 //debug(stdout);
 
     connection((db) => {
-        db.collection('cityHistoricalData_Atlanta')
+        db.collection('HistoricalWeatherData')  //cityHistoricalData_Atlanta
             .find()
             .toArray()
             .then((cityHistoricalData_Atlanta) => {
