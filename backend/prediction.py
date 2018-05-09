@@ -35,6 +35,7 @@ ed = dt.strptime(endDate, '%Y-%m-%d')
 fromDate = sd - timedelta(days=10)
 toDate = ed + timedelta(days=1)
 
+
 '''
     We need to construct 2 dataframes
     One is a training set for our linear regression algorithm that contains historical data and outcomes
@@ -85,7 +86,13 @@ ts = db.HistoricalWeatherData.find({"city_code": cityCode, 'date': {'$lt': fromD
 
 #ts = db.HistoricalWeatherData.find({"city_code": 'KNYC', 'date': {'$lt': fromDate}, 'dd': {'$in': dds}}).sort('date')
 tsDf = pd.DataFrame(list(ts))
-
+if len(tsDf.index) == 0:
+    print('test set is empty')
+    print('cityCode ',cityCode)
+    print('fromDate ',fromDate)
+    print('dds', dds)
+else:
+    print('training set size', len(tsDf.index))
 # adds prior days temp (min, max, mean) to the data frame (prior day temp predictors)
 for p in ['temp_max', 'temp_min', 'temp_mean']:
     for N in range(1, 10):
@@ -106,7 +113,13 @@ ps = db.HistoricalWeatherData.find({'city_code': cityCode, 'date': {'$gt': fromD
 
 
 psDf = pd.DataFrame(list(ps))
-
+if len(psDf.index) == 0:
+    print('test set is empty')
+    print('cityCode ',cityCode)
+    print('fromDate ',fromDate)
+    print('toDate', toDate)
+else:
+    print('testing set size', len(psDf.index))
 # adds prior days temp (min, max, mean) to the data frame (prior day temp predictors)
 for p in ['temp_max', 'temp_min', 'temp_mean']:
     for N in range(1, 10):
@@ -163,7 +176,8 @@ month_codes = {
 index_code = month_codes[ed.strftime('%b')] + ed.strftime('%y')
 print(index_code)
 
-actual = db.HDD.find({"city_code": cityCode, "index_code": 'G18'}).sort("Business Date")
+actual = db.HDD.find({"city_code": cityCode, "index_code": index_code, "date": {'$gt': sd, '$lte': ed}}).sort("date")
+
 actualDf = pd.DataFrame(list(actual))
 print(actualDf['SecurityDescription'].unique())
 
@@ -180,7 +194,9 @@ xe = dt.strptime('2018-01-31', '%Y-%m-%d')
 # 4. our predicted weather day-by-day (removing data that wouldn't be available)
 # instantiate the regressor class
 regressor = LinearRegression()
+predicted_prices =[]
 allresults = {}
+next_day_prediction = []
 for j in range( 0, (ed - sd).days+1):
     #print (sd + timedelta(days=i))
 
@@ -198,6 +214,7 @@ for j in range( 0, (ed - sd).days+1):
     # make a prediction set using the test set
     X0_test = X_test[X_test.index == 0]
     prediction = regressor.predict(X0_test)
+    next_day_prediction.extend(prediction)
     results.extend(prediction)
     #delete row which we don't need anymore
     X_testCopy = X_testCopy.drop([0])
@@ -216,8 +233,8 @@ for j in range( 0, (ed - sd).days+1):
         #delete rows which we don't need anymore
         X_testCopy = X_testCopy.drop([i])
 
-        print("prediction "+str(i), prediction)
-        print ("j= ", j,"i= ",i)
+        #print("prediction "+str(i), prediction)
+        #print ("j= ", j,"i= ",i)
 
     if len(X_testCopy.index) > 0:
         regressor.fit(X_trainCopy, y_trainCopy)
@@ -231,7 +248,37 @@ for j in range( 0, (ed - sd).days+1):
         'mean_temp': numpy.array2string(numpy.array(results), precision=1, max_line_width=numpy.inf),
         'hdd': numpy.array2string(numpy.array(hdd), precision=1, max_line_width=numpy.inf),
         'sum': "{:.1f}".format(sum(hdd))}
-print(allresults)
+    predicted_prices.append(sum(hdd).round(1))
+#we are send back 5 datasets
+#1-predicted prices for each day
+print('predicted prices', predicted_prices)   
+print('len of predicted prices', len(predicted_prices)) 
+#2-real market prices
+actualPrices = pd.merge(monthPsDf, actualDf, on='date', how="left")['Price'].values
+print('actual ',actualPrices)
+print('len of actual', actualDf)
+#3-actual price for the end end of the month
+flat_line = numpy.full(len(y_test.index), monthPsDf['hdd'].sum()).tolist()   
+print(flat_line) 
+#4-sum_to_date for HDD
+sum_to_date=0
+sum_to_date_arr = []
+for index, row in monthPsDf.iterrows():
+    sum_to_date += row['hdd']
+    sum_to_date_arr.append(sum_to_date)
+    
+print('sum to date hdd',sum_to_date_arr)
+#5
+sum_to_date_pred=0
+sum_to_date_pred_arr = []
+for u in next_day_prediction:
+    sum_to_date_pred += u
+    sum_to_date_pred_arr.append(sum_to_date_pred)
+print('next day pred',sum_to_date_pred_arr)
+allresults = {"predictrd_prices":predicted_prices,"flat_line":flat_line, 
+             "sum_to_date_arr":sum_to_date_arr, 
+             "sum_to_date_pred_arr":sum_to_date_pred_arr}
+#print(allresults)
 response = {"status": 200, "data": allresults}
 json_data = json.dumps(response)
 print ("jsonresult:"+json_data)
