@@ -91,8 +91,6 @@ debug('send');
 
     res.setHeader('Content-Type', 'application/json');
     res.send(stdout);
-
-
 });
 
 // Get HDD Jan for DEC'18 prices historical weather

@@ -943,7 +943,7 @@ var HistoricalWeatherComponent = /** @class */ (function () {
         this.cityResponse = [];
         this.chart = [];
         this.cityCodemap = new Map();
-        this.cities = ["Atlanta", "Boston", "Chicago", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
+        this.cities = ["Atlanta", "Cincinnati", "Dallas", "Las Vegas", "Minneapolis", "NewYork", "Sacramento"];
         this.selectedCity = "Select City";
         // Getting Date range from ui to get filtered data from database
         this.value = '';
@@ -952,7 +952,7 @@ var HistoricalWeatherComponent = /** @class */ (function () {
         this.cityCodemap.set("Atlanta", "KFTY");
         this.cityCodemap.set("Boston", "KBOS");
         this.cityCodemap.set("Chicago", "KORD");
-        this.cityCodemap.set("Cincinnati", "KLUX");
+        this.cityCodemap.set("Cincinnati", "KLUK");
         this.cityCodemap.set("Dallas", "KDAL");
         this.cityCodemap.set("Des Moines", "KDSM");
         this.cityCodemap.set("Houston", "KHOU");
@@ -1487,7 +1487,7 @@ var PredictionsComponent = /** @class */ (function () {
         this.args = [];
         this.hello = "hi";
         this.cityCodemap = new Map();
-        this.cities = ["Atlanta", "Boston", "Chicago", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
+        this.cities = ["Atlanta", "Cincinnati", "Dallas", "Las Vegas", "Minneapolis", "NewYork", "Sacramento"];
         this.selectedCity = "Select City";
         // Getting Date range from ui to get filtered data from database
         this.value = '';
@@ -1496,7 +1496,7 @@ var PredictionsComponent = /** @class */ (function () {
         this.cityCodemap.set("Atlanta", "KFTY");
         this.cityCodemap.set("Boston", "KBOS");
         this.cityCodemap.set("Chicago", "KORD");
-        this.cityCodemap.set("Cincinnati", "KLUX");
+        this.cityCodemap.set("Cincinnati", "KLUK");
         this.cityCodemap.set("Dallas", "KDAL");
         this.cityCodemap.set("Des Moines", "KDSM");
         this.cityCodemap.set("Houston", "KHOU");
@@ -1530,23 +1530,30 @@ var PredictionsComponent = /** @class */ (function () {
             // Selected Citycode
             this.cityCode = this.cityCodemap.get(this.selectedCity);
             // Data Service which gets the data from database with startdate, enddate and city filter
-            this._dataService.dateRangeForPrediction(this.startDateForPred, this.endDateForPred, this.cityCode)
+            this._dataService.dateRangeFilter(this.startDate, this.endDate, this.cityCode)
                 .subscribe(function (res) {
                 var cityResponse = res['data'].map(function (res) { return res; });
                 var alldates = [];
-                var temp_max = [];
-                var temp_min = [];
-                var temp_mean = [];
+                // let temp_max = [];
+                // let temp_min = [];
+                // let temp_mean = [];
+                // sum to date
+                var historical_hdd = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 310];
+                // hdd
+                var actual_hdd = [0, 12, 25, 32, 42, 55, 68, 71, 84, 96, 105, 111, 124, 135, 146, 157, 161, 179, 181, 192, 203, 214, 225, 236, 247, 258, 269, 271, 282, 293, 304, 315];
+                var prices = [310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310];
+                var actual_prices = [410, 415, 420, 425, 423, 421, 431, 441, 440, 430, 435, 425, 420, 415, 400, 380, 390, 370, 360, 350, 355, 345, 340, 345, 335, 330, 320, 310, 310, 310, 310];
+                var predicted_prices = [310, 315, 320, 323, 325, 327, 325, 323, 330, 336, 339, 342, 337, 335, 325, 324, 323, 322, 315, 313, 311, 310, 310, 311, 311, 312, 311, 310, 310, 310, 310];
                 cityResponse.forEach(function (res) {
                     if (res.city_code == _this.cityCode && new Date(res.date) >= new Date(_this.startDate) && new Date(res.date) <= new Date(_this.endDate)) {
                         alldates.push(res.date);
-                        temp_max.push(res.temp_max);
-                        temp_min.push(res.temp_min);
-                        temp_mean.push(res.temp_mean);
+                        //temp_max.push(res.temp_max);
+                        //temp_min.push(res.temp_min);
+                        //temp_mean.push(res.temp_mean);
                     }
                 });
                 // Chart for data less than or equal to 30 days
-                if (_this.diffDays <= 30) {
+                if (_this.diffDays <= 31) {
                     console.log("data less than or equal to 30 days");
                     _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
                         type: 'line',
@@ -1554,24 +1561,38 @@ var PredictionsComponent = /** @class */ (function () {
                             labels: alldates,
                             datasets: [
                                 {
-                                    data: temp_max,
-                                    label: "Temp_max",
-                                    backgroundColor: "#3cba9f",
-                                    borderColor: "#3cba9f",
+                                    data: actual_hdd,
+                                    label: "Actual HDD",
+                                    backgroundColor: "#ff1000",
+                                    borderColor: "#ff1000",
                                     fill: false,
                                 },
                                 {
-                                    data: temp_min,
-                                    label: "Temp_min",
-                                    backgroundColor: "#ffcc00",
-                                    borderColor: "#ffcc00",
+                                    data: historical_hdd,
+                                    label: "Historical HDD",
+                                    backgroundColor: "#FF8C00",
+                                    borderColor: "#FF8C00",
                                     fill: false,
                                 },
                                 {
-                                    data: temp_mean,
-                                    label: "Temp_mean",
-                                    backgroundColor: "#ff0059",
-                                    borderColor: "#ff0059",
+                                    data: prices,
+                                    label: "Prices",
+                                    backgroundColor: "#ab70d3",
+                                    borderColor: "#ab70d3",
+                                    fill: false,
+                                },
+                                {
+                                    data: actual_prices,
+                                    label: "Actual Prices",
+                                    backgroundColor: "#7aafff",
+                                    borderColor: "#7aafff",
+                                    fill: false,
+                                },
+                                {
+                                    data: predicted_prices,
+                                    label: "Predicted Prices",
+                                    backgroundColor: "#4da552",
+                                    borderColor: "#4da552",
                                     fill: false,
                                 }
                             ]
@@ -1589,278 +1610,6 @@ var PredictionsComponent = /** @class */ (function () {
                                             unit: 'day',
                                             displayFormats: {
                                                 day: 'MMM D',
-                                            },
-                                        },
-                                        ticks: {
-                                            autoSkip: false
-                                        },
-                                        display: true,
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Date Range'
-                                        }
-                                    }],
-                                yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true,
-                                        },
-                                        display: true,
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Temperature Range'
-                                        }
-                                    }]
-                            }
-                        }
-                    });
-                }
-                else if (_this.diffDays > 30 && _this.diffDays <= 90) {
-                    console.log("data between 1-3 months displayed weekly");
-                    _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
-                        type: 'line',
-                        data: {
-                            labels: alldates,
-                            datasets: [
-                                {
-                                    data: temp_max,
-                                    label: "Temp_max",
-                                    backgroundColor: "#3cba9f",
-                                    borderColor: "#3cba9f",
-                                    fill: false,
-                                },
-                                {
-                                    data: temp_min,
-                                    label: "Temp_min",
-                                    backgroundColor: "#ffcc00",
-                                    borderColor: "#ffcc00",
-                                    fill: false,
-                                },
-                                {
-                                    data: temp_mean,
-                                    label: "Temp_mean",
-                                    backgroundColor: "#ff0059",
-                                    borderColor: "#ff0059",
-                                    fill: false,
-                                }
-                            ]
-                        },
-                        options: {
-                            responsive: true,
-                            title: {
-                                display: true,
-                                text: _this.selectedCity + ' , Historical Weather Data'
-                            },
-                            scales: {
-                                xAxes: [{
-                                        type: 'time',
-                                        time: {
-                                            unit: 'week',
-                                            displayFormats: {
-                                                week: 'll',
-                                            },
-                                        },
-                                        ticks: {
-                                            autoSkip: false
-                                        },
-                                        display: true,
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Date Range'
-                                        }
-                                    }],
-                                yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true,
-                                        },
-                                        display: true,
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Temperature Range'
-                                        }
-                                    }]
-                            }
-                        }
-                    });
-                }
-                else if (_this.diffDays > 90 && _this.diffDays <= 180) {
-                    console.log("data between 3-6 months displayed monthly");
-                    _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
-                        type: 'line',
-                        data: {
-                            labels: alldates,
-                            datasets: [
-                                {
-                                    data: temp_max,
-                                    label: "Temp_max",
-                                    backgroundColor: "#3cba9f",
-                                    borderColor: "#3cba9f",
-                                    fill: false,
-                                },
-                                {
-                                    data: temp_min,
-                                    label: "Temp_min",
-                                    backgroundColor: "#ffcc00",
-                                    borderColor: "#ffcc00",
-                                    fill: false,
-                                },
-                                {
-                                    data: temp_mean,
-                                    label: "Temp_mean",
-                                    backgroundColor: "#ff0059",
-                                    borderColor: "#ff0059",
-                                    fill: false,
-                                }
-                            ]
-                        },
-                        options: {
-                            responsive: true,
-                            title: {
-                                display: true,
-                                text: _this.selectedCity + ' , Historical Weather Data'
-                            },
-                            scales: {
-                                xAxes: [{
-                                        type: 'time',
-                                        time: {
-                                            unit: 'month',
-                                            displayFormats: {
-                                                month: 'MMM YYYY',
-                                            },
-                                        },
-                                        ticks: {
-                                            autoSkip: false
-                                        },
-                                        display: true,
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Date Range'
-                                        }
-                                    }],
-                                yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true,
-                                        },
-                                        display: true,
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Temperature Range'
-                                        }
-                                    }]
-                            }
-                        }
-                    });
-                }
-                else if (_this.diffDays > 180 && _this.diffDays <= 365) {
-                    console.log("data between 6-12 months displayed quaterly");
-                    _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
-                        type: 'line',
-                        data: {
-                            labels: alldates,
-                            datasets: [
-                                {
-                                    data: temp_max,
-                                    label: "Temp_max",
-                                    backgroundColor: "#3cba9f",
-                                    borderColor: "#3cba9f",
-                                    fill: false,
-                                },
-                                {
-                                    data: temp_min,
-                                    label: "Temp_min",
-                                    backgroundColor: "#ffcc00",
-                                    borderColor: "#ffcc00",
-                                    fill: false,
-                                },
-                                {
-                                    data: temp_mean,
-                                    label: "Temp_mean",
-                                    backgroundColor: "#ff0059",
-                                    borderColor: "#ff0059",
-                                    fill: false,
-                                }
-                            ]
-                        },
-                        options: {
-                            responsive: true,
-                            title: {
-                                display: true,
-                                text: _this.selectedCity + ' , Historical Weather Data'
-                            },
-                            scales: {
-                                xAxes: [{
-                                        type: 'time',
-                                        time: {
-                                            unit: 'quarter',
-                                            displayFormats: {
-                                                quarter: '[Q]Q - YYYY',
-                                            },
-                                        },
-                                        ticks: {
-                                            autoSkip: false
-                                        },
-                                        display: true,
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Date Range'
-                                        }
-                                    }],
-                                yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true,
-                                        },
-                                        display: true,
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Temperature Range'
-                                        }
-                                    }]
-                            }
-                        }
-                    });
-                }
-                else if (_this.diffDays > 365) {
-                    console.log("data more than 12 months displayed yearly");
-                    _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
-                        type: 'line',
-                        data: {
-                            labels: alldates,
-                            datasets: [
-                                {
-                                    data: temp_max,
-                                    label: "Temp_max",
-                                    backgroundColor: "#3cba9f",
-                                    borderColor: "#3cba9f",
-                                    fill: false,
-                                },
-                                {
-                                    data: temp_min,
-                                    label: "Temp_min",
-                                    backgroundColor: "#ffcc00",
-                                    borderColor: "#ffcc00",
-                                    fill: false,
-                                },
-                                {
-                                    data: temp_mean,
-                                    label: "Temp_mean",
-                                    backgroundColor: "#ff0059",
-                                    borderColor: "#ff0059",
-                                    fill: false,
-                                }
-                            ]
-                        },
-                        options: {
-                            responsive: true,
-                            title: {
-                                display: true,
-                                text: _this.selectedCity + ' , Historical Weather Data'
-                            },
-                            scales: {
-                                xAxes: [{
-                                        type: 'time',
-                                        time: {
-                                            unit: 'year',
-                                            displayFormats: {
-                                                year: 'YYYY',
                                             },
                                         },
                                         ticks: {
