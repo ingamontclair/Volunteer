@@ -65,11 +65,11 @@ toDate = ed + timedelta(days=1)
 # dates we are interested in
 dds = list(
     db.HistoricalWeatherData.find({'city_code': cityCode, 'date': {'$gt': fromDate, '$lte': toDate}, }).distinct("dd"))
-print("days needed ", dds)
+#print("days needed ", dds)
 
 # the name of the months we are interested in
 monthName = ed.strftime('%b')
-print("month: ", monthName)
+#print("month: ", monthName)
 
 
 # utility function to add prior dates to a dataframe
@@ -86,13 +86,14 @@ ts = db.HistoricalWeatherData.find({"city_code": cityCode, 'date': {'$lt': fromD
 
 #ts = db.HistoricalWeatherData.find({"city_code": 'KNYC', 'date': {'$lt': fromDate}, 'dd': {'$in': dds}}).sort('date')
 tsDf = pd.DataFrame(list(ts))
-if len(tsDf.index) == 0:
-    print('test set is empty')
-    print('cityCode ',cityCode)
-    print('fromDate ',fromDate)
-    print('dds', dds)
-else:
-    print('training set size', len(tsDf.index))
+#if len(tsDf.index) == 0:
+    #print('test set is empty')
+    #print('cityCode ',cityCode)
+    #print('fromDate ',fromDate)
+    #print('dds', dds)
+#else:
+    #print('training set size', len(tsDf.index))
+
 # adds prior days temp (min, max, mean) to the data frame (prior day temp predictors)
 for p in ['temp_max', 'temp_min', 'temp_mean']:
     for N in range(1, 10):
@@ -113,13 +114,13 @@ ps = db.HistoricalWeatherData.find({'city_code': cityCode, 'date': {'$gt': fromD
 
 
 psDf = pd.DataFrame(list(ps))
-if len(psDf.index) == 0:
-    print('test set is empty')
-    print('cityCode ',cityCode)
-    print('fromDate ',fromDate)
-    print('toDate', toDate)
-else:
-    print('testing set size', len(psDf.index))
+#if len(psDf.index) == 0:
+    #print('test set is empty')
+    #print('cityCode ',cityCode)
+    #print('fromDate ',fromDate)
+    #print('toDate', toDate)
+#else:
+    #print('testing set size', len(psDf.index))
 # adds prior days temp (min, max, mean) to the data frame (prior day temp predictors)
 for p in ['temp_max', 'temp_min', 'temp_mean']:
     for N in range(1, 10):
@@ -174,17 +175,17 @@ month_codes = {
 }
 
 index_code = month_codes[ed.strftime('%b')] + ed.strftime('%y')
-print(index_code)
+#print(index_code)
 
 actual = db.HDD.find({"city_code": cityCode, "index_code": index_code, "date": {'$gt': sd, '$lte': ed}}).sort("date")
 
 actualDf = pd.DataFrame(list(actual))
-print(actualDf['SecurityDescription'].unique())
+#print(actualDf['SecurityDescription'].unique())
 
 # 2. the actual month end index value
 # (we calculate it ourselves based on our available temperature data and not use HDD Index values reported by MDA
 # Federal Information Systems as CME Exchange does)
-print('End value:', monthPsDf['hdd'].sum())
+#print('End value:', monthPsDf['hdd'].sum())
 
 # 3. market price for the month
 xs = dt.strptime('2018-01-01', '%Y-%m-%d')
@@ -251,15 +252,15 @@ for j in range( 0, (ed - sd).days+1):
     predicted_prices.append(sum(hdd).round(1))
 #we are send back 5 datasets
 #1-predicted prices for each day
-print('predicted prices', predicted_prices)   
-print('len of predicted prices', len(predicted_prices)) 
+#print('predicted prices', predicted_prices)   
+#print('len of predicted prices', len(predicted_prices)) 
 #2-real market prices
 actualPrices = pd.merge(monthPsDf, actualDf, on='date', how="left")['Price'].values
-print('actual ',actualPrices)
-print('len of actual', actualDf)
+#print('actual ',actualPrices)
+#print('len of actual', actualDf)
 #3-actual price for the end end of the month
 flat_line = numpy.full(len(y_test.index), monthPsDf['hdd'].sum()).tolist()   
-print(flat_line) 
+#print(flat_line) 
 #4-sum_to_date for HDD
 sum_to_date=0
 sum_to_date_arr = []
@@ -267,21 +268,25 @@ for index, row in monthPsDf.iterrows():
     sum_to_date += row['hdd']
     sum_to_date_arr.append(sum_to_date)
     
-print('sum to date hdd',sum_to_date_arr)
+#print('sum to date hdd',sum_to_date_arr)
 #5
 sum_to_date_pred=0
 sum_to_date_pred_arr = []
 for u in next_day_prediction:
     sum_to_date_pred += u
     sum_to_date_pred_arr.append(sum_to_date_pred)
-print('next day pred',sum_to_date_pred_arr)
-allresults = {"predictrd_prices":predicted_prices,"flat_line":flat_line, 
+#print('next day pred',sum_to_date_pred_arr)
+allresults = {"predicted_prices":predicted_prices,"flat_line":flat_line, 
              "sum_to_date_arr":sum_to_date_arr, 
              "sum_to_date_pred_arr":sum_to_date_pred_arr}
-#print(allresults)
-response = {"status": 200, "data": allresults}
+
+response = {
+   "status": 200
+} 
+response["data"]=allresults        
 json_data = json.dumps(response)
 print ("jsonresult:"+json_data)
+
 # Evaluate the prediction accuracy of the model
 #from sklearn.metrics import mean_absolute_error, median_absolute_error
 

@@ -36,23 +36,12 @@ export class DataService {
   }
 
   dateRangeForPrediction(startDate,endDate,cityCode){
-  console.log("begin 22");
-  console.log(this.datePipe.transform(startDate,"yyyy-MM-dd"));
-  console.log(endDate);
-  console.log(cityCode);
 
     const uri = "/api/weatherPrediction/"+this.datePipe.transform(startDate,"yyyy-MM-dd")
     + "/" + this.datePipe.transform(endDate,"yyyy-MM-dd")
     + "/" + cityCode;
-
     return this._httpClient.get(uri)
-      .map((result: any) => {
-               this.result = result;
-               console.log("before result");
-               console.log(this.result);
-               console.log("end result");
-               return result;
-              });
+      .map(result => result);
   }
 
 

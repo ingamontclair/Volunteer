@@ -11,6 +11,7 @@ import { DatePipe } from '@angular/common';
   templateUrl: './predictions.component.html',
   styleUrls: ['./predictions.component.scss']
 })
+
 export class PredictionsComponent implements OnInit {
 
   startDate: Date;
@@ -84,23 +85,18 @@ export class PredictionsComponent implements OnInit {
       this.cityCode = this.cityCodemap.get(this.selectedCity);
 
       // Data Service which gets the data from database with startdate, enddate and city filter
-      this._dataService.dateRangeFilter(this.startDate,this.endDate,this.cityCode)
+      this._dataService.dateRangeForPrediction(this.startDateForPred,this.endDateForPred,this.cityCode)
       .subscribe(res => {
 
-          let cityResponse = res['data'].map(res => res);
+          let cityResponse = res['data'];
+          console.log("Response 1 : ",cityResponse);
           let alldates = [];
-          let historical_hdd = [0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300,310]; 
-          let actual_hdd = [0,12,25,32,42,55,68,71,84,96,105,111,124,135,146,157,161,179,181,192,203,214,225,236,247,258,269,271,282,293,304,315];
-          let prices = [310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,310];
+          let predicted_hdd = cityResponse.sum_to_date_pred_arr; 
+          let actual_hdd = cityResponse.sum_to_date_arr;
+          let prices = cityResponse.flat_line;
           let actual_prices = [410,415,420,425,423,421,431,441,440,430,435,425,420,415,400,380,390,370,360,350,355,345,340,345,335,330,320,310,310,310,310];
-          let predicted_prices = [310,315,320,323,325,327,325,323,330,336,339,342,337,335,325,324,323,322,315,313,311,310,310,314,314,314,313,313,313,312,310];
+          let predicted_prices = cityResponse.predicted_prices;
 
-          cityResponse.forEach((res) => {
-            if( res.city_code == this.cityCode && new Date(res.date) >= new Date(this.startDate) && new Date(res.date)<= new Date(this.endDate)){
-              alldates.push(res.date);
-            }
-
-          });
 
           // Chart for data less than or equal to 30 days
           if(this.diffDays <= 31){
@@ -108,7 +104,7 @@ export class PredictionsComponent implements OnInit {
             this.chart = new Chart('canvas',{
               type: 'line',
               data: {
-                labels: alldates,
+                labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
                 datasets:[
                   {
                     data: actual_hdd,
@@ -118,7 +114,7 @@ export class PredictionsComponent implements OnInit {
                     fill: false,
                   },
                   {
-                    data: historical_hdd,
+                    data: predicted_hdd,
                     label: "Historical HDD",
                     backgroundColor: "#FF8C00",
                     borderColor: "#FF8C00",

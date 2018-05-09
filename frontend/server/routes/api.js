@@ -69,26 +69,13 @@ router.get('/hdd_cdd', (req, res) => {
 router.get('/weatherPrediction/:startDate/:endDate/:cityCode', (req, res) => {
 
 
-debug('hh');
-let stdout = execSync('python ../backend/prediction.py '+ req.params.startDate + ' ' + req.params.endDate + ' ' +req.params.cityCode).toString();
-stdout = stdout.substring(stdout.indexOf("jsonresult:") + "jsonresult:".length);
-debug('XXXX %s',stdout);
-debug('XXXX %s',req.params.startDate);
-//debug(req);
-debug('send');
-/*    connection((db) => {
-        db.collection('cityHistoricalData_NewYork')
-            .find()
-            .toArray()
-            .then((ny) => {
-                response.data = ny;
-                res.json(response);
-            })
-            .catch((err) => {
-                sendError(err, res);
-            });
-    });*/
-
+    debug('hh');
+    let stdout = execSync('python ../backend/prediction.py '+ req.params.startDate + ' ' + req.params.endDate + ' ' +req.params.cityCode).toString();
+    stdout = stdout.substring(stdout.indexOf("jsonresult:") + "jsonresult:".length);
+    debug('XXXX %s',stdout);
+    debug('XXXX %s',req.params.startDate);
+    //debug(req);
+    debug('send');
     res.setHeader('Content-Type', 'application/json');
     res.send(stdout);
 });

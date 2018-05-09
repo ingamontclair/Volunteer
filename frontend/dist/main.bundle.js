@@ -560,22 +560,11 @@ var DataService = /** @class */ (function () {
             .map(function (result) { return result; });
     };
     DataService.prototype.dateRangeForPrediction = function (startDate, endDate, cityCode) {
-        var _this = this;
-        console.log("begin 22");
-        console.log(this.datePipe.transform(startDate, "yyyy-MM-dd"));
-        console.log(endDate);
-        console.log(cityCode);
         var uri = "/api/weatherPrediction/" + this.datePipe.transform(startDate, "yyyy-MM-dd")
             + "/" + this.datePipe.transform(endDate, "yyyy-MM-dd")
             + "/" + cityCode;
         return this._httpClient.get(uri)
-            .map(function (result) {
-            _this.result = result;
-            console.log("before result");
-            console.log(_this.result);
-            console.log("end result");
-            return result;
-        });
+            .map(function (result) { return result; });
     };
     DataService.prototype.historicalWeather_Newyork = function () {
         var uri = "/api/cityHistoricalData_NewYork";
@@ -997,6 +986,8 @@ var HistoricalWeatherComponent = /** @class */ (function () {
                         temp_mean.push(res.temp_mean);
                     }
                 });
+                console.log(alldates);
+                console.log(temp_max);
                 // Chart for data less than or equal to 30 days
                 if (_this.diffDays <= 30) {
                     console.log("data less than or equal to 30 days");
@@ -1530,35 +1521,23 @@ var PredictionsComponent = /** @class */ (function () {
             // Selected Citycode
             this.cityCode = this.cityCodemap.get(this.selectedCity);
             // Data Service which gets the data from database with startdate, enddate and city filter
-            this._dataService.dateRangeFilter(this.startDate, this.endDate, this.cityCode)
+            this._dataService.dateRangeForPrediction(this.startDateForPred, this.endDateForPred, this.cityCode)
                 .subscribe(function (res) {
-                var cityResponse = res['data'].map(function (res) { return res; });
+                var cityResponse = res['data'];
+                console.log("Response 1 : ", cityResponse);
                 var alldates = [];
-                // let temp_max = [];
-                // let temp_min = [];
-                // let temp_mean = [];
-                // sum to date
-                var historical_hdd = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 310];
-                // hdd
-                var actual_hdd = [0, 12, 25, 32, 42, 55, 68, 71, 84, 96, 105, 111, 124, 135, 146, 157, 161, 179, 181, 192, 203, 214, 225, 236, 247, 258, 269, 271, 282, 293, 304, 315];
-                var prices = [310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310, 310];
+                var predicted_hdd = cityResponse.sum_to_date_pred_arr;
+                var actual_hdd = cityResponse.sum_to_date_arr;
+                var prices = cityResponse.flat_line;
                 var actual_prices = [410, 415, 420, 425, 423, 421, 431, 441, 440, 430, 435, 425, 420, 415, 400, 380, 390, 370, 360, 350, 355, 345, 340, 345, 335, 330, 320, 310, 310, 310, 310];
-                var predicted_prices = [310, 315, 320, 323, 325, 327, 325, 323, 330, 336, 339, 342, 337, 335, 325, 324, 323, 322, 315, 313, 311, 310, 310, 311, 311, 312, 311, 310, 310, 310, 310];
-                cityResponse.forEach(function (res) {
-                    if (res.city_code == _this.cityCode && new Date(res.date) >= new Date(_this.startDate) && new Date(res.date) <= new Date(_this.endDate)) {
-                        alldates.push(res.date);
-                        //temp_max.push(res.temp_max);
-                        //temp_min.push(res.temp_min);
-                        //temp_mean.push(res.temp_mean);
-                    }
-                });
+                var predicted_prices = cityResponse.predicted_prices;
                 // Chart for data less than or equal to 30 days
                 if (_this.diffDays <= 31) {
                     console.log("data less than or equal to 30 days");
                     _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
                         type: 'line',
                         data: {
-                            labels: alldates,
+                            labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
                             datasets: [
                                 {
                                     data: actual_hdd,
@@ -1568,7 +1547,7 @@ var PredictionsComponent = /** @class */ (function () {
                                     fill: false,
                                 },
                                 {
-                                    data: historical_hdd,
+                                    data: predicted_hdd,
                                     label: "Historical HDD",
                                     backgroundColor: "#FF8C00",
                                     borderColor: "#FF8C00",
