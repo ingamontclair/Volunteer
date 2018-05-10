@@ -35,6 +35,8 @@ ed = dt.strptime(endDate, '%Y-%m-%d')
 fromDate = sd - timedelta(days=10)
 toDate = ed + timedelta(days=1)
 
+date_range = pd.date_range(startDate, endDate)
+
 '''
     We need to construct 2 dataframes
     One is a training set for our linear regression algorithm that contains historical data and outcomes
@@ -61,7 +63,7 @@ toDate = ed + timedelta(days=1)
     2017-12-31                 |                                                 |  ?
 
 '''
-# dates we are interested in
+# historical dates we are interested in ( -10 days to get the weather before those days for our analyses
 dds = list(
     db.HistoricalWeatherData.find({'city_code': cityCode, 'date': {'$gt': fromDate, '$lte': toDate}, }).distinct("dd"))
 print("days needed ", dds)
@@ -93,6 +95,9 @@ if len(tsDf.index) == 0:
 else:
     print('training set size', len(tsDf.index))
 
+# error check - if the training set is empty skip linear regression later
+
+
 # adds prior days temp (min, max, mean) to the data frame (prior day temp predictors)
 for p in ['temp_max', 'temp_min', 'temp_mean']:
     for N in range(1, 10):
@@ -103,7 +108,7 @@ monthTsDf = monthTsDf.replace('', numpy.NaN)
 monthTsDf = monthTsDf.dropna(axis=0)
 
 # df1 = db.df1
-# df1.insert_many(monthTsDf.to_dict('records'))
+# df1.insert_many(monthTsDf.to_dict('records')) #debugging only
 
 # construct a test (prediction) set
 ps = db.HistoricalWeatherData.find({'city_code': cityCode, 'date': {'$gt': fromDate, '$lte': toDate}},
@@ -154,7 +159,7 @@ y_test = monthPsDf['temp_mean']
 # collecting all the relevant display/prediction data
 
 # 1. the selected Future name
-# convert the end date to a month code http://www.cmegroup.com/month-codes.html
+# convert the end date to its month code http://www.cmegroup.com/month-codes.html
 month_codes = {
     'Jan': 'F',
     'Feb': 'G',
@@ -178,17 +183,6 @@ actual = db.HDD.find({"city_code": cityCode, "index_code": index_code, "date": {
 actualDf = pd.DataFrame(list(actual))
 print(actualDf['SecurityDescription'].unique())
 
-# 2. the actual month end index value
-# (we calculate it ourselves based on our available temperature data and not use HDD Index values reported by MDA
-# Federal Information Systems as CME Exchange does)
-print('End value:', monthPsDf['hdd'].sum())
-
-# 3. market price for the month
-xs = dt.strptime('2018-01-01', '%Y-%m-%d')
-xe = dt.strptime('2018-01-31', '%Y-%m-%d')
-# print(actualDf[['Business Date','Price']])
-
-# 4. our predicted weather day-by-day (removing data that wouldn't be available)
 # instantiate the regressor class
 regressor = LinearRegression()
 predicted_prices = []
@@ -197,7 +191,7 @@ next_day_prediction = []
 dates_for_label = []
 
 for j in range(0, (ed - sd).days + 1):
-    print (sd + timedelta(days=j))
+    print(sd + timedelta(days=j))
     dates_for_label.append(dt.strftime(sd + timedelta(days=j), '%d-%b'))
 
     results = []
@@ -249,13 +243,18 @@ for j in range(0, (ed - sd).days + 1):
         'hdd': numpy.array2string(numpy.array(hdd), precision=1, max_line_width=numpy.inf),
         'sum': "{:.1f}".format(sum(hdd))}
     predicted_prices.append(sum(hdd).round(1))
-# we are send back 5 datasets
+
+# datasets we send back
 # 1-predicted prices for each day
-# print('predicted prices', predicted_prices)
-# print('len of predicted prices', len(predicted_prices))
+print('predicted prices', predicted_prices)
+print('len of predicted prices', len(predicted_prices))
+
 # 2-real market prices
-actualPrices = pd.merge(monthPsDf, actualDf, on='date', how="left")['Price'].values
-# print('actual ',actualPrices)
+priceValues = actualDf.set_index('date')
+priceValues = priceValues.reindex(date_range, fill_value='')
+priceValues = priceValues['Price'].values.tolist()
+print('price values ', priceValues)
+
 # print('len of actual', actualDf)
 # 3-actual price for the end end of the month
 flat_line = numpy.full(len(y_test.index), monthPsDf['hdd'].sum()).tolist()
@@ -275,7 +274,9 @@ for u in next_day_prediction:
     sum_to_date_pred += u
     sum_to_date_pred_arr.append(sum_to_date_pred)
 # print('next day pred',sum_to_date_pred_arr)
-allresults = {"predicted_prices": predicted_prices, "flat_line": flat_line,
+allresults = {"predicted_prices": predicted_prices,
+              "actual_prices": priceValues,
+              "flat_line": flat_line,
               "sum_to_date_arr": sum_to_date_arr,
               "sum_to_date_pred_arr": sum_to_date_pred_arr,
               "dates_for_label": dates_for_label}

@@ -91,10 +91,10 @@ export class PredictionsComponent implements OnInit {
           let cityResponse = res['data'];
           console.log("Response 1 : ",cityResponse);
           let alldates = [];
-          let predicted_hdd = cityResponse.sum_to_date_pred_arr; 
+          let predicted_hdd = cityResponse.sum_to_date_pred_arr;
           let actual_hdd = cityResponse.sum_to_date_arr;
           let prices = cityResponse.flat_line;
-          let actual_prices = [410,415,420,425,423,421,431,441,440,430,435,425,420,415,400,380,390,370,360,350,355,345,340,345,335,330,320,310,310,310,310];
+          let actual_prices = cityResponse.actual_prices;//[410,415,420,425,423,421,431,441,440,430,435,425,420,415,400,380,390,370,360,350,355,345,340,345,335,330,320,310,310,310,310];
           let predicted_prices = cityResponse.predicted_prices;
 
 
@@ -115,7 +115,7 @@ export class PredictionsComponent implements OnInit {
                   },
                   {
                     data: predicted_hdd,
-                    label: "Historical HDD",
+                    label: "Predicted HDD",
                     backgroundColor: "#FF8C00",
                     borderColor: "#FF8C00",
                     fill: false,
@@ -174,7 +174,7 @@ export class PredictionsComponent implements OnInit {
                     display: true,
                     scaleLabel: {
                       display: true,
-                      labelString: 'Temperature Range'
+                      labelString: 'Price Range'
                     }
                   }]
                 }

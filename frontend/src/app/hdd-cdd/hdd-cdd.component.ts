@@ -19,19 +19,19 @@ export class HddCddComponent implements OnInit {
   hdd_cdd_Response:any[]=[];
   filteredResponse: any[] = [];
 
-  ChangeFuture(newFuture: string) { 
+  ChangeFuture(newFuture: string) {
     this.selectedFuture = newFuture;
   }
 
   cityCodemap = new Map();
-  cities: string[] = ["Atlanta", "Boston", "Chicago","Cincinnati","Dallas","Des Moines","Houston","Kansas City","Las Vegas","Mimmeapolis","NewYork","Philadelphia","Portland","Sacramento","Tuscon"];
+  cities: string[] = ["Atlanta", "Cincinnati","Dallas","Des Moines","Houston","Kansas City","Las Vegas","Mimmeapolis","NewYork","Philadelphia","Portland","Sacramento","Tuscon"];
   selectedCity: string = "Select City";
 
-  ChangeCity(newCity: string) { 
+  ChangeCity(newCity: string) {
     this.selectedCity = newCity;
   }
 
-  constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService) { 
+  constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService) {
     this.cityCodemap.set("Atlanta","KFTY");
     this.cityCodemap.set("Boston", "KBOS");
     this.cityCodemap.set("Chicago", "KORD");
@@ -50,7 +50,7 @@ export class HddCddComponent implements OnInit {
   }
 
   // Getting Date range from ui to get filtered data from database
-  value = ''; 
+  value = '';
   hdd_cdd_filter(newDate){
     if (newDate) {
       this.value= newDate;
