@@ -24,7 +24,7 @@ export class HddCddComponent implements OnInit {
   }
 
   cityCodemap = new Map();
-  cities: string[] = ["Atlanta", "Cincinnati","Dallas","Des Moines","Houston","Kansas City","Las Vegas","Mimmeapolis","NewYork","Philadelphia","Portland","Sacramento","Tuscon"];
+  cities: string[] = ["Atlanta", "Cincinnati","Las Vegas","Minneapolis","NewYork", "Sacramento"];
   selectedCity: string = "Select City";
 
   ChangeCity(newCity: string) {
@@ -33,20 +33,11 @@ export class HddCddComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, private _dataService: DataService) {
     this.cityCodemap.set("Atlanta","KFTY");
-    this.cityCodemap.set("Boston", "KBOS");
-    this.cityCodemap.set("Chicago", "KORD");
     this.cityCodemap.set("Cincinnati","KLUX");
-    this.cityCodemap.set("Dallas","KDAL");
-    this.cityCodemap.set("Des Moines","KDSM");
-    this.cityCodemap.set("Houston", "KHOU");
-    this.cityCodemap.set("Kansas City","KMKC");
     this.cityCodemap.set("Las Vegas","KVGT");
     this.cityCodemap.set("Minneapolis", "KMIC");
     this.cityCodemap.set("NewYork","KNYC");
-    this.cityCodemap.set("Philadelphia", "KPHL");
-    this.cityCodemap.set("Portland","KPDX");
     this.cityCodemap.set("Sacramento","KSAC");
-    this.cityCodemap.set("Tuscon","KDMA");
   }
 
   // Getting Date range from ui to get filtered data from database
