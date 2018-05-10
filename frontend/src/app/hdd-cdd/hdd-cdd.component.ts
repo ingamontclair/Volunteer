@@ -24,7 +24,7 @@ export class HddCddComponent implements OnInit {
   }
 
   cityCodemap = new Map();
-  cities: string[] = ["Atlanta", "Cincinnati","Dallas","Des Moines","Houston","Kansas City","Las Vegas","Mimmeapolis","NewYork","Philadelphia","Portland","Sacramento","Tuscon"];
+  cities: string[] = ["Atlanta", "Cincinnati","Las Vegas","Minneapolis","NewYork", "Sacramento"];
   selectedCity: string = "Select City";
 
   ChangeCity(newCity: string) {
