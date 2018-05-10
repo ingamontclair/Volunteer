@@ -743,7 +743,7 @@ var HddCddComponent = /** @class */ (function () {
         this.hdd_cdd_Response = [];
         this.filteredResponse = [];
         this.cityCodemap = new Map();
-        this.cities = ["Atlanta", "Boston", "Chicago", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
+        this.cities = ["Atlanta", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
         this.selectedCity = "Select City";
         // Getting Date range from ui to get filtered data from database
         this.value = '';
@@ -986,8 +986,6 @@ var HistoricalWeatherComponent = /** @class */ (function () {
                         temp_mean.push(res.temp_mean);
                     }
                 });
-                console.log(alldates);
-                console.log(temp_max);
                 // Chart for data less than or equal to 30 days
                 if (_this.diffDays <= 30) {
                     console.log("data less than or equal to 30 days");
@@ -1524,12 +1522,12 @@ var PredictionsComponent = /** @class */ (function () {
             this._dataService.dateRangeForPrediction(this.startDateForPred, this.endDateForPred, this.cityCode)
                 .subscribe(function (res) {
                 var cityResponse = res['data'];
-                console.log("Response 1 : ", cityResponse);
-                var alldates = [];
+                console.log("Response 1 : ", cityResponse.actual_prices);
+                var alldates = cityResponse.dates_for_label;
                 var predicted_hdd = cityResponse.sum_to_date_pred_arr;
                 var actual_hdd = cityResponse.sum_to_date_arr;
                 var prices = cityResponse.flat_line;
-                var actual_prices = [410, 415, 420, 425, 423, 421, 431, 441, 440, 430, 435, 425, 420, 415, 400, 380, 390, 370, 360, 350, 355, 345, 340, 345, 335, 330, 320, 310, 310, 310, 310];
+                var actual_prices = cityResponse.actual_prices;
                 var predicted_prices = cityResponse.predicted_prices;
                 // Chart for data less than or equal to 30 days
                 if (_this.diffDays <= 31) {
@@ -1537,7 +1535,7 @@ var PredictionsComponent = /** @class */ (function () {
                     _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
                         type: 'line',
                         data: {
-                            labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+                            labels: alldates,
                             datasets: [
                                 {
                                     data: actual_hdd,
@@ -1548,7 +1546,7 @@ var PredictionsComponent = /** @class */ (function () {
                                 },
                                 {
                                     data: predicted_hdd,
-                                    label: "Historical HDD",
+                                    label: "Predicted HDD",
                                     backgroundColor: "#FF8C00",
                                     borderColor: "#FF8C00",
                                     fill: false,
@@ -1580,7 +1578,7 @@ var PredictionsComponent = /** @class */ (function () {
                             responsive: true,
                             title: {
                                 display: true,
-                                text: _this.selectedCity + ' , Historical Weather Data'
+                                text: _this.selectedCity + ' , Predicted Weather Derivatives prices'
                             },
                             scales: {
                                 xAxes: [{
@@ -1607,7 +1605,7 @@ var PredictionsComponent = /** @class */ (function () {
                                         display: true,
                                         scaleLabel: {
                                             display: true,
-                                            labelString: 'Temperature Range'
+                                            labelString: 'Price Range'
                                         }
                                     }]
                             }

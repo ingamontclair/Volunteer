@@ -89,12 +89,12 @@ export class PredictionsComponent implements OnInit {
       .subscribe(res => {
 
           let cityResponse = res['data'];
-          console.log("Response 1 : ",cityResponse);
-          let alldates = [];
-          let predicted_hdd = cityResponse.sum_to_date_pred_arr;
+          console.log("Response 1 : ",cityResponse.actual_prices);
+          let alldates = cityResponse.dates_for_label;
+          let predicted_hdd = cityResponse.sum_to_date_pred_arr; 
           let actual_hdd = cityResponse.sum_to_date_arr;
           let prices = cityResponse.flat_line;
-          let actual_prices = cityResponse.actual_prices;//[410,415,420,425,423,421,431,441,440,430,435,425,420,415,400,380,390,370,360,350,355,345,340,345,335,330,320,310,310,310,310];
+          let actual_prices = cityResponse.actual_prices;
           let predicted_prices = cityResponse.predicted_prices;
 
 
@@ -104,7 +104,7 @@ export class PredictionsComponent implements OnInit {
             this.chart = new Chart('canvas',{
               type: 'line',
               data: {
-                labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
+                labels: alldates,
                 datasets:[
                   {
                     data: actual_hdd,
@@ -147,7 +147,7 @@ export class PredictionsComponent implements OnInit {
                 responsive: true,
                 title: {
                     display: true,
-                    text:  this.selectedCity + ' , Historical Weather Data'
+                    text:  this.selectedCity + ' , Predicted Weather Derivatives prices'
                 },
                 scales: {
                   xAxes: [{
