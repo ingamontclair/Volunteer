@@ -26,11 +26,9 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__atlanta_atlanta_component__ = __webpack_require__("../../../../../src/app/atlanta/atlanta.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__weathervsderivatives_weathervsderivatives_component__ = __webpack_require__("../../../../../src/app/weathervsderivatives/weathervsderivatives.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__historical_weather_historical_weather_component__ = __webpack_require__("../../../../../src/app/historical-weather/historical-weather.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__hdd_cdd_hdd_cdd_component__ = __webpack_require__("../../../../../src/app/hdd-cdd/hdd-cdd.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__predictions_predictions_component__ = __webpack_require__("../../../../../src/app/predictions/predictions.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__historical_weather_historical_weather_component__ = __webpack_require__("../../../../../src/app/historical-weather/historical-weather.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__hdd_cdd_hdd_cdd_component__ = __webpack_require__("../../../../../src/app/hdd-cdd/hdd-cdd.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__predictions_predictions_component__ = __webpack_require__("../../../../../src/app/predictions/predictions.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,8 +42,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
 var routes = [
     {
         path: '',
@@ -53,24 +49,16 @@ var routes = [
     },
     {
         path: 'historical-weather',
-        component: __WEBPACK_IMPORTED_MODULE_6__historical_weather_historical_weather_component__["a" /* HistoricalWeatherComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_4__historical_weather_historical_weather_component__["a" /* HistoricalWeatherComponent */]
     },
     {
         path: 'hdd-cdd',
-        component: __WEBPACK_IMPORTED_MODULE_7__hdd_cdd_hdd_cdd_component__["a" /* HddCddComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_5__hdd_cdd_hdd_cdd_component__["a" /* HddCddComponent */]
     },
     {
         path: 'predictions',
-        component: __WEBPACK_IMPORTED_MODULE_8__predictions_predictions_component__["a" /* PredictionsComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_6__predictions_predictions_component__["a" /* PredictionsComponent */]
     },
-    {
-        path: 'weather-stations/atlanta',
-        component: __WEBPACK_IMPORTED_MODULE_4__atlanta_atlanta_component__["a" /* AtlantaComponent */]
-    },
-    {
-        path: 'tools/weathervsderivatives',
-        component: __WEBPACK_IMPORTED_MODULE_5__weathervsderivatives_weathervsderivatives_component__["a" /* WeathervsderivativesComponent */]
-    }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -172,12 +160,10 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__container_container_component__ = __webpack_require__("../../../../../src/app/container/container.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__atlanta_atlanta_component__ = __webpack_require__("../../../../../src/app/atlanta/atlanta.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__weathervsderivatives_weathervsderivatives_component__ = __webpack_require__("../../../../../src/app/weathervsderivatives/weathervsderivatives.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__historical_weather_historical_weather_component__ = __webpack_require__("../../../../../src/app/historical-weather/historical-weather.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__hdd_cdd_hdd_cdd_component__ = __webpack_require__("../../../../../src/app/hdd-cdd/hdd-cdd.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__predictions_predictions_component__ = __webpack_require__("../../../../../src/app/predictions/predictions.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__historical_weather_historical_weather_component__ = __webpack_require__("../../../../../src/app/historical-weather/historical-weather.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__hdd_cdd_hdd_cdd_component__ = __webpack_require__("../../../../../src/app/hdd-cdd/hdd-cdd.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__predictions_predictions_component__ = __webpack_require__("../../../../../src/app/predictions/predictions.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -203,8 +189,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -216,11 +200,9 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10__footer_footer_component__["a" /* FooterComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__header_header_component__["a" /* HeaderComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__container_container_component__["a" /* ContainerComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__atlanta_atlanta_component__["a" /* AtlantaComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__weathervsderivatives_weathervsderivatives_component__["a" /* WeathervsderivativesComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__historical_weather_historical_weather_component__["a" /* HistoricalWeatherComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__hdd_cdd_hdd_cdd_component__["a" /* HddCddComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__predictions_predictions_component__["a" /* PredictionsComponent */]
+                __WEBPACK_IMPORTED_MODULE_14__historical_weather_historical_weather_component__["a" /* HistoricalWeatherComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__hdd_cdd_hdd_cdd_component__["a" /* HddCddComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__predictions_predictions_component__["a" /* PredictionsComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -231,219 +213,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_13__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_6__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_19__angular_common__["d" /* DatePipe */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_6__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_17__angular_common__["d" /* DatePipe */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/atlanta/atlanta.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "h3 {\n    text-align: center;\n}\n#form {\n    text-align: center;\n}\n.graph-center {\n    margin: auto;\n    width: 80%;\n    height: 70%;\n    border: 3px solid #73AD21;\n    padding: 10px;\n}", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/atlanta/atlanta.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div ng-app=\"myApp\">\n<h3>{{selectedCity}} , Historical Weather Data</h3>\n<br><br>\n<div id=\"form\" onload=\"onload();\">\n    <form class=\"form-inline justify-content-center\">\n            <div class=\"form-group mb-2\">\n                <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Select Date Range : </label>\n                <div class=\"col-xs-12 col-12 col-sm-6 col-md-4 form-group\">\n                    <input #newDate\n                        (keyup.enter)=\"addDate(newDate.value)\"\n                        (blur)=\"addDate(newDate.value); newDate.value='' \"\n                        class=\"form-control\" \n                        placeholder=\"Daterangepicker\" \n                        name = \"daterange\"\n                        bsDaterangepicker #dpr=\"bsDaterangepicker\">\n                </div>\n            </div>\n            <div class=\"form-group mx-sm-3 mb-2\">\n                <div class=\"dropdown\" ngbDropdown>\n                    <button class=\"btn btn-primary\" id=\"sortMenu\" ngbDropdownToggle>{{selectedCity}}</button>\n                    <div class=\"dropdown-menu\" aria-labelledby=\"sortMenu\" ngbDropdownMenu>\n                        <button class=\"dropdown-item\" *ngFor=\"let city of cities\" (click)=\"ChangeCity(city)\" >{{city}}</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group mb-2\">\n                <button (click)=\"addDate(newDate.value)\" class=\"btn btn-primary\">Submit</button>\n            </div>\n    </form>\n</div>\n<br>\n<div class=\"row\">\n  <div *ngIf=\"chart\" class=\"graph-center\">\n      <canvas id=\"canvas\">{{ chart }}</canvas>\n  </div>\n</div>\n</div>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/atlanta/atlanta.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AtlantaComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__("../../../../chart.js/src/chart.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var AtlantaComponent = /** @class */ (function () {
-    // Create an instance of the DataService through dependency injection
-    function AtlantaComponent(route, router, _dataService) {
-        this.route = route;
-        this.router = router;
-        this._dataService = _dataService;
-        this.atlantaResponse = [];
-        this.chart = [];
-        this.cityCodemap = new Map();
-        this.cities = ["Atlanta", "Boston", "Chicago", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
-        this.selectedCity = "Select City";
-        // Getting Date range from ui to get filtered data from database
-        this.value = '';
-        var startDate;
-        var endDate;
-        this.cityCodemap.set("Atlanta", "KFTY");
-        this.cityCodemap.set("Boston", "KBOS");
-        this.cityCodemap.set("Chicago", "KORD");
-        this.cityCodemap.set("Cincinnati", "KLUX");
-        this.cityCodemap.set("Dallas", "KDAL");
-        this.cityCodemap.set("Des Moines", "KDSM");
-        this.cityCodemap.set("Houston", "KHOU");
-        this.cityCodemap.set("Kansas City", "KMKC");
-        this.cityCodemap.set("Las Vegas", "KVGT");
-        this.cityCodemap.set("Minneapolis", "KMIC");
-        this.cityCodemap.set("NewYork", "KNYC");
-        this.cityCodemap.set("Philadelphia", "KPHL");
-        this.cityCodemap.set("Portland", "KPDX");
-        this.cityCodemap.set("Sacramento", "KSAC");
-        this.cityCodemap.set("Tuscon", "KDMA");
-    }
-    AtlantaComponent.prototype.ChangeCity = function (newCity) {
-        this.selectedCity = newCity;
-    };
-    AtlantaComponent.prototype.addDate = function (newDate) {
-        var _this = this;
-        if (newDate) {
-            this.value = newDate;
-            //StartDate
-            this.startDate = new Date(this.value.split(" - ")[0]);
-            //EndDate
-            this.endDate = new Date(this.value.split(" - ")[1]);
-            //Calculate difference between two dates
-            var diff = Math.abs(this.startDate.getTime() - this.endDate.getTime());
-            this.diffDays = Math.ceil(diff / (1000 * 3600 * 24));
-            // Selected Citycode
-            this.cityCode = this.cityCodemap.get(this.selectedCity);
-            // Data Service which gets the data from database with startdate, enddate and city filter
-            this._dataService.dateRangeFilter(this.startDate, this.endDate, this.cityCode)
-                .subscribe(function (res) {
-                var atlantaResponse = res['data'].map(function (res) { return res; });
-                var alldates = [];
-                var temp_max = [];
-                var temp_min = [];
-                var temp_mean = [];
-                atlantaResponse.forEach(function (res) {
-                    if (res.city_code == _this.cityCode && new Date(res.date) >= new Date(_this.startDate) && new Date(res.date) <= new Date(_this.endDate)) {
-                        alldates.push(res.date);
-                        temp_max.push(res.temp_max);
-                        temp_min.push(res.temp_min);
-                        temp_mean.push(res.temp_mean);
-                    }
-                });
-                // Draw chart using the retrived data
-                _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
-                    type: 'line',
-                    data: {
-                        labels: alldates,
-                        datasets: [
-                            {
-                                data: temp_max,
-                                label: "Temp_max",
-                                backgroundColor: "#3cba9f",
-                                borderColor: "#3cba9f",
-                                fill: false,
-                            },
-                            {
-                                data: temp_min,
-                                label: "Temp_min",
-                                backgroundColor: "#ffcc00",
-                                borderColor: "#ffcc00",
-                                fill: false,
-                            },
-                            {
-                                data: temp_mean,
-                                label: "Temp_mean",
-                                backgroundColor: "#ff0059",
-                                borderColor: "#ff0059",
-                                fill: false,
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        title: {
-                            display: true,
-                            text: _this.selectedCity + ' , Historical Weather Data'
-                        },
-                        scales: {
-                            xAxes: [{
-                                    type: 'time',
-                                    minUnit: 'day',
-                                    time: {
-                                        unit: 'day',
-                                        displayFormats: {
-                                            day: 'D-MMM',
-                                            week: 'D-MMM',
-                                            month: 'D-MMM',
-                                            quarter: 'D-MMM',
-                                            min: _this.startDate,
-                                            max: _this.endDate
-                                        },
-                                        unitStepSize: 11,
-                                    },
-                                    ticks: {
-                                        autoSkip: false
-                                    },
-                                    display: true,
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Date Range'
-                                    }
-                                }],
-                            yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true,
-                                    },
-                                    display: true,
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Temperature Range'
-                                    }
-                                }]
-                        }
-                    }
-                });
-            });
-        }
-    };
-    AtlantaComponent.prototype.ngOnInit = function () {
-    };
-    AtlantaComponent.prototype.sendMeHome = function () {
-        this.router.navigate(['']);
-    };
-    AtlantaComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-atlanta',
-            template: __webpack_require__("../../../../../src/app/atlanta/atlanta.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/atlanta/atlanta.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
-    ], AtlantaComponent);
-    return AtlantaComponent;
 }());
 
 
@@ -541,21 +315,13 @@ var DataService = /** @class */ (function () {
         this._httpClient = _httpClient;
         this.datePipe = datePipe;
     }
-    DataService.prototype.dailyForecast = function () {
-        return this._http.get("http://samples.openweathermap.org/data/2.5/history/city?q=Warren,OH&appid=b6907d289e10d714a6e88b30761fae22").map(function (result) { return result; });
-    };
-    DataService.prototype.historicalWeather = function () {
-        var uri = "/api/cityHistoricalData_Atlanta";
-        return this._httpClient.get(uri)
-            .map(function (result) { return result; });
-    };
     DataService.prototype.hdd_cdd_DataFilter = function (startDate, endDate, cityCode, future) {
         var uri = "/api/hdd_cdd";
         return this._httpClient.get(uri)
             .map(function (result) { return result; });
     };
     DataService.prototype.dateRangeFilter = function (startDate, endDate, cityCode) {
-        var uri = "/api/cityHistoricalData_Atlanta";
+        var uri = "/api/historicalWeatherData";
         return this._httpClient.get(uri)
             .map(function (result) { return result; });
     };
@@ -565,55 +331,6 @@ var DataService = /** @class */ (function () {
             + "/" + cityCode;
         return this._httpClient.get(uri)
             .map(function (result) { return result; });
-    };
-    DataService.prototype.historicalWeather_Newyork = function () {
-        var uri = "/api/cityHistoricalData_NewYork";
-        return this._httpClient.get(uri)
-            .map(function (result) { return result; });
-    };
-    DataService.prototype.historicalHDD_janz18 = function () {
-        var uri = "/api/hdd_janz18";
-        return this._httpClient.get(uri)
-            .map(function (result) { return result; });
-    };
-    DataService.prototype.getHDD_janz18 = function () {
-        var _this = this;
-        var uri = "/api/hdd_janz18";
-        return this._http.get(uri)
-            .map(function (result) { return _this.result = result.json().data; });
-    };
-    DataService.prototype.tempNYjan18 = function () {
-        var uri = "/api/new_york_temp_0118";
-        return this._httpClient.get(uri)
-            .map(function (result) { return result; });
-    };
-    DataService.prototype.gettempNYjan18 = function () {
-        var _this = this;
-        var uri = "/api/new_york_temp_0118";
-        return this._http.get(uri)
-            .map(function (result) { return _this.result = result.json().data; });
-    };
-    DataService.prototype.hddNY_avg = function () {
-        var uri = "/api/hdd_cdd_avg";
-        return this._httpClient.get(uri)
-            .map(function (result) { return result; });
-    };
-    DataService.prototype.gethddNY_avg = function () {
-        var _this = this;
-        var uri = "/api/hdd_cdd_avg";
-        return this._http.get(uri)
-            .map(function (result) { return _this.result = result.json().data; });
-    };
-    DataService.prototype.naive_est = function () {
-        var uri = "/api/naive_est_jan18";
-        return this._httpClient.get(uri)
-            .map(function (result) { return result; });
-    };
-    DataService.prototype.get_naive_est = function () {
-        var _this = this;
-        var uri = "/api/naive_est_jan18";
-        return this._http.get(uri)
-            .map(function (result) { return _this.result = result.json().data; });
     };
     DataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
@@ -743,25 +460,16 @@ var HddCddComponent = /** @class */ (function () {
         this.hdd_cdd_Response = [];
         this.filteredResponse = [];
         this.cityCodemap = new Map();
-        this.cities = ["Atlanta", "Boston", "Chicago", "Cincinnati", "Dallas", "Des Moines", "Houston", "Kansas City", "Las Vegas", "Mimmeapolis", "NewYork", "Philadelphia", "Portland", "Sacramento", "Tuscon"];
+        this.cities = ["Atlanta", "Cincinnati", "Las Vegas", "Minneapolis", "NewYork", "Sacramento"];
         this.selectedCity = "Select City";
         // Getting Date range from ui to get filtered data from database
         this.value = '';
         this.cityCodemap.set("Atlanta", "KFTY");
-        this.cityCodemap.set("Boston", "KBOS");
-        this.cityCodemap.set("Chicago", "KORD");
         this.cityCodemap.set("Cincinnati", "KLUX");
-        this.cityCodemap.set("Dallas", "KDAL");
-        this.cityCodemap.set("Des Moines", "KDSM");
-        this.cityCodemap.set("Houston", "KHOU");
-        this.cityCodemap.set("Kansas City", "KMKC");
         this.cityCodemap.set("Las Vegas", "KVGT");
         this.cityCodemap.set("Minneapolis", "KMIC");
         this.cityCodemap.set("NewYork", "KNYC");
-        this.cityCodemap.set("Philadelphia", "KPHL");
-        this.cityCodemap.set("Portland", "KPDX");
         this.cityCodemap.set("Sacramento", "KSAC");
-        this.cityCodemap.set("Tuscon", "KDMA");
     }
     HddCddComponent.prototype.ChangeFuture = function (newFuture) {
         this.selectedFuture = newFuture;
@@ -794,9 +502,6 @@ var HddCddComponent = /** @class */ (function () {
         }
     };
     HddCddComponent.prototype.ngOnInit = function () {
-    };
-    HddCddComponent.prototype.sendMeHome = function () {
-        this.router.navigate(['']);
     };
     HddCddComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -939,20 +644,12 @@ var HistoricalWeatherComponent = /** @class */ (function () {
         var startDate;
         var endDate;
         this.cityCodemap.set("Atlanta", "KFTY");
-        this.cityCodemap.set("Boston", "KBOS");
-        this.cityCodemap.set("Chicago", "KORD");
         this.cityCodemap.set("Cincinnati", "KLUK");
         this.cityCodemap.set("Dallas", "KDAL");
-        this.cityCodemap.set("Des Moines", "KDSM");
-        this.cityCodemap.set("Houston", "KHOU");
-        this.cityCodemap.set("Kansas City", "KMKC");
         this.cityCodemap.set("Las Vegas", "KVGT");
         this.cityCodemap.set("Minneapolis", "KMIC");
         this.cityCodemap.set("NewYork", "KNYC");
-        this.cityCodemap.set("Philadelphia", "KPHL");
-        this.cityCodemap.set("Portland", "KPDX");
         this.cityCodemap.set("Sacramento", "KSAC");
-        this.cityCodemap.set("Tuscon", "KDMA");
     }
     HistoricalWeatherComponent.prototype.ChangeCity = function (newCity) {
         this.selectedCity = newCity;
@@ -986,8 +683,6 @@ var HistoricalWeatherComponent = /** @class */ (function () {
                         temp_mean.push(res.temp_mean);
                     }
                 });
-                console.log(alldates);
-                console.log(temp_max);
                 // Chart for data less than or equal to 30 days
                 if (_this.diffDays <= 30) {
                     console.log("data less than or equal to 30 days");
@@ -1485,20 +1180,12 @@ var PredictionsComponent = /** @class */ (function () {
         var startDate;
         var endDate;
         this.cityCodemap.set("Atlanta", "KFTY");
-        this.cityCodemap.set("Boston", "KBOS");
-        this.cityCodemap.set("Chicago", "KORD");
         this.cityCodemap.set("Cincinnati", "KLUK");
         this.cityCodemap.set("Dallas", "KDAL");
-        this.cityCodemap.set("Des Moines", "KDSM");
-        this.cityCodemap.set("Houston", "KHOU");
-        this.cityCodemap.set("Kansas City", "KMKC");
         this.cityCodemap.set("Las Vegas", "KVGT");
         this.cityCodemap.set("Minneapolis", "KMIC");
         this.cityCodemap.set("NewYork", "KNYC");
-        this.cityCodemap.set("Philadelphia", "KPHL");
-        this.cityCodemap.set("Portland", "KPDX");
         this.cityCodemap.set("Sacramento", "KSAC");
-        this.cityCodemap.set("Tuscon", "KDMA");
     }
     PredictionsComponent.prototype.ChangeCity = function (newCity) {
         this.selectedCity = newCity;
@@ -1524,12 +1211,12 @@ var PredictionsComponent = /** @class */ (function () {
             this._dataService.dateRangeForPrediction(this.startDateForPred, this.endDateForPred, this.cityCode)
                 .subscribe(function (res) {
                 var cityResponse = res['data'];
-                console.log("Response 1 : ", cityResponse);
-                var alldates = [];
+                console.log("Response 1 : ", cityResponse.actual_prices);
+                var alldates = cityResponse.dates_for_label;
                 var predicted_hdd = cityResponse.sum_to_date_pred_arr;
                 var actual_hdd = cityResponse.sum_to_date_arr;
                 var prices = cityResponse.flat_line;
-                var actual_prices = [410, 415, 420, 425, 423, 421, 431, 441, 440, 430, 435, 425, 420, 415, 400, 380, 390, 370, 360, 350, 355, 345, 340, 345, 335, 330, 320, 310, 310, 310, 310];
+                var actual_prices = cityResponse.actual_prices;
                 var predicted_prices = cityResponse.predicted_prices;
                 // Chart for data less than or equal to 30 days
                 if (_this.diffDays <= 31) {
@@ -1537,7 +1224,7 @@ var PredictionsComponent = /** @class */ (function () {
                     _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
                         type: 'line',
                         data: {
-                            labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+                            labels: alldates,
                             datasets: [
                                 {
                                     data: actual_hdd,
@@ -1548,7 +1235,7 @@ var PredictionsComponent = /** @class */ (function () {
                                 },
                                 {
                                     data: predicted_hdd,
-                                    label: "Historical HDD",
+                                    label: "Predicted HDD",
                                     backgroundColor: "#FF8C00",
                                     borderColor: "#FF8C00",
                                     fill: false,
@@ -1580,7 +1267,7 @@ var PredictionsComponent = /** @class */ (function () {
                             responsive: true,
                             title: {
                                 display: true,
-                                text: _this.selectedCity + ' , Historical Weather Data'
+                                text: _this.selectedCity + ' , Predicted Weather Derivatives prices'
                             },
                             scales: {
                                 xAxes: [{
@@ -1607,7 +1294,7 @@ var PredictionsComponent = /** @class */ (function () {
                                         display: true,
                                         scaleLabel: {
                                             display: true,
-                                            labelString: 'Temperature Range'
+                                            labelString: 'Price Range'
                                         }
                                     }]
                             }
@@ -1617,11 +1304,7 @@ var PredictionsComponent = /** @class */ (function () {
             });
         }
     };
-    PredictionsComponent.prototype.ngOnInit = function () {
-    };
-    PredictionsComponent.prototype.sendMeHome = function () {
-        this.router.navigate(['']);
-    };
+    PredictionsComponent.prototype.ngOnInit = function () { };
     PredictionsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-predictions',
@@ -1631,176 +1314,6 @@ var PredictionsComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_4__angular_common__["d" /* DatePipe */]])
     ], PredictionsComponent);
     return PredictionsComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/weathervsderivatives/weathervsderivatives.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h3>New York, Historical HDD Prices - Jan, 2018 for Dec, 2018 trade </h3>\n<div id=\"form\">\n  <form class=\"form-inline justify-content-center\">\n    <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Select Date Range : </label>\n    <div class=\"col-xs-12 col-12 col-sm-6 col-md-4 form-group\">\n      <input class=\"form-control\" placeholder=\"Daterangepicker\" bsDaterangepicker #dpr=\"bsDaterangepicker\">\n    </div>\n    <input type=\"submit\" value=\"Submit\" name=\"submit_dates\" class=\"btn btn-primary\">\n  </form>\n</div>\n<br>\n<div class=\"row\">\n  <div *ngIf=\"chart\" class=\"graph-center\">\n    <canvas id=\"canvas\">{{ chart }}</canvas>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/weathervsderivatives/weathervsderivatives.component.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "h3 {\n  text-align: center; }\n\n#form {\n  text-align: center; }\n\n.graph-center {\n  margin: auto;\n  width: 70%;\n  height: 70%;\n  border: 3px solid #73AD21;\n  padding: 10px; }\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/weathervsderivatives/weathervsderivatives.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WeathervsderivativesComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__("../../../../chart.js/src/chart.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var WeathervsderivativesComponent = /** @class */ (function () {
-    // Create an instance of the DataService through dependency injection
-    function WeathervsderivativesComponent(route, router, _dataService) {
-        this.route = route;
-        this.router = router;
-        this._dataService = _dataService;
-        this.new_york_temp_0118 = [];
-        this.hdd_cdd_avg = [];
-        this.naive_est = [];
-        this.perfect_est = [];
-        this.chart = [];
-        //this._dataService.getHDD_janz18().subscribe(res => this.hdd_janz18 = res);
-        var new_york_temp_0118;
-        var hdd_cdd_avg;
-        var naive_est;
-        var perfect_est;
-    }
-    WeathervsderivativesComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        console.log("Printing using array object.....");
-        this._dataService.tempNYjan18()
-            .subscribe(function (res) {
-            _this.new_york_temp_0118 = res['data'].map(function (res) { return res.hdd; });
-            console.log(_this.new_york_temp_0118);
-            _this.perfect_est = _this.new_york_temp_0118.slice(); //ger the data
-            _this.perfect_est.fill(_this.new_york_temp_0118[_this.new_york_temp_0118.length - 1]); //fill the temp array defined above with  the last day data
-            console.log(_this.perfect_est);
-        });
-        this._dataService.hddNY_avg()
-            .subscribe(function (res) { _this.hdd_cdd_avg = res['data'].map(function (res) { return res.hdd; }); console.log(_this.hdd_cdd_avg); });
-        this._dataService.naive_est()
-            .subscribe(function (res) { _this.naive_est = res['data'].map(function (res) { return res.hdd; }); console.log(_this.naive_est); });
-        this._dataService.historicalHDD_janz18()
-            .subscribe(function (res) {
-            console.log(res);
-            var hdd_price = res['data'].map(function (res) { return res.price; });
-            var alldates = res['data'].map(function (res) { return res.date; });
-            console.log(hdd_price);
-            console.log(alldates);
-            _this.chart = new __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"]('canvas', {
-                type: 'line',
-                data: {
-                    labels: alldates,
-                    datasets: [
-                        {
-                            data: hdd_price,
-                            borderColor: '#3cba9f',
-                            fill: false
-                        },
-                        {
-                            data: _this.new_york_temp_0118,
-                            borderColor: '#00ffe9',
-                            fill: false
-                        },
-                        {
-                            data: _this.hdd_cdd_avg,
-                            borderColor: '#ff0000',
-                            fill: false
-                        },
-                        {
-                            data: _this.naive_est,
-                            borderColor: '#00ff00',
-                            fill: false
-                        },
-                        {
-                            data: _this.perfect_est,
-                            borderColor: '#ffff00',
-                            fill: false
-                        },
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    // title: {
-                    //     display: true,
-                    //     text: 'Custom Chart Title'
-                    // },
-                    legend: {
-                        display: false
-                    },
-                    scales: {
-                        xAxes: [{
-                                display: true,
-                                scaleLable: {
-                                    display: true
-                                }
-                            }],
-                        yAxes: [{
-                                ticks: {
-                                    reverse: false,
-                                    min: 0,
-                                    max: 1200
-                                },
-                                display: true,
-                                scaleLable: {
-                                    display: true
-                                }
-                            }]
-                    }
-                }
-            });
-        });
-    };
-    WeathervsderivativesComponent.prototype.sendMeHome = function () {
-        this.router.navigate(['']);
-    };
-    WeathervsderivativesComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-weathervsderivatives',
-            template: __webpack_require__("../../../../../src/app/weathervsderivatives/weathervsderivatives.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/weathervsderivatives/weathervsderivatives.component.scss")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
-    ], WeathervsderivativesComponent);
-    return WeathervsderivativesComponent;
 }());
 
 

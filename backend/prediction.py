@@ -2,11 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Mar 26 22:14:38 2018
-
 The main temperature prediction script
 It's called with city_code and a date range and it computes LinearRegression prediction for the rest of the month
 based on the available to us predictors we pre-selected (previous 10 days temp and historical averages for that day)
-
 @author: agni
 """
 import warnings
@@ -40,9 +38,7 @@ date_range = pd.date_range(startDate, endDate)
 '''
     We need to construct 2 dataframes
     One is a training set for our linear regression algorithm that contains historical data and outcomes
-
     training set  
-
     Historical dates            |          our chosen predictors                 |  outcome
     for city/months selected    | temp day-1...temp day-10.. avg 15yrs.. avg all |  mean_temp
     ---------------------------------------------------------------------------------------------
@@ -51,17 +47,13 @@ date_range = pd.date_range(startDate, endDate)
     1977-12-01
     ...
     2016-12-31
-
-
     the other one is a test set(s) with dates we are interested in predicting 
-
     Dates of interest          |                    predictors                   |  predicted
     for city/months selected   |   same as chosen for the training set           |  mean_temp   
     ----------------------------------------------------------------------------------------------
     2017-12-01                 |                                                 |  ?
     ...                        |                                                 |  ?
     2017-12-31                 |                                                 |  ?
-
 '''
 # historical dates we are interested in ( -10 days to get the weather before those days for our analyses
 dds = list(
@@ -251,7 +243,7 @@ print('len of predicted prices', len(predicted_prices))
 
 # 2-real market prices
 priceValues = actualDf.set_index('date')
-priceValues = priceValues.reindex(date_range, fill_value='')
+priceValues = priceValues.reindex(date_range, fill_value = 'null')
 priceValues = priceValues['Price'].values.tolist()
 print('price values ', priceValues)
 

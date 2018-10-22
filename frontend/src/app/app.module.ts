@@ -14,8 +14,6 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AtlantaComponent } from './atlanta/atlanta.component';
-import { WeathervsderivativesComponent } from './weathervsderivatives/weathervsderivatives.component';
 import { HistoricalWeatherComponent } from './historical-weather/historical-weather.component';
 import { HddCddComponent } from './hdd-cdd/hdd-cdd.component';
 import { PredictionsComponent } from './predictions/predictions.component';
@@ -29,8 +27,6 @@ import {DatePipe} from '@angular/common';
     FooterComponent,
     HeaderComponent,
     ContainerComponent,
-    AtlantaComponent,
-    WeathervsderivativesComponent,
     HistoricalWeatherComponent,
     HddCddComponent,
     PredictionsComponent
